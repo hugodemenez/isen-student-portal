@@ -3,7 +3,8 @@
 <header>
 
 <li><a href="#IDEE"> Idée du projet </a></li>
-<li><a href="#MODE"> Mode de fonctionnement  </a></li>
+<li><a href="#SCRUM"> Utilisation du Scrum </a></li>
+<li><a href="#STRUCTURE"> Structure du projet  </a></li>
 <li><a href="#LANGAGE"> Langage de programmation  </a></li>
 
 </header>
@@ -20,14 +21,18 @@
 </div>
 
 
-<div id="MODE">
-<h2>Mode de fonctionnement</h2>
-<img src='https://h3z6m7w4.rocketcdn.me/wp-content/uploads/2020/06/Scrum-process-schema-FR-small.png'>
+<div id="SCRUM">
+<h2>Utilisation du Scrum</h2>
+<img src='asset/scrum.png'>
+</div>
+
+<div id="STRUCTURE">
+<h2>Structure du projet</h2>
+<img src='asset/projet_2021.pdf'>
 </div>
 
 <div id="LANGAGE">
 <h2>Langage de programmation</h2>
-
 </div>
 
 
