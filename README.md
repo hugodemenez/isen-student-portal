@@ -28,7 +28,7 @@
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='asset/projet_2021.pdf'>
+<img src='asset/projet_2021.png'>
 </div>
 
 <div id="LANGAGE">
