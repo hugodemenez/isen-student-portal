@@ -1,9 +1,15 @@
-from selenium import webdriver
+from splinter import Browser
 
-firefox_options = webdriver.FirefoxOptions()
-driver = webdriver.Remote(
-    command_executor='http://www.example.com',
-    options=firefox_options
-)
-driver.get("http://www.google.com")
-driver.quit() 
+with Browser() as browser:
+    # Visit URL
+    url = "http://www.google.com"
+    browser.visit(url)
+    browser.fill('q', 'splinter - python acceptance testing for web applications')
+    # Find and click the 'search' button
+    button = browser.find_by_name('btnG')
+    # Interact with elements
+    button.click()
+    if browser.is_text_present('splinter.readthedocs.io'):
+        print("Yes, the official website was found!")
+    else:
+        print("No, it wasn't found... We need to improve our SEO techniques")
