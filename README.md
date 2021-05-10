@@ -1,11 +1,11 @@
 <h1>Projet d'informatique ISEN fin de 3ème année</h1>
 
 <header>
-<li>
-<a href="#TEST"> Idée du projet </a>
-<a href="#TEST"> Mode de fonctionnement  </a>
-<a href="#TEST"> Langage de programmation  </a>
-</li>
+
+<li><a href="#TEST"> Idée du projet </a></li>
+<li><a href="#TEST"> Mode de fonctionnement  </a></li>
+<li><a href="#TEST"> Langage de programmation  </a></li>
+
 </header>
 
 
