@@ -4,6 +4,6 @@
 Test 
 
 
-<a img='https://h3z6m7w4.rocketcdn.me/wp-content/uploads/2020/06/Scrum-process-schema-FR-small.png'> </a>
+<img src='https://h3z6m7w4.rocketcdn.me/wp-content/uploads/2020/06/Scrum-process-schema-FR-small.png'>
 
 </p>
