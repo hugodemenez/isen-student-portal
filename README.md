@@ -11,7 +11,13 @@
 
 <div id="IDEE">
 <h2>Idée du projet</h2>
+<p>
 
+
+
+
+
+</p>
 </div>
 
 
