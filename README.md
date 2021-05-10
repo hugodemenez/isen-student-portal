@@ -11,6 +11,7 @@
 
 
 <div id="TEST">
+<h2>TEST</h2>
 <img src='https://h3z6m7w4.rocketcdn.me/wp-content/uploads/2020/06/Scrum-process-schema-FR-small.png'>
 </div>
 </p>
