@@ -2,7 +2,7 @@
 <p>
  
 
-<li href=#TEST> Mode de fonctionnement  </li>
+<a href="#TEST"> Mode de fonctionnement  </a>
 
 <div id="TEST">
 <img src='https://h3z6m7w4.rocketcdn.me/wp-content/uploads/2020/06/Scrum-process-schema-FR-small.png'>
