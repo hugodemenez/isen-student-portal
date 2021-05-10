@@ -44,4 +44,3 @@ def envoie_mail(chemin,destinataire):
     texte= message.as_string().encode('utf-8')
     serveur.sendmail(Fromadd, Toadd, texte)
     serveur.quit()
-
