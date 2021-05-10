@@ -1,15 +1,22 @@
-from splinter import Browser
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from time import sleep
+import requests
+import xml.etree.ElementTree as ET
 
-with Browser() as browser:
-    # Visit URL
-    url = "http://www.google.com"
-    browser.visit(url)
-    browser.fill('q', 'splinter - python acceptance testing for web applications')
-    # Find and click the 'search' button
-    button = browser.find_by_name('btnG')
-    # Interact with elements
-    button.click()
-    if browser.is_text_present('splinter.readthedocs.io'):
-        print("Yes, the official website was found!")
-    else:
-        print("No, it wasn't found... We need to improve our SEO techniques")
+options = Options()
+options.headless = True
+options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+driver.get('https://aurion.junia.com/faces/Login.xhtml')
+
+inputElement = driver.find_element_by_id("username")
+inputElement.send_keys('p64059')
+inputElement = driver.find_element_by_id("password")
+inputElement.send_keys('ny5mJb8z')
+
+inputElement.submit() 
+requete= requests.post('https://aurion.junia.com/faces/Planning.xhtml')
+
+print(requete.text)
+
