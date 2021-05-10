@@ -14,8 +14,11 @@
 <h2>Idée du projet</h2>
 <p>
 <li>Interface web (html), une fois connecté envoie automatiquement (tous les dimanches) un mail avec l'emploi du temps de la semaine au format .ics et les nouvelles notes.</li>
+<br>
 <li>Alimente la base de donnée avec l'identifiant, le mot de passe, l'email, le planning et les notes.</li>
-<li>Checking des informations tous les jours pour voir si il y a des changements. (attention s'il y a trop d'inscrits cela pourrait surcharger le serveur Aurion)</li>
+<br>
+<li>Checking des informations tous les jours pour voir s'il y a des changements. (attention s'il y a trop d'inscrits cela pourrait surcharger le serveur Aurion)</li>
+<br>
 <li>Créer un assistant vocal qui sera disponible sur la page web pour permettre de poser des questions concernant par exemple le nombre d'heures de cette semaine ou calculer la moyenne génerale</li>
 </p>
 </div>
