@@ -1,7 +1,6 @@
 import math
 
 
-ggaaazaz
 
 
 
