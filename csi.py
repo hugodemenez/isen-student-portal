@@ -74,8 +74,8 @@ Emploi du temps de la semaine</td></tr>
 <table>	
 <body>'''    
 
-html_mime = MIMEText(html,'html')
-message.attach(html_mime)
+    html_mime = MIMEText(html,'html')
+    message.attach(html_mime)
 
 
     #pièce jointe
@@ -91,5 +91,5 @@ message.attach(html_mime)
     serveur.login(expediteur, "VOTRE MOT DE PASSE")
     texte= message.as_string().encode('utf-8')
     #envoi du mail
-    serveur.sendmail(expediteur, Toaddestinataired, message.as_string)
+    serveur.sendmail(expediteur,destinataire, message)
     serveur.quit()
