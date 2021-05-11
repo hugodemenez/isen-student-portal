@@ -94,7 +94,12 @@ class Planning():
 
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
-
+                    """
+                    [{'title': ' - ISEN B802     (H) Projet Developpement Logiciel 08:00 - 12:00 Monsieur LEFETZ', 
+                    'start': '2021-05-10T08:00:00+0200', 
+                    'end': '2021-05-10T12:00:00+0200', 
+                    'className': 'PROJET'}]
+                    """
                     #On reformule le dictionnaire avec les informations classées
                     dictionnaire["salle"]=dict["title"].re
                     dictionnaire["professeur"] = dict["title"].re
