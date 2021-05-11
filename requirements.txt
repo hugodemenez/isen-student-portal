@@ -1,1 +1,3 @@
-splinter
+requests
+selenium
+selenium-requests
