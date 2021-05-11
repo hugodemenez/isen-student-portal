@@ -1357,3 +1357,20 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620738311101	Marionette	INFO	Listening on port 52469
 1620738311299	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620738311303	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:52452","noProxy":[],"sslProxy":"127.0.0.1:52452"}
+1620740534628	geckodriver	INFO	Listening on 127.0.0.1:64998
+1620740537691	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\guill\\AppData\\Local\\Temp\\rust_mozprofileTD62zd"
+*** You are running in headless mode.
+1620740538344	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740540059	Marionette	INFO	Listening on port 65006
+1620740540371	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740540375	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:64997","noProxy":[],"sslProxy":"127.0.0.1:64997"}
+1620741052769	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\guill\\AppData\\Local\\Temp\\rust_mozprofilehMsPmC"
+*** You are running in headless mode.
+1620740543949	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740545432	Marionette	INFO	Listening on port 65056
+1620740545586	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740545592	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:65036","noProxy":[],"sslProxy":"127.0.0.1:65036"}
+1620741058392	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
