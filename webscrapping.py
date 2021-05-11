@@ -102,7 +102,7 @@ class Planning():
                     'className': 'PROJET'}]
                     """
                     #On reformule le dictionnaire avec les informations classées
-                    dictionnaire["salle"]=re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"])[2:].group() #^^
+                    dictionnaire["salle"]=re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"])[2:].group() #^_^
                     dictionnaire["professeur"] = dict["title"]
                     dictionnaire["debut"] = dict["start"]
                     dictionnaire["fin"] = dict["end"]
