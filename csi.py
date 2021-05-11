@@ -30,7 +30,7 @@ def envoie_mail(chemin,destinataire):
     message['subject'] = 'Emploi du temps'
 
     html='''
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test email</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,11 +41,13 @@ padding: 0 0 0 0;
 margin:0 0 0 0;
 }
 table{
+width : 100%;
+cellspaceing : 0;
 display: inline-table;
 border-collapse: collapse;
 }
 td,th {
-border: 1px solid black;
+border: 1px solid black;	
 padding: 10px 10px 8px 5px;}
 p{
 color : white;
@@ -57,25 +59,24 @@ color : white;
 
 
 <body>
-<table>
-<table cellspacing = 0>
-<table cellpadding = 0>
-
+<table cellspacing = 0 cellpadding = 0 >
 <tr><td bgcolor = "#FF0000	">
-<font size = "7">
+<font size = "7" color = "white">
 <p>
 <b>
-Emploi du temps de la semaine</td></tr>
+<center>
+Emploi du temps de la semaine </center></td></tr>
+
 </p>
 </b>
-<tr><td> </td></tr>
+<tr><td><center>Importez le fichier .ics dans votre calendrier</center></td></tr>
 	
 
 <table>	
 <body>'''    
 
-html_mime = MIMEText(html,'html')
-message.attach(html_mime)
+    html_mime = MIMEText(html,'html')
+    message.attach(html_mime)
 
 
     #pièce jointe
@@ -91,5 +92,5 @@ message.attach(html_mime)
     serveur.login(expediteur, "VOTRE MOT DE PASSE")
     texte= message.as_string().encode('utf-8')
     #envoi du mail
-    serveur.sendmail(expediteur, Toaddestinataired, message.as_string)
+    serveur.sendmail(expediteur,destinataire, message)
     serveur.quit()
