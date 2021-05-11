@@ -102,7 +102,6 @@ class Planning():
                 print(error)
                 pass
 
-
         return data
 
 
