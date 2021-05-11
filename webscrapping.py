@@ -2,7 +2,7 @@ from seleniumwire import webdriver  # Import from seleniumwire
 from selenium.webdriver.firefox.options import Options
 from time import sleep
 import xml.etree.ElementTree as ET
-
+import ast
 options = Options()
 options.headless = True
 options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
@@ -29,5 +29,15 @@ for request in driver.requests:
         response = request.response.body
 
 
+response=str(response)
 
-print(response)
+
+response = response[response.find('events')+11:].strip()
+response = response[:response.find(']}]]')].strip()
+
+
+# using json.loads()
+# convert dictionary string to dictionary
+res = ast.literal_eval(response)
+
+print(res)
