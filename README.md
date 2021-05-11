@@ -26,12 +26,12 @@
 
 <div id="SCRUM">
 <h2>Utilisation du Scrum</h2>
-<img src='asset/scrum.png'>
+<img src='assets/scrum.png'>
 </div>
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='asset/projet_2021.png'>
+<img src='assets/projet_2021.png'>
 </div>
 
 <div id="LANGAGE">
