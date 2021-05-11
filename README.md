@@ -47,7 +47,7 @@
             </ul>
         </li>
         <img src='assets\headless_webbrowser.png' width='400px'>
-        <img src='assets\scraping.jpg' width='400px'>
+        <img src='assets\scraping.jpg' width='600px'>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
