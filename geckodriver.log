@@ -1357,3 +1357,52 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620738311101	Marionette	INFO	Listening on port 52469
 1620738311299	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620738311303	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:52452","noProxy":[],"sslProxy":"127.0.0.1:52452"}
+1620740261391	geckodriver	INFO	Listening on 127.0.0.1:60784
+1620740264428	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofilejZtSBO"
+*** You are running in headless mode.
+1620740265094	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740266617	Marionette	INFO	Listening on port 60793
+1620740267083	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740267086	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:60783","noProxy":[],"sslProxy":"127.0.0.1:60783"}
+1620740779475	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofilekw3n2k"
+*** You are running in headless mode.
+1620740292515	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740293759	Marionette	INFO	Listening on port 60891
+1620740294225	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740294228	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:60881","noProxy":[],"sslProxy":"127.0.0.1:60881"}
+1620740806920	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofilepe82fR"
+*** You are running in headless mode.
+1620740369603	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740370625	Marionette	INFO	Listening on port 60999
+1620740370808	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740370810	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:60988","noProxy":[],"sslProxy":"127.0.0.1:60988"}
+1620740884046	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofileMEjcao"
+*** You are running in headless mode.
+1620740449819	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740450937	Marionette	INFO	Listening on port 61124
+1620740451020	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740451022	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:61115","noProxy":[],"sslProxy":"127.0.0.1:61115"}
+1620740964226	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofiler6o9kG"
+*** You are running in headless mode.
+1620740555719	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740556976	Marionette	INFO	Listening on port 61234
+1620740557415	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740557418	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:61225","noProxy":[],"sslProxy":"127.0.0.1:61225"}
+1620741070119	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\brieu\\AppData\\Local\\Temp\\rust_mozprofilePA2zRj"
+*** You are running in headless mode.
+1620740721933	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620740723155	Marionette	INFO	Listening on port 61379
+1620740723555	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620740723559	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:61370","noProxy":[],"sslProxy":"127.0.0.1:61370"}
+1620741236342	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error

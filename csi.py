@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from webscrapping import Planning
 
 
 def initialiser_ics(chemin): #on écrit le début d'in nouveau fichier
@@ -9,7 +10,7 @@ def initialiser_ics(chemin): #on écrit le début d'in nouveau fichier
     fichier.write('PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n\n\n')
     fichier.close()
 
-def ajouter_evenement(debut,salle,fin,intitule,prof,chemin): #pour ajouter un évènement dates = (année mois jour heure minute)
+def ajouter_evenement(debut,salle,fin,intitule,prof,chemin):    
     fichier = open(chemin,"a")
     fichier.write('BEGIN:VEVENT\n' + 'DTSTART:'+debut+ '00Z\n' + 'DTEND:'+fin+ '00Z\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
  + 'DESCRPTION:' + prof + '\n' + 'END:VEVENT\n' )
@@ -19,6 +20,14 @@ def cloture_ics(chemin): # on écrit les lignes de fin
     fichier = open(chemin,'a')
     fichier.write('\n\n\nEND:VCAlENDAR')
     fichier.close()
+
+planning =     Planning().get(username = 'p64043',password = '7vBasPXs')
+for i in planning:
+    ajouter_evenement(i["start"],i["salle"],i["end"],i["titre"],i["prof"],chemin)
+
+
+
+
 
 
 
@@ -91,6 +100,6 @@ Emploi du temps de la semaine </center></td></tr>
     serveur.starttls()
     serveur.login(expediteur, "VOTRE MOT DE PASSE")
     texte= message.as_string().encode('utf-8')
-    #envoi du mail
+    #envoi du mail  
     serveur.sendmail(expediteur,destinataire, message)
     serveur.quit()
