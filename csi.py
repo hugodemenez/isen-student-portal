@@ -24,7 +24,7 @@ def cloture_ics(chemin): # on écrit les lignes de fin
 
 
 def envoie_mail(chemin,destinataire):
-    envoyeur = '' #adresse mail
+    envoyeur = '' #adresse mail 
     message = MIMEMultipart()
     message['from'] = envoyeur
     message['to'] = destinataire
