@@ -3,7 +3,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-
 def initialiser_ics(chemin): #on écrit le début d'in nouveau fichier
     fichier = open(chemin,"w")
     fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
@@ -24,12 +23,61 @@ def cloture_ics(chemin): # on écrit les lignes de fin
 
 
 def envoie_mail(chemin,destinataire):
-    envoyeur = '' #adresse mail 
+    expediteur = '' #adresse mail 
     message = MIMEMultipart()
-    message['from'] = envoyeur
+    message['from'] = expediteur
     message['to'] = destinataire
     message['subject'] = 'Emploi du temps'
-    message = 'Emploi du temps de la semaine'
+
+    html='''
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test email</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+<style>
+body {
+padding: 0 0 0 0;
+margin:0 0 0 0;
+}
+table{
+display: inline-table;
+border-collapse: collapse;
+}
+td,th {
+border: 1px solid black;
+padding: 10px 10px 8px 5px;}
+p{
+color : white;
+}
+</style>
+</head>
+
+
+
+
+<body>
+<table>
+<table cellspacing = 0>
+<table cellpadding = 0>
+
+<tr><td bgcolor = "#FF0000	">
+<font size = "7">
+<p>
+<b>
+Emploi du temps de la semaine</td></tr>
+</p>
+</b>
+<tr><td> </td></tr>
+	
+
+<table>	
+<body>'''    
+
+html_mime = MIMEText(html,'html')
+message.attach(html_mime)
+
+
     #pièce jointe
     fichier = open(chemin, "rb")
     part = MIMEBase ('application','octet-stream')
@@ -37,10 +85,11 @@ def envoie_mail(chemin,destinataire):
     encoders.encode_base64(part)
     part.add_header('content-Disposition', "fichier; filename= %s"% chemin)
     msg.attach(part)
-    #envoi du mail
+    #serveur
     serveur = smtplib.SMTP('smtp.gmail.com', 587)
     serveur.starttls()
-    serveur.login(Fromadd, "VOTRE MOT DE PASSE")
+    serveur.login(expediteur, "VOTRE MOT DE PASSE")
     texte= message.as_string().encode('utf-8')
-    serveur.sendmail(Fromadd, Toadd, texte)
+    #envoi du mail
+    serveur.sendmail(expediteur, Toadd, texte)
     serveur.quit()
