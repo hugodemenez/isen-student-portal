@@ -91,5 +91,5 @@ message.attach(html_mime)
     serveur.login(expediteur, "VOTRE MOT DE PASSE")
     texte= message.as_string().encode('utf-8')
     #envoi du mail
-    serveur.sendmail(expediteur, Toadd, texte)
+    serveur.sendmail(expediteur, Toaddestinataired, message.as_string)
     serveur.quit()
