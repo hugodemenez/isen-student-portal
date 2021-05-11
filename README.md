@@ -46,8 +46,8 @@
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='assets\headless_webbrowser.png' height='400px'>
-        <img src='assets\scraping.jpg' height='400px'>
+        <img src='assets\headless_webbrowser.png' width='400px'>
+        <img src='assets\scraping.jpg' width='400px'>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
