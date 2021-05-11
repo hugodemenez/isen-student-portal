@@ -38,7 +38,6 @@
 <h2>Langage de programmation</h2>
 <p>
     <ul>
-        <img src='assets\headless_webbrowser.png' width='500px'>
         <li>Python :
         WebAurion ne possède pas d'API, nous utilisons donc la méthode du web-scraping au travers d'un headless web-browser pour récupérer les données comme :
             <ul>
@@ -47,6 +46,8 @@
                 <li>Le planning </li>
             </ul>
         </li>
+        <img src='assets\headless_webbrowser.png' height='400px'>
+        <img src='assets\scraping.jpg' height='400px'>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
