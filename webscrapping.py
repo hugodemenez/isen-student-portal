@@ -92,15 +92,27 @@ class Planning():
                     #On traduit le string en dictionnaire
                     dict=json.loads(string_dict)
 
-                    #On retire les informations qui ne nous interessent pas
-                    dict.pop('id', None)
-                    dict.pop('allDay', None)
-                    dict.pop('editable', None)
+                    #On initialise le dictionnaire à renvoyer
+                    dictionnaire={}
+                    """
+                    [{'title': ' - ISEN B802     (H) Projet Developpement Logiciel 08:00 - 12:00 Monsieur LEFETZ', 
+                    'start': '2021-05-10T08:00:00+0200', 
+                    'end': '2021-05-10T12:00:00+0200', 
+                    'className': 'PROJET'}]
+                    """
+                    #On reformule le dictionnaire avec les informations classées
+                    dictionnaire["salle"]=dict["title"].re
+                    dictionnaire["professeur"] = dict["title"].re
+                    dictionnaire["debut"] = dict["start"].re
+                    dictionnaire["fin"] = dict["end"].re
+                    dictionnaire["cours"] = dict["title"].re
+
                     #On ajoute le dictionnaire à la liste
                     data.append(dict)
             except Exception as error:
                 print(error)
                 pass
+
 
         return data
 
