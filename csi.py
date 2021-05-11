@@ -23,8 +23,7 @@ def cloture_ics(chemin): # on écrit les lignes de fin
 
 planning =     Planning().get(username = 'p64043',password = '7vBasPXs')
 for i in planning:
-    ajouter_evenement(i["start"],i["salle"],i["end"],i["titre"],i["prof"],chemin)
-
+    #ajouter_evenement(i["start"],i["salle"],i["end"],i["titre"],i["prof"],chemin)
 
 
 
