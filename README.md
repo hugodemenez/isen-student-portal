@@ -47,7 +47,6 @@
             </ul>
         </li>
         <br>
-        
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
             <ul>
