@@ -2,6 +2,7 @@ from seleniumwire import webdriver  # Import from seleniumwire
 from selenium.webdriver.firefox.options import Options
 from time import sleep
 import json
+import re
 
 
 
@@ -101,11 +102,11 @@ class Planning():
                     'className': 'PROJET'}]
                     """
                     #On reformule le dictionnaire avec les informations classées
-                    dictionnaire["salle"]=dict["title"].re
-                    dictionnaire["professeur"] = dict["title"].re
-                    dictionnaire["debut"] = dict["start"].re
-                    dictionnaire["fin"] = dict["end"].re
-                    dictionnaire["cours"] = dict["title"].re
+                    dictionnaire["salle"]=re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"])[2:].group()
+                    dictionnaire["professeur"] = dict["title"]
+                    dictionnaire["debut"] = dict["start"]
+                    dictionnaire["fin"] = dict["end"]
+                    dictionnaire["cours"] = dict["title"]
 
                     #On ajoute le dictionnaire à la liste
                     data.append(dict)
