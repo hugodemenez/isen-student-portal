@@ -89,15 +89,21 @@ class Planning():
                     string_dict=string_dict.replace("\\\\n", " ") 
                     string_dict=string_dict.replace("\\xc3\\xa9", "e") 
 
-                    #On traduit le string en dictionnaire
+                    #On traduit le string en dict
                     dict=json.loads(string_dict)
 
-                    #On retire les informations qui ne nous interessent pas
-                    dict.pop('id', None)
-                    dict.pop('allDay', None)
-                    dict.pop('editable', None)
+                    #On initialise le dictionnaire à renvoyer
+                    dictionnaire={}
+
+                    #On reformule le dictionnaire avec les informations classées
+                    dictionnaire["salle"]=dict["title"].re
+                    dictionnaire["professeur"] = dict["title"].re
+                    dictionnaire["debut"] = dict["start"].re
+                    dictionnaire["fin"] = dict["end"].re
+                    dictionnaire["cours"] = dict["title"].re
+
                     #On ajoute le dictionnaire à la liste
-                    data.append(dict)
+                    data.append(dictionnaire)
             except Exception as error:
                 print(error)
                 pass
