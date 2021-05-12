@@ -138,10 +138,82 @@ class scraping():
             except Exception as error:
                 print(error)
                 pass
-        driver.close()
+        driver.quit()
 
         return data
 
+    def get_marks(self,username,password):
+        #Configuration du Headless Webbrowser
+        options = Options()
+        #options.headless = True
+        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+        #Ouverture de la page de connexion aurion
+        driver.get('https://aurion.junia.com/faces/Login.xhtml')
+
+        #Remplissage du nom utilisateur
+        inputElement = driver.find_element_by_id("username")
+        inputElement.send_keys(username)
+
+        #Remplissage du mot de passe
+        inputElement = driver.find_element_by_id("password")
+        inputElement.send_keys(password)
+
+        #Validation des données d'identification
+        inputElement.submit() 
+        
+
+        #Recherche de la zone pour acceder au planning
+        counter=0
+        while(True):
+            
+            try:
+                inputElement =driver.find_element_by_link_text("Scolarité")
+                break
+            except:
+                sleep(1)
+                if counter == 10:
+                    raise Exception("Unable to load schedule")
+                counter+=1
+                pass
+
+        #Une fois la zone selectionnée : on clique dessus
+        inputElement.click() 
+
+        #Recherche de la zone pour acceder au planning
+        counter=0
+        while(True):
+            
+            try:
+                inputElement =driver.find_element_by_link_text("Mes notes")
+                break
+            except:
+                sleep(1)
+                if counter == 10:
+                    raise Exception("Unable to load schedule")
+                counter+=1
+                pass
+
+        #Une fois la zone selectionnée : on clique dessus
+        inputElement.click() 
+
+        #On attends que les requetes soient toutes soumises
+        sleep(5)
+
+        #On accède aux requetes envoyées par le HeadlessWebbrowser
+        for request in driver.requests:
+            #S'il y a une reponse
+            if request.response:
+                #On verifie que la reponse correspond bien au planning
+                if 'Notation' in request.url :
+                    if 'GET' in request.method:
+                        response = request.response.body
+                        response=str(response)
+
+        print(response)
+
+        input('Type to quit')
+        driver.quit()
 
 
 
@@ -151,5 +223,5 @@ class scraping():
 
 if __name__ == "__main__":
     identification = scraping().getting_identification_from_database()
-    planning = scraping().get_planning(username=identification['username'],password=identification['password'])
+    planning = scraping().get_marks(username=identification['username'],password=identification['password'])
     print(planning)
