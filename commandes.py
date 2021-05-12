@@ -16,11 +16,12 @@ class creation_fichier_ics():
         fichier = open(chemin,"w")
         fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
         fichier.write('PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n\n\n')
+        fichier.write('BEGIN:VTIMEZONE\n')
         fichier.close()
 
     def ajouter_evenement(self,debut,salle,fin,intitule,prof,chemin):    
         fichier = open(chemin,"a")
-        fichier.write('BEGIN:VEVENT\n' + 'DTSTART:'+'TZID=Europe/Paris'+debut+ '00\n' + 'DTEND:'+'TZID=Europe/Paris'+fin+ '00\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
+        fichier.write('BEGIN:VEVENT\n' + 'DTSTART;'+'TZID=Europe/Paris:'+debut+ '00\n' + 'DTEND;'+'TZID=Europe/Paris:'+fin+ '00\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
     + 'DESCRIPTION:' + prof + '\n' + 'END:VEVENT\n' )
         fichier.close()
 
