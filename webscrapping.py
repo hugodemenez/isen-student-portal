@@ -101,12 +101,22 @@ class Planning():
                     'end': '2021-05-10T12:00:00+0200', 
                     'className': 'PROJET'}]
                     """
+                    mobj1 = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][2:]).group()
+                    mobj2 = re.match("[a-zA-Z ]+",dict["title"][(2+len(mobj1)):]).group()
+                    mobj3 = re.match("[A-Za-z ]+",dict["title"][16+len(mobj1)+len(mobj2):]).group()
+                    liste_debut = re.findall("[0-9]+",dict["start"])
+                    liste_fin = re.findall("[0-9]+",dict["end"])
+                    str_debut=''
+                    str_fin=''
+                    for i in range(5):
+                        str_debut+=liste_debut[i]
+                        str_fin+=liste_fin[i]
                     #On reformule le dictionnaire avec les informations classées
-                    dictionnaire["salle"]=re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][2:]).group() #^_^#
-                    dictionnaire["professeur"] = dict["title"]
-                    dictionnaire["debut"] = dict["start"]
-                    dictionnaire["fin"] = dict["end"]
-                    dictionnaire["cours"] = dict["title"]
+                    dictionnaire["salle"]=mobj1
+                    dictionnaire["professeur"] = mobj3
+                    dictionnaire["debut"] = str_debut
+                    dictionnaire["fin"] = str_fin
+                    dictionnaire["cours"] = mobj2
 
                     #On ajoute le dictionnaire à la liste
                     data.append(dict)
