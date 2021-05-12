@@ -27,6 +27,7 @@
 <div id ="GESTION">
 <h2>Gestion de projet</h2>
 <img src='assets\gantt.png'>
+<a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects'>Suivre l'état d'avancement du projet</a>
 </div>
 
 <div id="SCRUM">
