@@ -28,7 +28,9 @@
 <h2>Gestion de projet</h2>
 <img src='assets\gantt.png'>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
+<ul list-style-type: '->'> 
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
+</ul>
 </div>
 
 <div id="SCRUM">
