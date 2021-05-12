@@ -28,16 +28,16 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620804484232	Marionette	INFO	Listening on port 53134
 1620804484563	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620804484566	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53125","noProxy":[],"sslProxy":"127.0.0.1:53125"}
-1620804484603	geckodriver	INFO	Listening on 127.0.0.1:53168
-1620804487664	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileF7SH3t"
+1620804997342	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileF7SH3t"
 *** You are running in headless mode.
 1620804488028	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1620804489043	Marionette	INFO	Listening on port 53186
 1620804489207	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620804489210	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53166","noProxy":[],"sslProxy":"127.0.0.1:53166"}
-1620804741706	geckodriver	INFO	Listening on 127.0.0.1:53441
-1620804744747	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileKLtwIL"
+1620805002402	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileKLtwIL"
 *** You are running in headless mode.
 1620804745082	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
