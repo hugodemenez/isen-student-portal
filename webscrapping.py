@@ -136,7 +136,7 @@ class scraping():
             except Exception as error:
                 print(error)
                 pass
-
+        self.driver.stop()
 
         return data
 
@@ -148,6 +148,6 @@ class scraping():
 
 
 if __name__ == "__main__":
-    identification = Planning().getting_identification_from_database()
-    planning = Planning().get(username=identification['username'],password=identification['password'])
+    identification = scraping().getting_identification_from_database()
+    planning = scraping().get_planning(username=identification['username'],password=identification['password'])
     print(planning)
