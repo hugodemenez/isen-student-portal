@@ -227,7 +227,7 @@ class scraping():
         notes = re.split('[0-9/]{10}', response)
         
         for note in notes:
-            print(re.sub('[0-9.]{4}', r' \1 ', note).strip())
+            print(re.sub('[0-9]{2}', r' \1 ', note).strip())
         driver.quit()
 
         
