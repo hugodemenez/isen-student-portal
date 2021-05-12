@@ -8,7 +8,9 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620756874631	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:54306","noProxy":[],"sslProxy":"127.0.0.1:54306"}
 1620757387564	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-onette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofile5ihFZa"
+Exiting due to channel error.
+Exiting due to channel error.
+\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofile5ihFZa"
 *** You are running in headless mode.
 1620756877994	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
@@ -17,3 +19,52 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620756879247	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:54341","noProxy":[],"sslProxy":"127.0.0.1:54341"}
 1620757392411	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Exiting due to channel error.
+1620804479408	geckodriver	INFO	Listening on 127.0.0.1:53126
+1620804482492	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofilesKC0yR"
+*** You are running in headless mode.
+1620804482926	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804484232	Marionette	INFO	Listening on port 53134
+1620804484563	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804484566	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53125","noProxy":[],"sslProxy":"127.0.0.1:53125"}
+1620804484603	geckodriver	INFO	Listening on 127.0.0.1:53168
+1620804487664	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileF7SH3t"
+*** You are running in headless mode.
+1620804488028	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804489043	Marionette	INFO	Listening on port 53186
+1620804489207	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804489210	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53166","noProxy":[],"sslProxy":"127.0.0.1:53166"}
+1620804741706	geckodriver	INFO	Listening on 127.0.0.1:53441
+1620804744747	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileKLtwIL"
+*** You are running in headless mode.
+1620804745082	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804746211	Marionette	INFO	Listening on port 53454
+1620804746277	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804746280	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53440","noProxy":[],"sslProxy":"127.0.0.1:53440"}
+1620804746322	geckodriver	INFO	Listening on 127.0.0.1:53480
+1620804749373	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileRDfXA4"
+*** You are running in headless mode.
+1620804749710	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804750812	Marionette	INFO	Listening on port 53514
+1620804750925	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804750928	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53477","noProxy":[],"sslProxy":"127.0.0.1:53477"}
+1620804849982	geckodriver	INFO	Listening on 127.0.0.1:53665
+1620804853023	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofileQqKy2D"
+*** You are running in headless mode.
+1620804853331	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804854310	Marionette	INFO	Listening on port 53675
+1620804854565	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804854568	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53664","noProxy":[],"sslProxy":"127.0.0.1:53664"}
+1620804854608	geckodriver	INFO	Listening on 127.0.0.1:53699
+1620804857640	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofile4iAjHO"
+*** You are running in headless mode.
+1620804857954	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620804858984	Marionette	INFO	Listening on port 53722
+1620804859184	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620804859188	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53698","noProxy":[],"sslProxy":"127.0.0.1:53698"}
