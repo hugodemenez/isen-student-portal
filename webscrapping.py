@@ -11,11 +11,8 @@ class scraping():
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
-        #Configuration du Headless Webbrowser
-        self.options = Options()
-        self.options.headless = True
-        self.options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        self.driver = webdriver.Firefox(options=self.options, executable_path="geckodriver.exe")
+        pass
+
 
     def getting_identification_from_database(self):
         #Exemple avec un utilisateur
@@ -38,15 +35,20 @@ class scraping():
         dictionnaire["fin"],
         dictionnaire["cours"]
         """
+        #Configuration du Headless Webbrowser
+        options = Options()
+        options.headless = True
+        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
-        self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
+        driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
         #Remplissage du nom utilisateur
-        inputElement = self.driver.find_element_by_id("username")
+        inputElement = driver.find_element_by_id("username")
         inputElement.send_keys(username)
 
         #Remplissage du mot de passe
-        inputElement = self.driver.find_element_by_id("password")
+        inputElement = driver.find_element_by_id("password")
         inputElement.send_keys(password)
 
         #Validation des données d'identification
@@ -57,7 +59,7 @@ class scraping():
         while(True):
             
             try:
-                inputElement =self.driver.find_element_by_link_text("Mon Planning")
+                inputElement =driver.find_element_by_link_text("Mon Planning")
                 break
             except:
                 sleep(1)
@@ -73,7 +75,7 @@ class scraping():
         sleep(5)
 
         #On accède aux requetes envoyées par le HeadlessWebbrowser
-        for request in self.driver.requests:
+        for request in driver.requests:
             #S'il y a une reponse
             if request.response:
                 #On verifie que la reponse correspond bien au planning
@@ -136,8 +138,7 @@ class scraping():
             except Exception as error:
                 print(error)
                 pass
-            
-        self.driver.close()
+        driver.close()
 
         return data
 
