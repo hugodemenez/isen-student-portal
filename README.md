@@ -23,6 +23,10 @@
 </p>
 </div>
 
+<div id ="GESTION">
+<h2>Gestion de projet</h2>
+<img src='assets\gantt.png'>
+</div>
 
 <div id="SCRUM">
 <h2>Utilisation du Scrum</h2>

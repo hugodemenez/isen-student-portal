@@ -145,7 +145,7 @@ class scraping():
     def get_marks(self,username,password):
         #Configuration du Headless Webbrowser
         options = Options()
-        #options.headless = True
+        options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
         driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
@@ -212,10 +212,11 @@ class scraping():
 
         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
-        response = response[response.find('<tbody')+11:].strip()
+        response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
-
+        response = re.sub('<[^>]+>', '', response)
         print(response)
+        
 
         input('Type to quit')
         driver.quit()
