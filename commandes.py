@@ -16,9 +16,9 @@ class creation_fichier_ics():
         fichier = open(chemin,"w")
         fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
         fichier.write('PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n\n\n')
-        fichier.write('BEGIN:VTIMEZONE\nTZID:Romance Standard Time\nBEGIN:STANDART\nDTSART:16011104T020000\nRRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11')
-        fichier.write('TZOFFSETFROM:-0700\nTZOFFSETTO:-0800\nEND:STANDARD')
-        fichier.write('BEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:-0800\nTZOFFSETTO:-0700\nEND:DAYLIGHT')
+        fichier.write('BEGIN:VTIMEZONE\nTZID:Romance Standard Time\nBEGIN:STANDART\nDTSART:16011104T020000\nRRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11\n')
+        fichier.write('TZOFFSETFROM:-0700\nTZOFFSETTO:-0800\nEND:STANDARD\n')
+        fichier.write('BEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:-0800\nTZOFFSETTO:-0700\nEND:DAYLIGHT\n')
         fichier.write('END:VTIMEZONE')
         fichier.close()
 
