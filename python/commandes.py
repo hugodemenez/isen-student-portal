@@ -33,78 +33,34 @@ class creation_fichier_ics():
         fichier.write('\n\n\nEND:VCAlENDAR')
         fichier.close()
 
-def envoie_mail(chemin,destinataire):
-    expediteur = '' #adresse mail 
-    message = MIMEMultipart()
-    message['from'] = expediteur
-    message['to'] = destinataire
-    message['subject'] = 'Emploi du temps'
-
-    html='''
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Test email</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <head>
-    <style>
-    body {
-    padding: 0 0 0 0;
-    margin:0 0 0 0;
-    }
-    table{
-    width : 100%;
-    cellspaceing : 0;
-    display: inline-table;
-    border-collapse: collapse;
-    }
-    td,th {
-    border: 1px solid black;	
-    padding: 10px 10px 8px 5px;}
-    p{
-    color : white;
-    }
-    </style>
-    </head>
-
-
-
-
-    <body>
-    <table cellspacing = 0 cellpadding = 0 >
-    <tr><td bgcolor = "#FF0000	">
-    <font size = "7" color = "white">
-    <p>
-    <b>
-    <center>
-    Emploi du temps de la semaine </center></td></tr>
-
-    </p>
-    </b>
-    <tr><td><center>Importez le fichier .ics dans votre calendrier</center></td></tr>
-        
-
-    <table>	
-    <body>'''    
-
-    html_mime = MIMEText(html,'html')
-    message.attach(html_mime)
-
-
-    #pièce jointe
-    fichier = open(chemin, "rb")
-    part = MIMEBase ('application','octet-stream')
-    part.set_playload((fichier).read())
+    def envoyer_email(destinataire,sujet,messagetest):
+    msg = MIMEMultipart()
+    msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
+    msg['To'] = 'poulpie.poupe@gmail.com' #destinataire
+    msg['Subject'] = 'La chouette hulotte' #objet du mail
+    
+    
+    #html_txt = '<body> <p> abcdefgh </p> <body>'
+    filename = "C:/Users/brieu/Desktop/mdp mail.txt"
+    nom_fichier_sans_chemin = 'mdp mail.txt'
+    
+    
+    nom_fichier = "etst.ics"    ## Spécification du nom de la pièce jointe
+    piece = open("C:/Users/brieu/Desktop/etst.ics", "rb")    ## Ouverture du fichier
+    part = MIMEBase('application', 'octet-stream')    ## Encodage de la pièce jointe en Base64
+    part.set_payload((piece).read())
     encoders.encode_base64(part)
-    part.add_header('content-Disposition', "fichier; filename= %s"% chemin)
-    msg.attach(part)
-    #serveur
-    serveur = smtplib.SMTP('smtp.gmail.com', 587)
-    serveur.starttls()
-    serveur.login(expediteur, "VOTRE MOT DE PASSE")
-    texte= message.as_string().encode('utf-8')
-    #envoi du mail  
-    serveur.sendmail(expediteur,destinataire, message)
-    serveur.quit()
+    part.add_header('Content-Disposition', "piece; filename= %s" % nom_fichier)
+    msg.attach(part)    ## Attache de la pièce jointe à l'objet "message" 
+    
+    #msg.attach(MIMEText(html_txt,'html'))
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
+    mailserver.ehlo()
+    mailserver.starttls()
+    mailserver.ehlo()
+    mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
+    mailserver.sendmail('ProjetInfoIsen2021@gmail.com', a, msg.as_string()) #on envoie le mail
+    mailserver.quit()
 
 
 if __name__ == '__main':
