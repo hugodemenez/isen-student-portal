@@ -65,7 +65,8 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620804854565	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620804854568	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53664","noProxy":[],"sslProxy":"127.0.0.1:53664"}
 1620805367703	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
-Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofile4iAjHO"
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+onette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Hugo\\AppData\\Local\\Temp\\rust_mozprofile4iAjHO"
 *** You are running in headless mode.
 1620804857954	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
@@ -73,3 +74,4 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1620804859184	Marionette	WARN	TLS certificate errors will be ignored for this session
 1620804859188	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:53698","noProxy":[],"sslProxy":"127.0.0.1:53698"}
 1620805372345	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
