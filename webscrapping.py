@@ -7,6 +7,9 @@ import re
 
 
 class scraping():
+    """
+    Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
+    """
     def __init__(self):
         #Configuration du Headless Webbrowser
         self.options = Options()
@@ -27,6 +30,14 @@ class scraping():
         return dict
 
     def get_planning(self,username,password):
+        """
+        Cette fonction sert à récuperer une liste des différents cours sous forme de dictionnaires avec :
+        dictionnaire["salle"],
+        dictionnaire["professeur"],
+        dictionnaire["debut"],
+        dictionnaire["fin"],
+        dictionnaire["cours"]
+        """
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
