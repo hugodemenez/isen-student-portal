@@ -90,3 +90,6 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 *** You are running in headless mode.
 1620806677886	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620806679036	Marionette	INFO	Listening on port 55181
+1620806679103	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620806679107	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:55170","noProxy":[],"sslProxy":"127.0.0.1:55170"}

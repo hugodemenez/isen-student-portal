@@ -111,8 +111,6 @@ class Planning():
                     liste_fin[2]+='T'
                     liste_debut[2]+='T'
                     for i in range(5):
-                        liste_fin[2]+='T'
-                        liste_debut[2]+='T'
                         str_debut+=liste_debut[i]
                         str_fin+=liste_fin[i]
                     #On reformule le dictionnaire avec les informations classées
