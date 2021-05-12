@@ -1,6 +1,7 @@
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+from datetime import datetime
 from webscrapping import scraping
 
 
@@ -34,30 +35,30 @@ class creation_fichier_ics():
         fichier.close()
 
     def envoyer_email(destinataire,sujet,messagetest):
-    msg = MIMEMultipart()
-    msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
-    msg['To'] = destinataire #destinataire
-    msg['Subject'] = 'La chouette hulotte' #objet du mail
-    
-    
-    html_txt = ''
+        msg = MIMEMultipart()
+        msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
+        msg['To'] = destinataire #destinataire
+        msg['Subject'] = 'Emploi du temps semaine du' + str(datetime.now().day) + '-' + str(datetime.now().month) + '-' + str(datetime.now().year) #objet du mail
+        
+        
+        html_txt = ''
 
-    nom_fichier = "etst.ics"    ## Spécification du nom de la pièce jointe
-    piece = open("C:/Users/brieu/Desktop/etst.ics", "rb")    ## Ouverture du fichier
-    part = MIMEBase('application', 'octet-stream')    ## Encodage de la pièce jointe en Base64
-    part.set_payload((piece).read())
-    encoders.encode_base64(part)
-    part.add_header('Content-Disposition', "piece; filename= %s" % nom_fichier)
-    msg.attach(part)    ## Attache de la pièce jointe à l'objet "message" 
-    
-    msg.attach(MIMEText(html_txt,'html'))
-    mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
-    mailserver.ehlo()
-    mailserver.starttls()
-    mailserver.ehlo()
-    mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
-    mailserver.sendmail('ProjetInfoIsen2021@gmail.com', a, msg.as_string()) #on envoie le mail
-    mailserver.quit()
+        nom_fichier = "planning.ics"    ## Spécification du nom de la pièce jointe
+        piece = open("planning.ics", "rb")    ## Ouverture du fichier
+        part = MIMEBase('application', 'octet-stream')    ## Encodage de la pièce jointe en Base64
+        part.set_payload((piece).read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', "piece; filename= %s" % nom_fichier)
+        msg.attach(part)    ## Attache de la pièce jointe à l'objet "message" 
+        
+        msg.attach(MIMEText(html_txt,'html'))
+        mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
+        mailserver.sendmail('ProjetInfoIsen2021@gmail.com', destinataire, msg.as_string()) #on envoie le mail
+        mailserver.quit()
 
 
 if __name__ == '__main':
