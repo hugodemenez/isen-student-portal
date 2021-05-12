@@ -210,10 +210,17 @@ class scraping():
                         response = request.response.body
                         response=str(response)
 
+        
+        #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
+        response = response[response.find('<tbody')+11:].strip()
+        response = response[:response.find('</tbody>')].strip()
+
         print(response)
 
         input('Type to quit')
         driver.quit()
+
+        
 
 
 
