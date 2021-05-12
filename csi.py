@@ -13,7 +13,7 @@ def initialiser_ics(chemin): #on écrit le début d'in nouveau fichier
 def ajouter_evenement(debut,salle,fin,intitule,prof,chemin):    
     fichier = open(chemin,"a")
     fichier.write('BEGIN:VEVENT\n' + 'DTSTART:'+debut+ '00Z\n' + 'DTEND:'+fin+ '00Z\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
- + 'DESCRPTION:' + prof + '\n' + 'END:VEVENT\n' )
+ + 'DESCRIPTION:' + prof + '\n' + 'END:VEVENT\n' )
     fichier.close()
 
 def cloture_ics(chemin): # on écrit les lignes de fin
