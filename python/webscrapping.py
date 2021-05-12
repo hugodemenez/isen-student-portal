@@ -215,10 +215,19 @@ class scraping():
         response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
         response = re.sub('<[^>]+>', '', response)
-        print(response)
-        
 
-        input('Type to quit')
+        #On retire les caractères spéciaux
+        response=response.replace(r"\xc3\xa8", "e") 
+        response=response.replace(r"\xc3\xa9", "e") 
+        response=response.replace(r"\xc2\xb0", "O")
+        response=response.replace(r"\xc3\xb4", "o")
+        response=response.replace(r"\xc3\xa7", "c")
+        response=response.replace(r"\'", "'")
+
+        notes = re.split('[0-9/]{10}', response)
+        
+        for note in notes:
+            print(re.sub('[0-9.]{4}', r' \1 ', note).strip())
         driver.quit()
 
         
