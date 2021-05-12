@@ -12,8 +12,6 @@ class creation_fichier_ics():
             self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.ics')
         self.cloture_ics('planning.ics')
 
-
-
     def initialiser_ics(self,chemin): #on écrit le début d'in nouveau fichier
         fichier = open(chemin,"w")
         fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
