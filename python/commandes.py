@@ -12,13 +12,13 @@ class creation_fichier_ics():
             self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.ics')
         self.cloture_ics('planning.ics')
 
-    def initialiser_ics(self,chemin): #on écrit le début d'in nouveau fichier
+    def initialiser_ics(self,chemin): #on écrit le début d'un nouveau fichier
         fichier = open(chemin,"w")
         fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
         fichier.write('PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n\n\n')
         fichier.write('BEGIN:VTIMEZONE\nTZID:Romance Standard Time\nBEGIN:STANDART\nDTSART:16011104T020000\nRRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11\n')
-        fichier.write('TZOFFSETFROM:+0200\nTZOFFSETTO:+0100\nEND:STANDARD\n')
-        fichier.write('BEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:+0100\nTZOFFSETTO:+0200\nEND:DAYLIGHT\n')
+        fichier.write('TZOFFSETFROM:-0100\nTZOFFSETTO:-0500\nEND:STANDARD\n')
+        fichier.write('BEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:-0200\nTZOFFSETTO:-0200\nEND:DAYLIGHT\n')
         fichier.write('END:VTIMEZONE\n')
         fichier.close()
 
