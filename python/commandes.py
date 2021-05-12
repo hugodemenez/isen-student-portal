@@ -1,6 +1,6 @@
-import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import smtplib
 from webscrapping import scraping
 
 
@@ -36,15 +36,12 @@ class creation_fichier_ics():
     def envoyer_email(destinataire,sujet,messagetest):
     msg = MIMEMultipart()
     msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
-    msg['To'] = 'poulpie.poupe@gmail.com' #destinataire
+    msg['To'] = destinataire #destinataire
     msg['Subject'] = 'La chouette hulotte' #objet du mail
     
     
-    #html_txt = '<body> <p> abcdefgh </p> <body>'
-    filename = "C:/Users/brieu/Desktop/mdp mail.txt"
-    nom_fichier_sans_chemin = 'mdp mail.txt'
-    
-    
+    html_txt = ''
+
     nom_fichier = "etst.ics"    ## Spécification du nom de la pièce jointe
     piece = open("C:/Users/brieu/Desktop/etst.ics", "rb")    ## Ouverture du fichier
     part = MIMEBase('application', 'octet-stream')    ## Encodage de la pièce jointe en Base64
@@ -53,7 +50,7 @@ class creation_fichier_ics():
     part.add_header('Content-Disposition', "piece; filename= %s" % nom_fichier)
     msg.attach(part)    ## Attache de la pièce jointe à l'objet "message" 
     
-    #msg.attach(MIMEText(html_txt,'html'))
+    msg.attach(MIMEText(html_txt,'html'))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
     mailserver.ehlo()
     mailserver.starttls()
