@@ -1,5 +1,7 @@
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
 import smtplib
 from datetime import datetime
 from webscrapping import scraping
@@ -18,7 +20,7 @@ class envoie_planning():
         }
         Liste.append(exemple)
 
-        
+
         for student in Liste:
             planning =scraping().get_planning(username = student['username'],password = student['password'])
             self.initialiser_ics('planning.ics')

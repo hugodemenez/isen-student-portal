@@ -1,5 +1,5 @@
-from commandes import creation_fichier_ics
+from commandes import envoie_planning
 
 
 
-creation_fichier_ics()
+envoie_planning()
