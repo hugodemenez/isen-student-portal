@@ -20,7 +20,7 @@ class creation_fichier_ics():
 
     def ajouter_evenement(self,debut,salle,fin,intitule,prof,chemin):    
         fichier = open(chemin,"a")
-        fichier.write('BEGIN:VEVENT\n' + 'DTSTART:'+debut+ '00Z\n' + 'DTEND:'+fin+ '00Z\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
+        fichier.write('BEGIN:VEVENT\n' + 'DTSTART:'+'TZID=Europe/Paris'+debut+ '00\n' + 'DTEND:'+'TZID=Europe/Paris'+fin+ '00\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
     + 'DESCRIPTION:' + prof + '\n' + 'END:VEVENT\n' )
         fichier.close()
 
