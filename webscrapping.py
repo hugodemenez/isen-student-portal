@@ -6,7 +6,7 @@ import re
 
 
 
-class Planning():
+class scraping():
     def __init__(self):
         #Configuration du Headless Webbrowser
         self.options = Options()
@@ -26,7 +26,7 @@ class Planning():
             }
         return dict
 
-    def get(self,username,password):
+    def get_planning(self,username,password):
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -95,32 +95,32 @@ class Planning():
 
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
-                    """
-                    [{'title': ' - ISEN B802     (H) Projet Developpement Logiciel 08:00 - 12:00 Monsieur LEFETZ', 
-                    'start': '2021-05-10T08:00:00+0200', 
-                    'end': '2021-05-10T12:00:00+0200', 
-                    'className': 'PROJET'}]
-                    """
-                    mobj1 = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
-                    mobj2 = re.match("[a-zA-Z ]+",dict["title"][(3+len(mobj1)):]).group()
-                    mobj3 = re.match("[A-Za-z ]+",dict["title"][17+len(mobj1)+len(mobj2):]).group()
+
+                    #On traite les infos pour récuperer ce qui nous interesse
+                    salle = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
+                    cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
+                    professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
+
+                    #On recupere les horaires dans le format nécessaire pour le calendrier
                     liste_debut = re.findall("[0-9]+",dict["start"])
                     liste_fin = re.findall("[0-9]+",dict["end"])
-                    str_debut=''
-                    str_fin=''
+                    heure_debut=''
+                    heure_fin=''
                     liste_fin[2]+='T'
                     liste_debut[2]+='T'
                     for i in range(5):
-                        str_debut+=liste_debut[i]
-                        str_fin+=liste_fin[i]
-                    #On reformule le dictionnaire avec les informations classées
-                    dictionnaire["salle"]=mobj1
-                    dictionnaire["professeur"] = mobj3
-                    dictionnaire["debut"] = str_debut
-                    dictionnaire["fin"] = str_fin
-                    dictionnaire["cours"] = mobj2
+                        heure_debut+=liste_debut[i]
+                        heure_fin+=liste_fin[i]
 
-                    #On ajoute le dictionnaire à la liste
+
+                    #On reformule le dictionnaire avec les informations classées
+                    dictionnaire["salle"]=salle
+                    dictionnaire["professeur"] = professeur
+                    dictionnaire["debut"] = heure_debut
+                    dictionnaire["fin"] = heure_fin
+                    dictionnaire["cours"] = cours
+
+                    #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)
             except Exception as error:
                 print(error)
