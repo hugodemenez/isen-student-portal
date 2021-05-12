@@ -5,13 +5,27 @@ from datetime import datetime
 from webscrapping import scraping
 
 
-class creation_fichier_ics():
+class envoie_planning():
     def __init__(self):
-        planning =     scraping().get_planning(username = 'p64043',password = '7vBasPXs')
-        self.initialiser_ics('planning.ics')
-        for i in planning:
-            self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.ics')
-        self.cloture_ics('planning.ics')
+        #Lecture base de données
+        ################################################################
+        #Pour chaque étudiant de la base de donnée on fait : 
+        Liste=[]
+        exemple = {
+            "username" :'p64043',
+            "password":'7vBasPXs',
+            "email":"hugo.demenez@isen.yncrea.fr",
+        }
+        Liste.append(exemple)
+
+        
+        for student in Liste:
+            planning =scraping().get_planning(username = student['username'],password = student['password'])
+            self.initialiser_ics('planning.ics')
+            for i in planning:
+                self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.ics')
+            self.cloture_ics('planning.ics')
+            self.envoyer_planning_email(destinataire=student['email'])
 
     def initialiser_ics(self,chemin): #on écrit le début d'un nouveau fichier
         fichier = open(chemin,"w")
@@ -34,7 +48,7 @@ class creation_fichier_ics():
         fichier.write('\n\n\nEND:VCAlENDAR')
         fichier.close()
 
-    def envoyer_email(destinataire,sujet,messagetest):
+    def envoyer_planning_email(self,destinataire):
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
         msg['To'] = destinataire #destinataire
