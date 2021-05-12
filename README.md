@@ -3,6 +3,7 @@
 <header>
 
 <li><a href="#IDEE"> Idée du projet </a></li>
+<li><a href="#GESTION"> Gestion du projet </a></li>
 <li><a href="#SCRUM"> Utilisation du Scrum </a></li>
 <li><a href="#STRUCTURE"> Structure du projet  </a></li>
 <li><a href="#LANGAGES"> Langage de programmation  </a></li>
