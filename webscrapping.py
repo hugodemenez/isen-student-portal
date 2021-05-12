@@ -136,6 +136,7 @@ class scraping():
             except Exception as error:
                 print(error)
                 pass
+            
         self.driver.close()
 
         return data
