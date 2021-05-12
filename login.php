@@ -7,7 +7,7 @@
     <body>
         <div id="container">
             <!-- zone de connexion -->
-            
+            <!-- zone de connexion -->
             <form action="verification.php" method="POST">
                 <h1>Connexion</h1>
                 
