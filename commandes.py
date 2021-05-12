@@ -29,13 +29,6 @@ class creation_fichier_ics():
         fichier.write('\n\n\nEND:VCAlENDAR')
         fichier.close()
 
-    
-
-
-
-
-
-
 def envoie_mail(chemin,destinataire):
     expediteur = '' #adresse mail 
     message = MIMEMultipart()
