@@ -212,8 +212,11 @@ class scraping():
 
         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
+
+            #On recupere le contenu du body
         response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
+            #On recupere seulement le text present dans le body (on retire les balises)
         response = re.sub('<[^>]+>', '', response)
 
         #On retire les caractères spéciaux
@@ -224,8 +227,10 @@ class scraping():
         response=response.replace(r"\xc3\xa7", "c")
         response=response.replace(r"\'", "'")
 
+        #On decoupe les resultats à chaque fois que l'on dispose d'une date sous la forme : D/M/Y
         responses = re.split('[0-9/]{10}', response)
         
+
         notes = []
         for response in responses:
             try:
