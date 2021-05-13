@@ -4,7 +4,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 import smtplib
 from datetime import datetime
-from webscrapping import scraping
+from webscraping import scraping
 
 
 class envoie_planning():
