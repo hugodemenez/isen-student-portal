@@ -234,8 +234,10 @@ class scraping():
         notes = []
         for response in responses:
             try:
+                #On recupère la note et l'intitulé de la matère
                 note = re.search("[0-9]{1,2}[.][0-9]{2}",response).group()
                 matiere = re.sub("[a-z]+",'',response.split(' ', 1)[0])[:-1]
+                #On ajoute le dictionnaire dans une liste que l'on renvoit par la suite
                 notes.append({'matiere':matiere,'note':note})
             except:
                 pass
