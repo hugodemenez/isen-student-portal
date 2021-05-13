@@ -224,11 +224,21 @@ class scraping():
         response=response.replace(r"\xc3\xa7", "c")
         response=response.replace(r"\'", "'")
 
-        notes = re.split('[0-9/]{10}', response)
+        responses = re.split('[0-9/]{10}', response)
         
-        for note in notes:
-            print(re.sub('[0-9]{2}', r' \1 ', note).strip())
+        notes = []
+        for response in responses:
+            try:
+                note = re.search("[0-9]{1,2}[.][0-9]{2}",response).group()
+                matiere = re.sub("[a-z]+",'',response.split(' ', 1)[0])[:-1]
+                notes.append({'matiere':matiere,'note':note})
+            except:
+                pass
+        
+
         driver.quit()
+
+        return notes
 
         
 
