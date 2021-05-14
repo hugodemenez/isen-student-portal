@@ -260,5 +260,5 @@ class scraping():
 
 
 if __name__ == "__main__":
-    user = scraping.getting_identification_from_database()
+    user = scraping().getting_identification_from_database()
     scraping().get_planning(user['username'],user['password'])
