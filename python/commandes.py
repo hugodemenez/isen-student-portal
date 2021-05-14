@@ -73,8 +73,8 @@ class envoie_planning():
         
         html_txt = ''
 
-        nom_fichier = "planning.ics"    ## Spécification du nom de la pièce jointe
-        piece = open("planning.ics", "rb")    ## Ouverture du fichier
+        nom_fichier = "planning.csv"    ## Spécification du nom de la pièce jointe
+        piece = open("planning.csv", "rb")    ## Ouverture du fichier
         part = MIMEBase('application', 'octet-stream')    ## Encodage de la pièce jointe en Base64
         part.set_payload((piece).read())
         encoders.encode_base64(part)
