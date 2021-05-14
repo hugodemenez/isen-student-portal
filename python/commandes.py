@@ -50,6 +50,20 @@ class envoie_planning():
         fichier.write('\n\n\nEND:VCAlENDAR')
         fichier.close()
 
+
+
+
+
+    def initialiser_csv(self,chemin):
+        fichier = open(chemin,"w")
+        fichier.write("subject,Start Date,Start Time, End Date, End Time, Description,Location\n")
+        fichier.close()
+
+    def ajouter(self,intitule,jour_debut, heure_debut,jour_fin,heure_fin,prof,salle,chemin):
+        fichier = open(chemin,"a")
+        fichier.write("%s,%s,%s,%s,%s,%s,%s"%(intitule,jour_debut,heure_debut,jour_fin,heure_fin,prof,salle))
+        fichier.close()
+
     def envoyer_planning_email(self,destinataire):
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
