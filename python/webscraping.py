@@ -1,4 +1,4 @@
-    from seleniumwire import webdriver  # Import from seleniumwire
+from seleniumwire import webdriver  # Import from seleniumwire
 from selenium.webdriver.firefox.options import Options
 from time import sleep
 import json
