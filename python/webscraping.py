@@ -118,22 +118,12 @@ class scraping():
                     cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
                     professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
 
-                    #On recupere les horaires dans le format nécessaire pour le calendrier
-                    liste_debut = re.findall("[0-9]+",dict["start"])
-                    liste_fin = re.findall("[0-9]+",dict["end"])
 
                     #pour les fichiers csv
                     date_debut= re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
                     heure_debut=re.search("[0-9:]{5}",dict["start"]).group()
                     date_fin=re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["end"]).group())
                     heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
-
-
-                    liste_fin[2]+='T'
-                    liste_debut[2]+='T'
-                    for i in range(5):
-                        heure_debut+=liste_debut[i]
-                        heure_fin+=liste_fin[i]
 
                     
                     #On reformule le dictionnaire avec les informations classées

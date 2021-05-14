@@ -23,35 +23,10 @@ class envoie_planning():
 
         for student in Liste:
             planning =scraping().get_planning(username = student['username'],password = student['password'])
-            self.initialiser_ics('planning.ics')
+            self.initialiser_csv('planning.csv')
             for i in planning:
-                self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.ics')
-            self.cloture_ics('planning.ics')
+                self.ajouter_evenement(i["debut"],i["salle"],i["fin"],i["cours"],i["professeur"],'planning.csv')
             self.envoyer_planning_email(destinataire=student['email'])
-
-    def initialiser_ics(self,chemin): #on écrit le début d'un nouveau fichier
-        fichier = open(chemin,"w")
-        fichier.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
-        fichier.write('PRODID:-//hacksw/handcal//NONSGML v1.0//EN\n\n\n')
-        fichier.write('BEGIN:VTIMEZONE\nTZID:Romance Standard Time\nBEGIN:STANDART\nDTSART:16011104T020000\nRRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11\n')
-        fichier.write('TZOFFSETFROM:+0100\nTZOFFSETTO:+0200\nEND:STANDARD\n')
-        fichier.write('BEGIN:DAYLIGHT\nDTSTART:16010311T020000\nRRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\nTZOFFSETFROM:+0200\nTZOFFSETTO:+0100\nEND:DAYLIGHT\n')
-        fichier.write('END:VTIMEZONE\n')
-        fichier.close()
-
-    def ajouter_evenement(self,debut,salle,fin,intitule,prof,chemin):    
-        fichier = open(chemin,"a")
-        fichier.write('BEGIN:VEVENT\n' + 'DTSTART;'+'TZID=Europe/Paris:'+debut+ '00\n' + 'DTEND;'+'TZID=Europe/Paris:'+fin+ '00\n' + 'LOCATION:'+salle+'\n' + 'SUMMARY:'+intitule+'\n' + 'CATEGORIES:cours' +'\n'
-    + 'DESCRIPTION:' + prof + '\n' + 'END:VEVENT\n' )
-        fichier.close()
-
-    def cloture_ics(self,chemin): # on écrit les lignes de fin
-        fichier = open(chemin,'a')
-        fichier.write('\n\n\nEND:VCAlENDAR')
-        fichier.close()
-
-
-
 
 
     def initialiser_csv(self,chemin):
