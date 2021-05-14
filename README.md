@@ -26,9 +26,12 @@
 
 <div id ="GESTION">
 <h2>Gestion de projet</h2>
-<img src='assets\gantt.png'>
+<img src='assets\diagramme_de_gantt.png'>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
+<br>
+<p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
+<img src='assets\repartition.png'>
 </div>
 
 <div id="SCRUM">
