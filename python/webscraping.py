@@ -112,7 +112,7 @@ class scraping():
 
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
-                    print(dict['title'])
+                    print(dict['start'],dict['end'])
                     #On traite les infos pour récuperer ce qui nous interesse
                     salle = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
                     cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
