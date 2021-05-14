@@ -37,7 +37,7 @@ class scraping():
         """
         #Configuration du Headless Webbrowser
         options = Options()
-        #options.headless = True
+        options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
         driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
@@ -71,17 +71,22 @@ class scraping():
 
         while(True):
             try:
-        #Une fois la zone selectionnée : on clique dessus
-        inputElement.click() 
-        #On accède aux requetes envoyées par le HeadlessWebbrowser
-        for request in driver.requests:
-            #S'il y a une reponse
-            if request.response:
-                #On verifie que la reponse correspond bien au planning
-                if 'Planning' in request.url :
-                    if 'POST' in request.method:
-                        response = request.response.body
-                        response=str(response)
+                #Une fois la zone selectionnée : on clique dessus
+                inputElement.click() 
+                #On accède aux requetes envoyées par le HeadlessWebbrowser
+                for request in driver.requests:
+                    #S'il y a une reponse
+                    if request.response:
+                        #On verifie que la reponse correspond bien au planning
+                        if 'Planning' in request.url :
+                            if 'POST' in request.method:
+                                response = request.response.body
+                                response=str(response)
+                print("boucle")
+                print(response)
+                break
+            except:
+                sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
         response = response[response.find('events')+11:].strip()
@@ -89,6 +94,7 @@ class scraping():
         response = response+','
         response = response.split("{")
 
+        
         #On initialise la liste
         data=[]
 
@@ -123,7 +129,7 @@ class scraping():
                         heure_debut+=liste_debut[i]
                         heure_fin+=liste_fin[i]
 
-
+                    
                     #On reformule le dictionnaire avec les informations classées
                     dictionnaire["salle"]=salle
                     dictionnaire["professeur"] = professeur
