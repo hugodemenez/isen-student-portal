@@ -1,5 +1,5 @@
 import commandes,webscraping
 
-webscraping.scraping().getting_identification_from_database()
-webscraping.scraping().get_planning(username=,password=)
+user = webscraping.scraping().getting_identification_from_database()
+webscraping.scraping().get_planning(username=user['username'],password=user['password'])
 commandes.envoie_planning()

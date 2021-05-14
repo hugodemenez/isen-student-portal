@@ -54,7 +54,7 @@ class envoie_planning():
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
         msg['To'] = destinataire #destinataire
-        msg['Subject'] = 'Emploi du temps semaine du' + str(datetime.now().day) + '-' + str(datetime.now().month) + '-' + str(datetime.now().year) #objet du mail
+        msg['Subject'] = 'Emploi du temps semaine du ' + str(datetime.now().day) + '-' + str(datetime.now().month) + '-' + str(datetime.now().year) #objet du mail
         
         
         html_txt = ''
