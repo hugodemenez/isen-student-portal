@@ -2,3 +2,6 @@ requests
 selenium
 selenium-requests
 selenium-wire
+email
+datetime
+smtplib
