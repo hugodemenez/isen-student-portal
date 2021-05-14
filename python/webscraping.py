@@ -260,6 +260,4 @@ class scraping():
 
 
 if __name__ == "__main__":
-    identification = scraping().getting_identification_from_database()
-    planning = scraping().get_marks(username=identification['username'],password=identification['password'])
-    print(planning)
+    pass
