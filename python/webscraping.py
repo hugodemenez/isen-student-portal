@@ -1,4 +1,4 @@
-from seleniumwire import webdriver  # Import from seleniumwire
+    from seleniumwire import webdriver  # Import from seleniumwire
 from selenium.webdriver.firefox.options import Options
 from time import sleep
 import json
@@ -119,8 +119,8 @@ class scraping():
                     professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
 
                     #On recupere les horaires dans le format nécessaire pour le calendrier
-                    liste_debut = re.findall("[0-9]+",dict["start"])
-                    liste_fin = re.findall("[0-9]+",dict["end"])
+                    liste_debut = re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
+                    liste_fin = re.search("[0-9:]{5}",dict["end"]).group()
                     heure_debut=''
                     heure_fin=''
                     liste_fin[2]+='T'
