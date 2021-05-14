@@ -29,6 +29,8 @@
 <img src='assets\gantt.png'>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
+<p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
+<img src='assets\repartition.png'>
 </div>
 
 <div id="SCRUM">
