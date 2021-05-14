@@ -37,7 +37,7 @@ class scraping():
         """
         #Configuration du Headless Webbrowser
         options = Options()
-        options.headless = True
+        #options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
         driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
@@ -67,13 +67,12 @@ class scraping():
                     raise Exception("Unable to load schedule")
                 counter+=1
                 pass
+        
 
+        while(True):
+            try:
         #Une fois la zone selectionnée : on clique dessus
         inputElement.click() 
-
-        #On attends que les requetes soient toutes soumises
-        sleep(5)
-
         #On accède aux requetes envoyées par le HeadlessWebbrowser
         for request in driver.requests:
             #S'il y a une reponse
@@ -83,8 +82,7 @@ class scraping():
                     if 'POST' in request.method:
                         response = request.response.body
                         response=str(response)
-
-
+                        
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
         response = response[response.find('events')+11:].strip()
         response = response[:response.find(']}]]')].strip()
