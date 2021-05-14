@@ -119,10 +119,16 @@ class scraping():
                     professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
 
                     #On recupere les horaires dans le format nécessaire pour le calendrier
-                    liste_debut = re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
-                    liste_fin = re.search("[0-9:]{5}",dict["end"]).group()
-                    heure_debut=''
-                    heure_fin=''
+                    liste_debut = re.findall("[0-9]+",dict["start"])
+                    liste_fin = re.findall("[0-9]+",dict["end"])
+
+                    #pour les fichiers csv
+                    date_debut= re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
+                    heure_debut=re.search("[0-9:]{5}",dict["start"]).group()
+                    date_fin=re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["end"]).group())
+                    heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
+
+
                     liste_fin[2]+='T'
                     liste_debut[2]+='T'
                     for i in range(5):
@@ -133,8 +139,10 @@ class scraping():
                     #On reformule le dictionnaire avec les informations classées
                     dictionnaire["salle"]=salle
                     dictionnaire["professeur"] = professeur
-                    dictionnaire["debut"] = heure_debut
-                    dictionnaire["fin"] = heure_fin
+                    dictionnaire["date_debut"] = date_debut
+                    dictionnaire["heure_debut"] = heure_debut
+                    dictionnaire["date_fin"] = date_fin
+                    dictionnaire["heure_fin"] = heure_fin
                     dictionnaire["cours"] = cours
 
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
