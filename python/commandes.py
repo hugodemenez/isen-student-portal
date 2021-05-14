@@ -25,7 +25,7 @@ class envoie_planning():
             planning =scraping().get_planning(username = student['username'],password = student['password'])
             self.initialiser_csv('planning.csv')
             for i in planning:
-                self.ajouter(i['cours'],['date_debut'],['heure_debut'],['date_fin'],['heure_fin'],['professeur'],['salle'],'planning.csv')
+                self.ajouter(i['cours'],i['date_debut'],i['heure_debut'],i['date_fin'],i['heure_fin'],i['professeur'],i['salle'],'planning.csv')
             self.envoyer_planning_email(destinataire=student['email'])
 
 
@@ -37,6 +37,7 @@ class envoie_planning():
     def ajouter(self,cours,date_debut, heure_debut,date_fin,heure_fin,professeur,salle,chemin):
         fichier = open(chemin,"a")
         fichier.write("%s,%s,%s,%s,%s,%s,%s"%(cours,date_debut,heure_debut,date_fin,heure_fin,professeur,salle))
+        fichier.write("\n")
         fichier.close()
 
     def envoyer_planning_email(self,destinataire):
