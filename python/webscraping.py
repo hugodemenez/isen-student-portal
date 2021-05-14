@@ -83,7 +83,7 @@ class scraping():
                                 response = request.response.body
                                 response=str(response)
                 print("boucle")
-                print(response)
+                
                 break
             except:
                 sleep(1)
@@ -112,7 +112,7 @@ class scraping():
 
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
-
+                    print(dict['title'])
                     #On traite les infos pour récuperer ce qui nous interesse
                     salle = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
                     cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
