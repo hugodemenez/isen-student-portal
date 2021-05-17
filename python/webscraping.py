@@ -124,7 +124,7 @@ class scraping():
                     heure_debut=re.search("[0-9:]{5}",dict["start"]).group()
 
                     date_buffer_fin = re.search("[0-9-]+[0-9]+",dict["end"]).group()
-                    date_fin=re.sub("[-]",'/', date_buffer)
+                    date_fin=re.sub("[-]",'/', date_buffer_fin)
 
                     heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
 
