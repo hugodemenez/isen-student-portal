@@ -59,11 +59,3 @@ def convert_to_RFC_datetime(year=1900, month=1, day=1, hour=0, minute=0):
     
     
     
-CLIENT_SECRET_FILE  = 'client_secret_googleCloudDemo.json'
-API_NAME = 'calendar'
-API_VERSION = 'v3'
-SCOPES = ['https://www.googleapis.com/auth/calendar']
-
-
-
-service = Create_Service (CLIENT_SECRET_FILE,API_NAME, API_VERSION, SCOPES)
