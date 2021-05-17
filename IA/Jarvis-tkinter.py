@@ -1,7 +1,7 @@
 import pyttsx3
 import webbrowser
 import random
-import speech_recognition as sr
+import SpeechRecognition as sr
 import wikipedia
 import datetime
 import os
