@@ -120,7 +120,7 @@ class scraping():
                     #pour les fichiers csv
                     date_buffer_debut =  re.search("[0-9-]+[0-9]+",dict["start"]).group()
                     date_debut= re.sub("[-]",'/', date_buffer_debut)
-                    
+
                     heure_debut=re.search("[0-9:]{5}",dict["start"]).group()
 
                     date_buffer_fin = re.search("[0-9-]+[0-9]+",dict["end"]).group()
@@ -142,6 +142,8 @@ class scraping():
                     dictionnaire["date_fin"] = date_fin
                     dictionnaire["heure_fin"] = heure_fin
                     dictionnaire["cours"] = cours
+                    dictionnaire["date-google-api-debut"] = heure_et_jour_debut
+                    dictionnaire["date-google-api-fin"] = heure_et_jour_debut
 
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)
