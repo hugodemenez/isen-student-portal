@@ -9,21 +9,20 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 service = Create_Service (CLIENT_SECRET_FILE,API_NAME, API_VERSION, SCOPES)
 
+def ajouter_event(jour_et_heure_debut,jour_et_heure_fin,intitule,prof,salle,):
+    evenement = {
+    'summary': intitule,
+    'location': salle,
+    'description': prof,
+    'start': {
+        'dateTime': jour_et_heure_debut,
+        'timeZone': 'Europe/Paris',
+    },
+    'end': {
+        'dateTime': jour_et_heure_fin,
+        'timeZone': 'Europe/Paris',
+    }
+    }
 
-
-event = {
-  'summary': 'repas',
-  'location': 'maison',
-  'description': 'A table',
-  'start': {
-    'dateTime': '2021-05-18T12:00:00+02:00',
-    'timeZone': 'Europe/Paris',
-  },
-  'end': {
-    'dateTime': '2021-05-18T13:30:00+02:00',
-    'timeZone': 'Europe/Paris',
-  },
-}
-
-event = service.events().insert(calendarId='primary', body=event).execute()
+    event = service.events().insert(calendarId='primary', body=evenement).execute()
 
