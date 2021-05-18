@@ -42,8 +42,8 @@
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='powerpoint\Structure_Projet\Diapositive1.svg' width=100%>
-<img src='powerpoint\Structure_Projet\Diapositive2.svg'>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive2.SVG?sanitize=true'>
 </div>
 
 <div id="INSPIRATION">
