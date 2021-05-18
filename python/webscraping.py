@@ -108,14 +108,13 @@ class scraping():
 
                     #On traduit le string en dictionnaire
                     dict=json.loads(string_dict)
-
+                    print(dict)
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
                     #On traite les infos pour récuperer ce qui nous interesse
                     salle = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
                     cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
                     professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
-
 
                     #pour les fichiers csv
                     date_debut= re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
@@ -135,13 +134,14 @@ class scraping():
                     #On reformule le dictionnaire avec les informations classées
                     dictionnaire["salle"]=salle
                     dictionnaire["professeur"] = professeur
+  
                     dictionnaire["date_debut"] = date_debut
                     dictionnaire["heure_debut"] = heure_debut
                     dictionnaire["date_fin"] = date_fin
                     dictionnaire["heure_fin"] = heure_fin
                     dictionnaire["cours"] = cours
                     dictionnaire["date-google-api-debut"] = heure_et_jour_debut
-                    dictionnaire["date-google-api-fin"] = heure_et_jour_debut
+                    dictionnaire["date-google-api-fin"] = heure_et_jour_fin
 
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)

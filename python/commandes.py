@@ -5,7 +5,8 @@ from email import encoders
 import smtplib
 from datetime import datetime
 from webscraping import scraping
-
+from google_auth_oauthlib.flow import Flow, InstalledAppFlow
+from googleapiclient.discovery import build
 
 class envoie_planning():
     def __init__(self):
@@ -26,6 +27,7 @@ class envoie_planning():
             self.initialiser_csv('planning.csv')
             for i in planning:
                 self.ajouter(i['cours'],i['date_debut'],i['heure_debut'],i['date_fin'],i['heure_fin'],i['professeur'],i['salle'],'planning.csv')
+                #self.ajouter_calendrier_google(jour_et_heure_debut= i['date-google-api-debut'],jour_et_heure_fin = i['date-google-api-fin'],cours =i['cours'],professeur= i['professeur'],salle=i['salle'])
             self.envoyer_planning_email(destinataire=student['email'])
 
 
@@ -66,6 +68,29 @@ class envoie_planning():
         mailserver.sendmail('ProjetInfoIsen2021@gmail.com', destinataire, msg.as_string()) #on envoie le mail
         mailserver.quit()
 
+    def ajouter_calendrier_google(self,jour_et_heure_debut,jour_et_heure_fin,cours,professeur,salle):
+        CLIENT_SECRET_FILE  = 'api.json'
+        API_NAME = 'calendar'
+        API_VERSION = 'v3'
+        SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+        flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
+        cred = flow.run_local_server()
+        service = build(API_NAME, API_VERSION, credentials=cred)
+        evenement = {
+        'summary': cours,
+        'location': salle,
+        'description': professeur,
+        'start': {
+            'dateTime': jour_et_heure_debut,
+            'timeZone': 'Europe/Paris',
+        },
+        'end': {
+            'dateTime': jour_et_heure_fin,
+            'timeZone': 'Europe/Paris',
+        }
+        }
+        service.events().insert(calendarId='primary', body=evenement).execute()
 
 if __name__ == '__main':
     pass
