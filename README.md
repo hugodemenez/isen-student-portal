@@ -43,6 +43,7 @@
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
 <img src='assets\projet_2021.png'>
+<embed src="assets\Structure_Projet.pdf" type="application/pdf" width="100%" height="600px" />
 </div>
 
 <div id="INSPIRATION">
