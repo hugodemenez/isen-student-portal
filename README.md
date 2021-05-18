@@ -27,28 +27,28 @@
 
 <div id ="GESTION">
 <h2>Gestion de projet</h2>
-<img src='assets\diagramme_de_gantt.png'>
+<img src='assets\diagramme_de_gantt.png' width=100%>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
 <br>
 <p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
-<img src='assets\repartition.png'>
+<img src='assets\repartition.png' width=100%>
 </div>
 
 <div id="SCRUM">
 <h2>Utilisation du Scrum</h2>
-<img src='assets\scrum.png'>
+<img src='assets\scrum.png' width=100%>
 </div>
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='assets\interface_web.png'>
+<img src='assets\interface_web.png' width=100%>
 <img src='assets\database_structure.png'>
 </div>
 
 <div id="INSPIRATION">
 <h2>Inspiration pour le projet</h2>
-<img src='assets/login-form-exemple.gif'>
+<img src='assets/login-form-exemple.gif' width=100%>
 </div>
 
 
@@ -64,7 +64,7 @@
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='assets\scraping.png' width='600px'>
+        <img src='assets\scraping.png' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
