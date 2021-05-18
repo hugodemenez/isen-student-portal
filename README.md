@@ -42,8 +42,8 @@
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='assets\interface_web.png' width=100%>
-<img src='assets\database_structure.png'>
+<img src='powerpoint\Structure_Projet\Diapositive1.PNG' width=100%>
+<img src='powerpoint\Structure_Projet\Diapositive2.PNG'>
 </div>
 
 <div id="INSPIRATION">
@@ -64,7 +64,7 @@
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='assets\scraping.png' width=100%>
+        <img src='powerpoint\Structure_Projet\Diapositive3.PNG' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
