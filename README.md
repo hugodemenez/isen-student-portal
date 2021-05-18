@@ -64,7 +64,7 @@
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='powerpoint\Structure_Projet\Diapositive3.svg' width=100%>
+        <img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive3.SVG?sanitize=true' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
