@@ -27,12 +27,12 @@
 
 <div id ="GESTION">
 <h2>Gestion de projet</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5bcefafa319e4e5e32af0e31c7abd948fa25337b/powerpoint/Structure_Projet/grantt.svg?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5bcefafa319e4e5e32af0e31c7abd948fa25337b/asset/grantt.svg?sanitize=true' width=100%>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
 <br>
 <p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5bcefafa319e4e5e32af0e31c7abd948fa25337b/powerpoint/Structure_Projet/repartition.svg?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5bcefafa319e4e5e32af0e31c7abd948fa25337b/asset/repartition.svg?sanitize=true' width=100%>
 </div>
 
 <div id="SCRUM">
@@ -42,8 +42,8 @@
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive1.SVG?sanitize=true' width=100%>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive2.SVG?sanitize=true'>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/asset/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/asset/Diapositive2.SVG?sanitize=true'>
 </div>
 
 <div id="INSPIRATION">
@@ -64,7 +64,7 @@
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/powerpoint/Structure_Projet/Diapositive3.SVG?sanitize=true' width=100%>
+        <img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/32b6ea1022ff8897caea7c0855ed94a3457d7ea9/asset/Diapositive3.SVG?sanitize=true' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
