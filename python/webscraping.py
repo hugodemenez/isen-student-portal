@@ -118,19 +118,17 @@ class scraping():
 
 
                     #pour les fichiers csv
-                    date_buffer_debut =  re.search("[0-9-]+[0-9]+",dict["start"]).group()
-                    date_debut= re.sub("[-]",'/', date_buffer_debut)
+                    date_debut= re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
 
                     heure_debut=re.search("[0-9:]{5}",dict["start"]).group()
 
-                    date_buffer_fin = re.search("[0-9-]+[0-9]+",dict["end"]).group()
-                    date_fin=re.sub("[-]",'/', date_buffer_fin)
+                    date_fin=re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["end"]).group())
 
                     heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
 
                     #pour api google agenda
-                    heure_et_jour_debut = date_buffer_debut + 'T' + heure_debut + '+02:00'
-                    heure_et_jour_fin = date_buffer_fin + 'T' + heure_fin + '+02:00'
+                    heure_et_jour_debut = date_debut + 'T' + heure_debut + '+02:00'
+                    heure_et_jour_fin = date_fin + 'T' + heure_fin + '+02:00'
 
 
 
