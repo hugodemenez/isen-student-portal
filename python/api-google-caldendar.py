@@ -28,3 +28,10 @@ def ajouter_event(jour_et_heure_debut,jour_et_heure_fin,intitule,prof,salle,):
 
     service.events().insert(calendarId='primary', body=evenement).execute()
 
+def creer_calendrier():
+    calendar = {
+    'summary': 'ISEN COURS',
+    }
+
+    created_calendar = service.calendars().insert(body=calendar).execute()
+    return (created_calendar['id']) 
