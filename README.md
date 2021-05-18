@@ -32,7 +32,7 @@
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
 <br>
 <p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
-<img src='assets\repartition.png' width=100%>
+<img src='assets\repartitions.png' width=100%>
 </div>
 
 <div id="SCRUM">
