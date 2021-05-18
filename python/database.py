@@ -5,9 +5,9 @@ connexion = sqlite3.connect("python/database.db")
 cursor = connexion.cursor()
 
 #Add user to user table :
-username = 'p64059'
-password = 'ny5mJb8z'
-email = 'hugo.demenez@isen.yncrea.fr'
+username = 'p63058'
+password = 'vYYuQxIx'
+email = 'guillaume.gulli@isen.yncrea.fr'
 
 
 parametres = (username,password,email)
