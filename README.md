@@ -6,6 +6,7 @@
 <li><a href="#GESTION"> Gestion du projet </a></li>
 <li><a href="#SCRUM"> Utilisation du Scrum </a></li>
 <li><a href="#STRUCTURE"> Structure du projet  </a></li>
+<li><a href="#INSPIRATION"> Inspiration pour la projet  </a></li>
 <li><a href="#LANGAGES"> Langage de programmation  </a></li>
 
 </header>
@@ -43,6 +44,12 @@
 <h2>Structure du projet</h2>
 <img src='assets\projet_2021.png'>
 </div>
+
+<div id="INSPIRATION">
+<h2>Inspiration pour le projet</h2>
+<img src='assets/login-form-exemple.gif'>
+</div>
+
 
 <div id="LANGAGES">
 <h2>Langage de programmation</h2>
