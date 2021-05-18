@@ -37,7 +37,7 @@
 
 <div id="SCRUM">
 <h2>Utilisation du Scrum</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/f870551528a069057db8ad57fabcc6227ef2879e/assets/M%C3%A9thode_SCRUM.gif' width=100%>
+<img src='assets\Méthode_SCRUM.gif' width=100%>
 </div>
 
 <div id="STRUCTURE">
