@@ -108,7 +108,6 @@ class scraping():
 
                     #On traduit le string en dictionnaire
                     dict=json.loads(string_dict)
-                    print(dict)
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
                     #On traite les infos pour récuperer ce qui nous interesse
