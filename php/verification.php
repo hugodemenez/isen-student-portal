@@ -1,17 +1,17 @@
 <?php
 ini_set('display_errors', 'on');
- 
 session_start();
 if(isset($_POST['username']) && isset($_POST['password']))
-{
-// Connexion
-try {
-   $dbname='database.db'; 
-   if(!class_exists('SQLite3'))  die("SQLite 3 NOT supported."); 
-   $base =  new SQLite3($dbname, 0666);
-   echo "SQLite 3 supported."; 
-} catch (SQLiteException $e) {
-    die("La création ou l'ouverture de la base [$base] a échouée ".
+   {
+   // Connexion
+   try {
+      $dbname='database.db'; 
+      if(!class_exists('SQLite3'))  die("SQLite 3 NOT supported."); 
+      $base =  new SQLite3($dbname, 0666);
+      echo "SQLite 3 supported."; 
+   } 
+   catch (SQLiteException $e) {
+      die("La création ou l'ouverture de la base [$base] a échouée ".
          "pour la raison suivante: ".$e->getMessage());
 }
     // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
