@@ -1,40 +1,39 @@
+from pprint import pprint
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
 
+class Calendrier():
+    def ajouter_event(date_google_api_debut,date_google_api_fin,cours,professeur,salle):
+        try:
+            CLIENT_SECRET_FILE  = r'C:\Users\Hugo\OneDrive\Github\Projet_2021_Informatique\json_files\code_secret_client_902657260294-uosch8kaf16e1tjuq18vvkdvov46hj0d.apps.googleusercontent.com.json'
+            API_NAME = 'calendar'
+            API_VERSION = 'v3'
+            SCOPES = ['https://www.googleapis.com/auth/calendar']
+            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
+            cred = flow.run_local_server()
+            service = build(API_NAME, API_VERSION, credentials=cred)
+            event = {
+            'summary': cours,
+            'location': salle,
+            'description': professeur,
+            'start': {
+                'dateTime': date_google_api_debut,
+                'timeZone': 'Europe/Paris',
+            },
+            'end': {
+                'dateTime': date_google_api_fin,
+                'timeZone': 'Europe/Paris',
+            }
+            }
+            event = service.events().insert(calendarId='primary', body=event).execute()
+        except:
+            pass
 
-CLIENT_SECRET_FILE  = r'api.json'
-API_NAME = 'calendar'
-API_VERSION = 'v3'
-SCOPES = ['https://www.googleapis.com/auth/calendar']
+    def creer_calendrier():
+        calendar = {
+        'summary': 'ISEN COURS',
+        }
 
-flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-cred = flow.run_local_server()
-service = build(API_NAME, API_VERSION, credentials=cred)
+        created_calendar = service.calendars().insert(body=calendar).execute()
+        return (created_calendar['id'])
 
-def ajouter_event(jour_et_heure_debut,jour_et_heure_fin,intitule,prof,salle,):
-    evenement = {
-    'summary': intitule,
-    'location': salle,
-    'description': prof,
-    'start': {
-        'dateTime': jour_et_heure_debut,
-        'timeZone': 'Europe/Paris',
-    },
-    'end': {
-        'dateTime': jour_et_heure_fin,
-        'timeZone': 'Europe/Paris',
-    }
-    }
-
-    service.events().insert(calendarId='primary', body=evenement).execute()
-
-def creer_calendrier():
-    calendar = {
-    'summary': 'ISEN COURS',
-    }
-
-    created_calendar = service.calendars().insert(body=calendar).execute()
-    return (created_calendar['id'])
-
-
-ajouter_event('2021-05-21T13:30+02:00','2021-05-21T17:30+02:00','Projet Developpement Logiciel ','Monsieur LEFETZ', 'ISEN B801 ')

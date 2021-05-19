@@ -125,8 +125,8 @@ class scraping():
                     heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
 
                     #pour api google agenda
-                    heure_et_jour_debut = date_debut + 'T' + heure_debut + '+02:00'
-                    heure_et_jour_fin = date_fin + 'T' + heure_fin + '+02:00'
+                    heure_et_jour_debut = date_debut + 'T' + heure_debut + ':00+02:00'
+                    heure_et_jour_fin = date_fin + 'T' + heure_fin + ':00+02:00'
 
 
 
@@ -139,8 +139,8 @@ class scraping():
                     dictionnaire["date_fin"] = date_fin
                     dictionnaire["heure_fin"] = heure_fin
                     dictionnaire["cours"] = cours
-                    dictionnaire["date-google-api-debut"] = heure_et_jour_debut.replace('/','-')
-                    dictionnaire["date-google-api-fin"] = heure_et_jour_fin.replace('/','-')
+                    dictionnaire["date_google_api_debut"] = heure_et_jour_debut.replace('/','-')
+                    dictionnaire["date_google_api_fin"] = heure_et_jour_fin.replace('/','-')
 
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)

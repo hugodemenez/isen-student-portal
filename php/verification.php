@@ -19,18 +19,20 @@ try {
     $username = $_POST['username']; 
     $password = $_POST['password'];
     if($username !== "" && $password !== "")
-    {$query = "SELECT COUNT(*) as count FROM `user` WHERE `username` = :username AND `password` = :password"; 
+    {
+      $query = "SELECT COUNT(*) as count FROM `user` WHERE `username` = :username AND `password` = :password"; 
       $results = $base->query($query);
-       $row = $results->fetchArray(); 
+      $row = $results->fetchArray(); 
        if(count($row)>0)
         { 
             header('location:principale.php'); }	
-		}else{
+		else{
 			$_SESSION['error'] = "Invalid username or password";
 			header('location:login.php?erreur=1');
 		}
+   }
         
-    }
+    
     else
     {
        header('Location: login.php?erreur=2'); // utilisateur ou mot de passe vide
