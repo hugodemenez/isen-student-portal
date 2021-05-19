@@ -2,7 +2,7 @@ import commandes,webscraping
 
 
 
-print(webscraping.scraping().get_planning( username = 'p64059',password = 'ny5mJb8z'))
+#print(webscraping.scraping().get_planning( username = 'p64059',password = 'ny5mJb8z'))
 
 from pprint import pprint
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
@@ -10,7 +10,7 @@ from googleapiclient.discovery import build
 
 
 
-CLIENT_SECRET_FILE  = 'C:/Users/brieu/Desktop/code_secret_client_902657260294-uosch8kaf16e1tjuq18vvkdvov46hj0d.apps.googleusercontent.com.json'
+CLIENT_SECRET_FILE  = 'api.json'
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
