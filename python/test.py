@@ -10,7 +10,7 @@ from googleapiclient.discovery import build
 
 
 
-CLIENT_SECRET_FILE  = 'api.json'
+CLIENT_SECRET_FILE  = r'C:\Users\Hugo\OneDrive\Github\Projet_2021_Informatique\python\api.json'
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
