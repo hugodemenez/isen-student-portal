@@ -139,8 +139,8 @@ class scraping():
                     dictionnaire["date_fin"] = date_fin
                     dictionnaire["heure_fin"] = heure_fin
                     dictionnaire["cours"] = cours
-                    dictionnaire["date-google-api-debut"] = heure_et_jour_debut
-                    dictionnaire["date-google-api-fin"] = heure_et_jour_fin
+                    dictionnaire["date-google-api-debut"] = heure_et_jour_debut.replace('/','-')
+                    dictionnaire["date-google-api-fin"] = heure_et_jour_fin.replace('/','-')
 
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)

@@ -2,7 +2,7 @@ from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
 
 
-CLIENT_SECRET_FILE  = r'python\api.json'
+CLIENT_SECRET_FILE  = r'api.json'
 API_NAME = 'calendar'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -34,4 +34,7 @@ def creer_calendrier():
     }
 
     created_calendar = service.calendars().insert(body=calendar).execute()
-    return (created_calendar['id']) 
+    return (created_calendar['id'])
+
+
+ajouter_event('2021-05-21T13:30+02:00','2021-05-21T17:30+02:00','Projet Developpement Logiciel ','Monsieur LEFETZ', 'ISEN B801 ')
