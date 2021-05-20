@@ -42,8 +42,8 @@
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/a579c3dd82197ade58e5c8727bf4661bed7ccd28/assets/Diapositive1.SVG?sanitize=true' width=100%>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/a579c3dd82197ade58e5c8727bf4661bed7ccd28/assets/Diapositive2.SVG?sanitize=true'>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5565ed569cd0083ae62235b7543a8a96bb6f99ee/assets/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5565ed569cd0083ae62235b7543a8a96bb6f99ee/assets/Diapositive2.SVG?sanitize=true'>
 </div>
 
 <div id="INSPIRATION">
