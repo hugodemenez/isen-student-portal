@@ -12,7 +12,7 @@
 
             <input type="password" placeholder="password" name="password" required>
 
-            <input type="submit" id='submit' value='LOGIN' >
+            <input type="submit" id='submit' value='✓' >
             <?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
@@ -38,7 +38,7 @@
 
  
 
-            <input type="submit" id='submit' value='REGISTER' >
+            <input type="submit" id='submit' value='✓' >
             <?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
