@@ -10,6 +10,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
       session_start();
       $_SESSION['username'] = $username;
       $_SESSION['password'] = $password;
+      $command = escapeshellcmd('/python/test.py');
+      $output = shell_exec($command);
+      echo $output;
       header('Location: principale.php');
    }
    else
