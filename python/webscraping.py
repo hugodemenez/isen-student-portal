@@ -103,17 +103,21 @@ class scraping():
                     #On remet en forme le string pour être traduit en dictionnaire
                     string_dict = '{'+elem
                     string_dict=string_dict[:-1]
-                    string_dict=string_dict.replace("\\\\n", " ") 
+
                     string_dict=string_dict.replace("\\xc3\\xa9", "e") 
+                    string_dict=string_dict.replace(r"\'", "'")
+                    string_dict=string_dict.replace(r"\\n\\n", r"\\n")
 
                     #On traduit le string en dictionnaire
                     dict=json.loads(string_dict)
                     #On initialise le dictionnaire à renvoyer
                     dictionnaire={}
                     #On traite les infos pour récuperer ce qui nous interesse
-                    salle = re.match("[a-zA-Z0-9]+[ ][a-zA-Z0-9]+[ (H)]+",dict["title"][3:]).group()
-                    cours = re.match("[a-zA-Z ]+",dict["title"][(3+len(salle)):]).group()
-                    professeur = re.match("[A-Za-z ]+",dict["title"][17+len(salle)+len(cours):]).group()
+                    titre = re.split(r"\\n",dict["title"])
+
+                    salle = titre[0]
+                    cours = titre[1]
+                    professeur = titre[-1]
 
                     #pour les fichiers csv
                     date_debut= re.sub("[-]",'/', re.search("[0-9-]+[0-9]+",dict["start"]).group())
@@ -141,7 +145,6 @@ class scraping():
                     dictionnaire["cours"] = cours
                     dictionnaire["date_google_api_debut"] = heure_et_jour_debut.replace('/','-')
                     dictionnaire["date_google_api_fin"] = heure_et_jour_fin.replace('/','-')
-
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)
             except Exception as error:
