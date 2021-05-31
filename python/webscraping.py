@@ -39,7 +39,7 @@ class scraping():
         options = Options()
         options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -156,7 +156,7 @@ class scraping():
         options = Options()
         options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
