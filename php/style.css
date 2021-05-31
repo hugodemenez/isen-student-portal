@@ -10,8 +10,8 @@ body{
 form {
     width:100%;
     padding: 30px;
-    border: 1px solid #f1f1f1;
-    background: #fff;
+    border: 1px solid white;
+    background: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #container h1{
@@ -26,14 +26,15 @@ input[type=text], input[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #F2F2F2;
+    border: 1px solid white;
     box-sizing: border-box;
+    background-color: #F2F2F2;
 }
 
 /* Set a style for all buttons */
 input[type=submit] {
-    background-color: #3AB395;
-    color: #F2F2F2;
+    background-color: #F2F2F2;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -41,7 +42,7 @@ input[type=submit] {
     width: 100%;
 }
 input[type=submit]:hover {
-    background-color: white;
-    color: #3AB395;
-    border: 1px solid #3AB395;
+    background-color: rgb(199, 199, 199);
+    color: black;
+    border: 1px solid white;
 }
