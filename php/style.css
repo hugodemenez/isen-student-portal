@@ -57,3 +57,7 @@ input[type=submit]:hover {
     background-color: rgb(199, 199, 199);
     color: black;
 }
+
+.neutral{
+    background-color: #F2F2F2;
+}
