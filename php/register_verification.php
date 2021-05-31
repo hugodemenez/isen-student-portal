@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors', 'on');
-session_start();
 if(isset($_POST['username']) && isset($_POST['password'])){
    $username = $_POST['username'];
    $password = $_POST['password'];
@@ -8,6 +7,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    $results = $db->query("SELECT * FROM user WHERE username = '$username'");
    $row = $results->fetcharray();
    if($row[1]==$password){
+      session_start();
+      $_SESSION['username'] = $username;
+      $_SESSION['password'] = $password;
       header('Location: principale.php');
    }
    else
