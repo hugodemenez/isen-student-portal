@@ -2,7 +2,7 @@
 ini_set('display_errors', 'on');
 session_start();
 $_SESSION['output']=shell_exec('python test.py');
-if (shell_exec('python test.py')==NULL){
+if (shell_exec('python test.py .$_POST['username'] .$_POST['password']')==NULL){
    header('Location: login.php?register_error=1');
 }
 else{

@@ -1,4 +1,8 @@
 #!/usr/bin/env python
-user=True
-if user:
+import sys
+username = sys.argv[1]
+password = sys.argv[2]
+
+
+if username =="a":
     print("ok")
