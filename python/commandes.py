@@ -20,7 +20,7 @@ class envoie_planning():
                 d[col[0]] = row[idx]
             return d
 
-        con = sqlite3.connect(r"C:\Users\Hugo\OneDrive\Github\Projet_2021_Informatique\database\database.db")
+        con = sqlite3.connect(r"database\database.db")
         con.row_factory = dict_factory
         cur = con.cursor()
         cur.execute("select * from user")
