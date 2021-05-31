@@ -1,2 +1,4 @@
 #!/usr/bin/env python
-print("ok")
+user=True
+if user:
+    print("ok")

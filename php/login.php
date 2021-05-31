@@ -51,14 +51,6 @@
         </form>
         </div>
     </body>
-    <footer>
-        <?php
-        session_start();
-        if(isset($_SESSION['output'])){
-            echo($_SESSION['output']);
-        }
-        ?>
-    </footer>
 </html>
 
 
