@@ -14,7 +14,6 @@ class Calendrier():
 
     def ajouter_event(date_google_api_debut,date_google_api_fin,cours,professeur,salle):
         try:
-
             event = {
             'summary': cours,
             'location': salle,
