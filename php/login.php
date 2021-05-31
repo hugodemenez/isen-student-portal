@@ -38,12 +38,14 @@
 
  
 
-            <input type="submit" id='submit' value='✓' >
+            <input type="submit" id='submit_register' value='✓'>
             <?php
-            if(isset($_GET['erreur'])){
-                $err = $_GET['erreur'];
+            if(isset($_GET['register_error'])){
+                $err = $_GET['register_error'];
                 if($err==1 || $err==2)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                    echo "<p style='color:red'>Impossible de se connecter à Aurion</p>";
+                    session_start();
+                    echo($_SESSION['output']);
             }
             ?>
         </form>

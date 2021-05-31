@@ -14,7 +14,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    }
    else
    {
-      header('Location: login.php?erreur=1'); // utilisateur ou mot de passe incorrect
+      header('Location: login.php?erreur=1');
    }
 }
 ?>
