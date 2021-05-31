@@ -1,5 +1,6 @@
 body{
     background: #3AB395;
+    font-family: calibri;
 }
 #container{
     width:400px;
@@ -8,6 +9,7 @@ body{
 }
 /* Bordered form */
 form {
+    border-radius: 50px;
     width:100%;
     padding: 30px;
     border: 1px solid white;
@@ -33,16 +35,17 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 input[type=submit] {
-    background-color: #F2F2F2;
+    border-radius: 20px;
+    background-color: #dbdbdb;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     color: black;
     padding: 14px 20px;
-    margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width:100%;
 }
 input[type=submit]:hover {
+    border-radius: 20px;
     background-color: rgb(199, 199, 199);
     color: black;
-    border: 1px solid white;
 }
