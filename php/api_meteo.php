@@ -15,8 +15,8 @@ $response = curl_exec($ch);
 
 curl_close($ch);
 $meteo = json_decode($response);
-/* echo $data->weather[0]->description . "<br />"; //exemple pour avoir des trucs
-echo $data->weather[0]->id	; pour plus d'infos:https://openweathermap.org/current#format
+/* echo $meteo->weather[0]->description . "<br />"; //exemple pour avoir des trucs
+echo $meteo->weather[0]->id	; pour plus d'infos:https://openweathermap.org/current#format
 
 IL FAUT INSTALLER LA BLIBLIOTHEQUE CURL
 
