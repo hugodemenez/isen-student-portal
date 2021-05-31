@@ -1,6 +1,4 @@
-import commandes,webscraping
+from commandes import envoie_planning
 
 
-
-print(webscraping.scraping().get_planning( username = 'p64059',password = 'ny5mJb8z'))
-
+envoie_planning()

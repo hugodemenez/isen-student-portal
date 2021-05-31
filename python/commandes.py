@@ -7,19 +7,24 @@ from datetime import datetime
 from webscraping import scraping
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
+import sqlite3
 
 class envoie_planning():
     def __init__(self):
         #Lecture base de données
         ################################################################
         #Pour chaque étudiant de la base de donnée on fait : 
-        Liste=[]
-        exemple = {
-            "username" :'p64043',
-            "password":'7vBasPXs',
-            "email":"hugo.demenez@isen.yncrea.fr",
-        }
-        Liste.append(exemple)
+        def dict_factory(cursor, row):
+            d = {}
+            for idx, col in enumerate(cursor.description):
+                d[col[0]] = row[idx]
+            return d
+
+        con = sqlite3.connect(r"C:\Users\Hugo\OneDrive\Github\Projet_2021_Informatique\database\database.db")
+        con.row_factory = dict_factory
+        cur = con.cursor()
+        cur.execute("select * from user")
+        Liste = cur.fetchall()
 
 
         for student in Liste:
