@@ -1,5 +1,6 @@
 import sys,sqlite3,os
 from webscraping import scraping
+
 username = sys.argv[1]
 password = sys.argv[2]
 email =sys.argv[3]
@@ -28,4 +29,4 @@ if scraping().check_connection(username,password):
         print("ok")
 
 else:
-    print("NONE")
+    print("no")
