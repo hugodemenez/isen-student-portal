@@ -7,8 +7,6 @@ email =sys.argv[3]
 niveau = sys.argv[4]
 specialite = sys.argv[5]
 
-
-
 path = "db/database.db"
 if os.path.isfile(path):
     connexion = sqlite3.connect(path)
