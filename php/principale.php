@@ -29,6 +29,7 @@
             $meteo = json_decode($response);
             echo "<br />".$meteo->weather[0]->description . "<br />";
             echo $meteo->main->temp;
+
         ?>
 
     </body>
