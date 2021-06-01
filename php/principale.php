@@ -7,13 +7,13 @@
         <?php
             session_start();
             if (isset($_SESSION['username'])) {
-            echo 'Welcome, '.$_SESSION['username']; 
+            echo 'Bienvenue, '.$_SESSION['username']; 
             } else {
-            echo 'Sorry, You are not logged in.';
+            echo "Vous n'êtes pas connecté";
             }
         ?>
     </body>
     <footer>
-    <a href="login.php">Logout</a>
+    <a href="login.php">Se déconnecter</a>
     </footer>
 </html>

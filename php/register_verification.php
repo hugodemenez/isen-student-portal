@@ -1,11 +1,11 @@
 <?php 
 ini_set('display_errors', 'on');
 session_start();
-$_SESSION['output']=shell_exec('python test.py');
-if (shell_exec('python test.py .$_POST['username'] .$_POST['password']')==NULL){
-   header('Location: login.php?register_error=1');
-}
-else{
-   header('Location: principale.php');
-}
+$item=$_POST['username_register'];
+$item2=$_POST['password_register'];
+$item3=$_POST['email_register'];
+$item4=$_POST['niveau_register'];
+$item5=$_POST['specialite_register'];
+$tmp = exec("python test.py $item $item2 $item3 $item4 $item5");
+echo $tmp;
 ?>

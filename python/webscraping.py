@@ -259,8 +259,32 @@ class scraping():
 
         return notes
 
-        
+    
+    def check_connection(self,username,password):
+        #Configuration du Headless Webbrowser
+        options = Options()
+        options.headless = True
+        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+        #Ouverture de la page de connexion aurion
+        driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
+        #Remplissage du nom utilisateur
+        inputElement = driver.find_element_by_id("username")
+        inputElement.send_keys(username)
+
+        #Remplissage du mot de passe
+        inputElement = driver.find_element_by_id("password")
+        inputElement.send_keys(password)
+
+        #Validation des données d'identification
+        inputElement.submit() 
+        sleep(5)
+        try :
+            driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
+            return False
+        except:
+            return True
 
 
 
@@ -269,4 +293,4 @@ class scraping():
 
 if __name__ == "__main__":
     user = scraping().getting_identification_from_database()
-    scraping().get_planning(user['username'],user['password'])
+    scraping().check_connection("z",user['password'])

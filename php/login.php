@@ -26,15 +26,15 @@
         <form action="register_verification.php" method="POST">
             <h1>Inscription</h1>
 
-            <input type="text" placeholder="username" name="username" required>
+            <input type="text" placeholder="username" name="username_register" required>
 
-            <input type="password" placeholder="password" name="password" required>
+            <input type="password" placeholder="password" name="password_register" required>
             
-            <input type="text" placeholder="email" name="email" required>
+            <input type="text" placeholder="email" name="email_register" required>
 
-            <input type="text" placeholder="niveau" name="niveau" required>
+            <input type="text" placeholder="niveau" name="niveau_register" required>
 
-            <input type="text" placeholder="specialite" name="specialite" required>
+            <input type="text" placeholder="specialite" name="specialite_register" required>
 
  
 
