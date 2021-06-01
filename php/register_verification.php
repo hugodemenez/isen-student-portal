@@ -6,7 +6,7 @@ $item2=$_POST['password_register'];
 $item3=$_POST['email_register'];
 $item4=$_POST['niveau_register'];
 $item5=$_POST['specialite_register'];
-ini_set('set_time_limit', 300);
-$tmp = exec("python test.py $item $item2 $item3 $item4 $item5");
+
+$tmp = exec("python test.py $item $item2 $item3 $item4 $item5 &");
 echo $tmp;
 ?>

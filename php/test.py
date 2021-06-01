@@ -1,13 +1,10 @@
 import sys,sqlite3,os
-from webscraping import scraping
 
 username = sys.argv[1]
 password = sys.argv[2]
 email =sys.argv[3]
 niveau = sys.argv[4]
 specialite = sys.argv[5]
-
-
 
 path = "db/database.db"
 if os.path.isfile(path):
@@ -28,5 +25,4 @@ if os.path.isfile(path):
     cursor.execute("SELECT * FROM user")
     print("ok")
 
-else:
-    print("no")
+    
