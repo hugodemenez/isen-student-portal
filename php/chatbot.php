@@ -18,25 +18,31 @@
     <div class="chat_box">
         <div class="conv-form-wrapper">
         <form action="" method="GET" class="hidden">
+            <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]">
             <input data-conv-question="Type in your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="What's your e-mail?">
-            <select name="programmer" data-conv-question="So, are you a programmer? (this question will fork the conversation based on your answer)">
-	            <option value="yes">Yes</option>
-	            <option value="no">No</option>
+            <select name="programmer" data-conv-question="En quoi puis-je vous aider ?">
+	            <option value="planning">planning</option>
+	            <option value="note">note</option>
             </select>
             <div data-conv-fork="programmer">
-	            <div data-conv-case="yes">
-	 	            <input type="text" data-conv-question="A fellow programmer! Cool." data-no-answer="true">
+	            <div data-conv-case="planning">
+	 	            <input type="text" data-conv-question="Votre planning est le suivant :">
 	            </div>
-	            <div data-conv-case="no">
-		            <select name="thought" data-conv-question="Have you ever thought about learning? Programming is fun!">
-			            <option value="yes">Yes</option>
-			            <option value="no">No..</option>
+	            <div data-conv-case="note">
+		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">
+			            <option value="Oui">Oui</option>
+			            <option value="Non">Non</option>
 		            </select>
+                    <div data-conv-fork="note">
+                        <div data-conv-case="Oui">
+                            <input type="text" data-conv-question="Votre note est :">
+                        </div> 
+                        <div data-conv-case="Non">
+                            <input type="text" data-conv-question="Tant pis">
+                        </div> 
 	            </div>
             </div>
         </form>
-        </div>
-    </div>
     <!-- Chatbot -->
     </body>
 </html>
