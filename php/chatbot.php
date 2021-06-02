@@ -10,7 +10,7 @@
     </head>
     <body class="neutral">
     <!-- Chatbot -->
-    <div clas="chat_icon">
+    <div class="chat_icon">
     <i class="fas fa-comments"></i>
     </div>
 
