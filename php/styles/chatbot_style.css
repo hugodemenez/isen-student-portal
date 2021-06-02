@@ -25,7 +25,7 @@
 }
 
 .hidden{
-    display: non !important;
+    display: none !important;
 }
 
 .conv-form-wrapper textarea{
