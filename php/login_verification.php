@@ -14,7 +14,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    }
    else
    {
-      header('Location: login.php?erreur=1');
+      header('Location: index.php?erreur=1');
    }
 }
 ?>

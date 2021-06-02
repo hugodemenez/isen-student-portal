@@ -34,6 +34,6 @@
 
     </body>
     <footer>
-    <a href="login.php">Se déconnecter</a>
+    <a href="index.php">Se déconnecter</a>
     </footer>
 </html>
