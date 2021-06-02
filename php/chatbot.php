@@ -1,5 +1,5 @@
 <html>
-    <link rel="stylesheet" type="text/css" href="php\styles\jquery.convform.css">
+    <link rel="stylesheet" type="text/css" href="styles\jquery.convform.css">
     <script type="text/javascript" src="js\jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js\custom.js"></script>
     <script type="text/javascript" src="js\jquery.convform.js"></script>
