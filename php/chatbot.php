@@ -6,7 +6,7 @@
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" href="chatbot_style.css" media="screen" type="text/css">
+        <link rel="stylesheet" href="styles\chatbot_style.css" media="screen" type="text/css">
     </head>
     <body class="neutral">
     <!-- Chatbot -->
