@@ -3,6 +3,7 @@
     <script type="text/javascript" src="js\jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js\custom.js"></script>
     <script type="text/javascript" src="js\jquery.convform.js"></script>
+    <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     <head>
     <meta charset="utf-8">
         <link rel="stylesheet" href="chatbot_style.css" media="screen" type="text/css">
@@ -10,7 +11,7 @@
     <body class="neutral">
     <!-- Chatbot -->
     <div clas="chat_icon">
-        <i class="fa-solid fa-comments-question"></i>
+    <i class="fas fa-comments"></i>
     </div>
 
     <div class="chat_box">
