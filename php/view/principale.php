@@ -45,8 +45,7 @@
     <div class="chat_box">
         <div class="conv-form-wrapper">
         <form action="" method="GET" class="hidden">
-            <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]">
-            <input data-conv-question="Type in your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="What's your e-mail?">
+            <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]" data-no-answer="true">
             <select name="programmer" data-conv-question="En quoi puis-je vous aider ?">
 	            <option value="planning">planning</option>
 	            <option value="note">note</option>
