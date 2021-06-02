@@ -38,8 +38,7 @@ class scraping():
         #Configuration du Headless Webbrowser
         options = Options()
         options.headless = True
-        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+        driver = webdriver.Firefox(options=options)
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -50,14 +49,12 @@ class scraping():
         #Remplissage du mot de passe
         inputElement = driver.find_element_by_id("password")
         inputElement.send_keys(password)
-
         #Validation des données d'identification
         inputElement.submit() 
-
+        
         #Recherche de la zone pour acceder au planning
         counter=0
         while(True):
-            
             try:
                 inputElement =driver.find_element_by_link_text("Mon Planning")
                 break
@@ -264,8 +261,7 @@ class scraping():
         #Configuration du Headless Webbrowser
         options = Options()
         options.headless = True
-        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
+        driver = webdriver.Firefox(options=options)
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -293,4 +289,4 @@ class scraping():
 
 if __name__ == "__main__":
     user = scraping().getting_identification_from_database()
-    print(scraping().check_connection("z",user['password']))
+    print(scraping().get_planning(user["username"],user['password']))
