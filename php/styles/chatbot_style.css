@@ -13,7 +13,7 @@
     right: 20px;
     bottom: 100px;
     width: 400px;
-    height: 75vh;
+    height: 80vh;
     background: #dedede;
     z-index: 1000;
     transition: all 0.3s ease-out;
@@ -22,4 +22,18 @@
 
 .chat_box.active{
     transform: scaleY(1);
+}
+
+.hidden{
+    display: non !important;
+}
+
+.conv-form-wrapper textarea{
+    height: 30px;
+    overflow: hidden;
+    resize: none;
+}
+
+#messages{
+    padding: 20px;
 }
