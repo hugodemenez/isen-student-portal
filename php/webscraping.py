@@ -39,7 +39,7 @@ class scraping():
         options = Options()
         options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -159,7 +159,7 @@ class scraping():
         options = Options()
         options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -265,7 +265,7 @@ class scraping():
         options = Options()
         options.headless = True
         options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+        driver = webdriver.Firefox(options=options, executable_path="geckodriver.exe")
         #Ouverture de la page de connexion aurion
         driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -293,4 +293,4 @@ class scraping():
 
 if __name__ == "__main__":
     user = scraping().getting_identification_from_database()
-    scraping().check_connection("z",user['password'])
+    print(scraping().check_connection("z",user['password']))
