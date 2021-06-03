@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Login and Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
+            <button type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
+        </div>
+        <form id="connexion" class="input-group">
+            <input type="text" class="input-field" placeholder="username" required>
+            <input type="text" class="input-field" placeholder="password" required>
+            <input type="checkbox" class="check-box"><span>Remember Password</span>
+            <button type="submit" class="submit-btn">Connexion</button>
+        </form>
+        <form id="inscription" class="input-group">
+            <input type="text" class="input-field" placeholder="email" required>
+            <input type="text" class="input-field" placeholder="username" required>
+            <input type="text" class="input-field" placeholder="password" required>
+            <input type="checkbox" class="check-box"><span>Valider</span>
+            <button type="submit" class="submit-btn">Inscription</button>
+        </form>
+    </div>
+
+    <script>
+        var x = document.getElementById("connexion");
+        var y = document.getElementById("inscription");
+        var z = document.getElementById("btn");
+
+        function inscription(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+        function connexion(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from seleniumwire import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver import FirefoxOptions
 from time import sleep
 import json
 import re
@@ -11,8 +11,10 @@ class scraping():
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
-        pass
-
+        #Configuration du Headless Webbrowser
+        opts = FirefoxOptions()
+        opts.add_argument("--headless")
+        self.driver = webdriver.Firefox(firefox_options=opts)
 
     def getting_identification_from_database(self):
         #Exemple avec un utilisateur
@@ -36,19 +38,16 @@ class scraping():
         dictionnaire["cours"]
         """
         #Configuration du Headless Webbrowser
-        options = Options()
-        options.headless = True
-        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+
         #Ouverture de la page de connexion aurion
-        driver.get('https://aurion.junia.com/faces/Login.xhtml')
+        self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
         #Remplissage du nom utilisateur
-        inputElement = driver.find_element_by_id("username")
+        inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
 
         #Remplissage du mot de passe
-        inputElement = driver.find_element_by_id("password")
+        inputElement = self.driver.find_element_by_id("password")
         inputElement.send_keys(password)
 
         #Validation des données d'identification
@@ -59,7 +58,7 @@ class scraping():
         while(True):
             
             try:
-                inputElement =driver.find_element_by_link_text("Mon Planning")
+                inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 break
             except:
                 sleep(1)
@@ -74,7 +73,7 @@ class scraping():
                 #Une fois la zone selectionnée : on clique dessus
                 inputElement.click() 
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
-                for request in driver.requests:
+                for request in self.driver.requests:
                     #S'il y a une reponse
                     if request.response:
                         #On verifie que la reponse correspond bien au planning
@@ -150,25 +149,21 @@ class scraping():
             except Exception as error:
                 print(error)
                 pass
-        driver.quit()
+        self.driver.quit()
 
         return data
 
     def get_marks(self,username,password):
-        #Configuration du Headless Webbrowser
-        options = Options()
-        options.headless = True
-        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+
         #Ouverture de la page de connexion aurion
-        driver.get('https://aurion.junia.com/faces/Login.xhtml')
+        self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
         #Remplissage du nom utilisateur
-        inputElement = driver.find_element_by_id("username")
+        inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
 
         #Remplissage du mot de passe
-        inputElement = driver.find_element_by_id("password")
+        inputElement = self.driver.find_element_by_id("password")
         inputElement.send_keys(password)
 
         #Validation des données d'identification
@@ -180,7 +175,7 @@ class scraping():
         while(True):
             
             try:
-                inputElement =driver.find_element_by_link_text("Scolarité")
+                inputElement =self.driver.find_element_by_link_text("Scolarité")
                 break
             except:
                 sleep(1)
@@ -197,7 +192,7 @@ class scraping():
         while(True):
             
             try:
-                inputElement =driver.find_element_by_link_text("Mes notes")
+                inputElement =self.driver.find_element_by_link_text("Mes notes")
                 break
             except:
                 sleep(1)
@@ -213,7 +208,7 @@ class scraping():
         sleep(5)
 
         #On accède aux requetes envoyées par le HeadlessWebbrowser
-        for request in driver.requests:
+        for request in self.driver.requests:
             #S'il y a une reponse
             if request.response:
                 #On verifie que la reponse correspond bien au planning
@@ -255,42 +250,35 @@ class scraping():
                 pass
         
 
-        driver.quit()
+        self.driver.quit()
 
         return notes
 
-    
     def check_connection(self,username,password):
-        #Configuration du Headless Webbrowser
-        options = Options()
-        options.headless = True
-        options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        driver = webdriver.Firefox(options=options, executable_path="python\geckodriver.exe")
+
         #Ouverture de la page de connexion aurion
-        driver.get('https://aurion.junia.com/faces/Login.xhtml')
+        self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
         #Remplissage du nom utilisateur
-        inputElement = driver.find_element_by_id("username")
+        inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
 
         #Remplissage du mot de passe
-        inputElement = driver.find_element_by_id("password")
+        inputElement = self.driver.find_element_by_id("password")
         inputElement.send_keys(password)
 
         #Validation des données d'identification
         inputElement.submit() 
         sleep(5)
         try :
-            driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
+            self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
+            self.driver.quit()
             return False
         except:
+            self.driver.quit()
             return True
-
-
-
-
 
 
 if __name__ == "__main__":
     user = scraping().getting_identification_from_database()
-    scraping().check_connection("z",user['password'])
+    print(scraping().get_planning(user['username'],user['password']))

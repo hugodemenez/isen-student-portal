@@ -1,15 +1,24 @@
 body{
-    background: #3AB395;
-    font-family: calibri;
+    font-family: "muliregular";
+    background-image: radial-gradient(circle at center center, transparent,rgb(255,255,255)),repeating-linear-gradient(
+        135deg
+        , rgb(255,255,255) 0px, rgb(255,255,255) 12px,transparent 12px, transparent 19px,rgb(255,255,255) 19px, rgb(255,255,255) 24px,transparent 24px, transparent 28px),repeating-linear-gradient(
+        45deg
+        , rgb(245,245,245) 0px, rgb(245,245,245) 7px,transparent 7px, transparent 14px),linear-gradient(
+        90deg
+        , rgb(255,255,255),rgb(255,255,255));
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    display:flex;
-    justify-content:space-around;
-    align-items: center;
+@font-face {
+    font-family: 'muliregular';
+    src: url('../font/muli-regular-webfont.woff2') format('woff2'),
+         url('../font/muli-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
 
 form {
     display:flex;
@@ -21,11 +30,14 @@ form {
     border-radius: 45px;
     border: 1px solid white;
     background: white;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
 }
 
 h1{
-    font-weight: 400;
+	font-size: 32px;
+	font-weight: normal;
+	font-style: normal;
+	margin-bottom: 18px;
 }
 
 
@@ -33,7 +45,7 @@ input[type=text], input[type=password] {
     text-align: center;
     outline: none;
     border-radius: 10px;
-    box-shadow: inset 0 0 1px 0 rgba(202, 202, 202, 0.1), inset 0 1px 1px 0 rgba(221, 221, 221, 0.1);
+    box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.26);
     width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -46,7 +58,7 @@ input[type=text], input[type=password] {
 input[type=submit] {
     border-radius: 20px;
     background-color: #dbdbdb;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
     color: black;
     padding: 14px 20px;
     border: none;

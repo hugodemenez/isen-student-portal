@@ -4,7 +4,6 @@
         <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css" />
     </head>
     <body>
-        <div class="container">
         <form action="view/login_verification.php" method="POST">
             <h1>Connexion</h1>
 
@@ -51,7 +50,6 @@
             }
             ?>
         </form>
-        </div>
     </body>
 </html>
 

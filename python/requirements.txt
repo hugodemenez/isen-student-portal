@@ -2,3 +2,4 @@ google-api-python-client
 google-auth-oauthlib 
 selenium
 selenium-wire
+mysql-connector-python
