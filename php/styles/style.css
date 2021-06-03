@@ -1,6 +1,17 @@
 body{
-    background: #3AB395;
-    font-family: calibri;
+    background-color: #ffffff;
+    opacity: 0.1;
+    background-image: radial-gradient(#000000 1.4000000000000001px, #ffffff 1.4000000000000001px);
+    background-size: 28px 28px;
+    font-family: "muliregular";
+}
+@font-face {
+    font-family: 'muliregular';
+    src: url('../font/muli-regular-webfont.woff2') format('woff2'),
+         url('../font/muli-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 .container {
@@ -25,7 +36,10 @@ form {
 }
 
 h1{
-    font-weight: 400;
+	font-size: 32px;
+	font-weight: normal;
+	font-style: normal;
+	margin-bottom: 18px;
 }
 
 
