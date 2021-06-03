@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
-    background-image: radial-gradient(circle at center center, transparent,rgb(255,255,255)),repeating-linear-gradient(
-        135deg
-        , rgb(255,255,255) 0px, rgb(255,255,255) 12px,transparent 12px, transparent 19px,rgb(255,255,255) 19px, rgb(255,255,255) 24px,transparent 24px, transparent 28px),repeating-linear-gradient(
-        45deg
-        , rgb(245,245,245) 0px, rgb(245,245,245) 7px,transparent 7px, transparent 14px),linear-gradient(
-        90deg
-        , rgb(255,255,255),rgb(255,255,255));
+    background-color: #fcfcfc;
+    opacity: 1;
+    background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
+    background-size: 34px 34px;
+    background-position: 0 0,17px 17px;
 }
 input,button{
     font-family: "Poppins", sans-serif;
@@ -33,10 +31,11 @@ button{
     position: relative;
     margin: 6% auto;
     background: white;
-    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
+    filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
     padding: 5px;
     overflow: hidden;
     border-radius: 30px;
+    
     
 }
 
@@ -131,3 +130,4 @@ span{
 #inscription{
     left: -100%;
 }
+
