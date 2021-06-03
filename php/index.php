@@ -1,11 +1,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css" />
     </head>
     <body>
         <div class="container">
-        <form action="login_verification.php" method="POST">
+        <form action="view/login_verification.php" method="POST">
             <h1>Connexion</h1>
 
             <input type="text" placeholder="username" name="username" required>
@@ -23,7 +23,7 @@
 
         </form>
 
-        <form action="register_verification.php" method="POST">
+        <form action="view/register_verification.php" method="POST">
             <h1>Inscription</h1>
 
             <input type="text" placeholder="username" name="username_register" required>
@@ -42,10 +42,12 @@
             <?php
             if(isset($_GET['register_error'])){
                 $err = $_GET['register_error'];
-                if($err==1 || $err==2)
-                    echo "<p style='color:red'>Impossible de se connecter à Aurion</p>";
-                    session_start();
-                    echo($_SESSION['output']);
+                if($err==1){
+                    echo "<p style='color:red'>Utilisateur déjà inscrit</p>";
+                }
+                elseif($err==2){
+                    echo "<p style='color:green'>Inscription réussite</p>";
+                }
             }
             ?>
         </form>
