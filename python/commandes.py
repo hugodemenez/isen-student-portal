@@ -8,32 +8,32 @@ from webscraping import scraping
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
 import sqlite3
-
+import mysql.connector
 class envoie_planning():
     def __init__(self):
         #Lecture base de données
         ################################################################
         #Pour chaque étudiant de la base de donnée on fait : 
-        def dict_factory(cursor, row):
-            d = {}
-            for idx, col in enumerate(cursor.description):
-                d[col[0]] = row[idx]
-            return d
 
-        con = sqlite3.connect(r"database\database.db")
-        con.row_factory = dict_factory
-        cur = con.cursor()
-        cur.execute("select * from user")
-        Liste = cur.fetchall()
+        mydb = mysql.connector.connect(
+        host="localhost",
+        user="hugodemenez",
+        password="password",
+        database="database",
+        auth_plugin='mysql_native_password',
+        )
+
+        Liste = mydb.cursor()
+        Liste.execute("SELECT * FROM user")
 
 
-        for student in Liste:
-            planning =scraping().get_planning(username = student['username'],password = student['password'])
+        for (username,password,email) in Liste:
+            planning =scraping().get_planning(username = username,password = password)
             self.initialiser_csv('planning.csv')
             for i in planning:
                 self.ajouter(i['cours'],i['date_debut'],i['heure_debut'],i['date_fin'],i['heure_fin'],i['professeur'],i['salle'],'planning.csv')
                 #self.ajouter_calendrier_google(jour_et_heure_debut= i['date-google-api-debut'],jour_et_heure_fin = i['date-google-api-fin'],cours =i['cours'],professeur= i['professeur'],salle=i['salle'])
-            self.envoyer_planning_email(destinataire=student['email'])
+            self.envoyer_planning_email(destinataire=email)
 
 
     def initialiser_csv(self,chemin):
