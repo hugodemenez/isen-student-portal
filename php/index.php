@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css" />
     </head>
     <body>
+        
     <div class="form-box">
         <div class="button-box">
             <div id="btn"></div>
@@ -41,7 +42,9 @@
             }
             ?>
         </form>
+        
     </div>
+    <img src="../assets/learning.svg" alt="study" height="30%"  style = "position:absolute; right:0px; bottom:0px;z-index:-1;"/>
     </body>
     <script>
         var x = document.getElementById("connexion");

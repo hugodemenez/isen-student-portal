@@ -1,5 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
-    font-family: "muliregular";
     background-image: radial-gradient(circle at center center, transparent,rgb(255,255,255)),repeating-linear-gradient(
         135deg
         , rgb(255,255,255) 0px, rgb(255,255,255) 12px,transparent 12px, transparent 19px,rgb(255,255,255) 19px, rgb(255,255,255) 24px,transparent 24px, transparent 28px),repeating-linear-gradient(
@@ -8,34 +8,17 @@ body{
         90deg
         , rgb(255,255,255),rgb(255,255,255));
 }
-
-@font-face {
-    font-family: 'muliregular';
-    src: url('../font/muli-regular-webfont.woff2') format('woff2'),
-         url('../font/muli-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+input,button{
+    font-family: "Poppins", sans-serif;
 }
 
-h1{
-	font-size: 32px;
-	font-weight: normal;
-	font-style: normal;
-	margin-bottom: 18px;
+button{
+    font-weight: 600;
 }
 
 .neutral{
     background-color: #F2F2F2;
 }
-
-
-
-
-
-
-
-
 
 *{
     margin: 0;
@@ -54,22 +37,23 @@ h1{
     padding: 5px;
     overflow: hidden;
     border-radius: 30px;
+    
 }
 
 .button-box{
+    font-weight: 800;
     width: 100%;
-    top:15%;
+    top:5%;
     margin: 30px auto;
     position:relative;
     text-align: center;
-    margin: auto;
+    margin: 15px auto;
     width: 50%;
-    padding: 4px;
+    padding: 10px;
     border-radius: 30px;
 }
 
 .toggle-btn{
-    
     padding: 2% 5%;
     cursor: pointer;
     background: transparent;
@@ -85,29 +69,27 @@ h1{
     width: 110px;
     height: 100%;
     filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
-    background : #94DCCB;
+    background : #00BFA6;
     border-radius: 30px;
     transition: .5s;
 }
 
 .input-group{
-    top: 40%;
-    position: absolute;
+    text-align: center;
+    top: 25%;
+    position:absolute;
     width: 50%;
     transition: .5s;
 }
 
 .input-field{
-    padding: 10px 0;
-    margin: 15px 0;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    outline: none;
+    padding: 20px 0;
+    margin: 15px auto;
+    border:0;
     text-align: center;
     outline: none;
     border-radius: 25px;
-    box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.26);
+    box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.26);
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
@@ -115,17 +97,19 @@ h1{
 }
 
 .submit-btn{
-    padding: 7px 10px;
+    padding: 15px 15px;
+
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 15px auto;
     border: 0;
     outline: none;
     border-radius: 20px;
-    background-color: #94DCCB;
+    background-color: #00BFA6;
     filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
     color: black;
-    width:30%;
+    width:20%;
+
 }
 
 .check-box{
