@@ -11,10 +11,9 @@
             <button type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
         </div>
         <form id="connexion" class="input-group" action="view/login_verification.php" method="POST">
-            <input type="text" class="input-field" placeholder="username" required>
-            <input type="text" class="input-field" placeholder="password" required>
-            <input type="checkbox" class="check-box"><span>Remember Password</span>
-            <button type="submit" class="submit-btn">Connexion</button>
+            <input type="text" class="input-field" placeholder="username" name="username" required>
+            <input type="password" class="input-field" placeholder="password" name="password" required>
+            <button type="submit" class="submit-btn">✓</button>
             <?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
@@ -24,12 +23,12 @@
             ?>
         </form>
         <form id="inscription" class="input-group" action="view/register_verification.php" method="POST">
-            <input type="text" class="input-field" placeholder="email" name="email_register" required>
+            <input type="email" class="input-field" placeholder="email" name="email_register" required>
             <input type="text" class="input-field" placeholder="username" name="username_register" required>
-            <input type="text" class="input-field" placeholder="password" name="password_register" required>
+            <input type="password" class="input-field" placeholder="password" name="password_register" required>
             <input type="text" class="input-field" placeholder="niveau" name="niveau_register" required>
             <input type="text" class="input-field" placeholder="specialite" name="specialite_register" required>
-            <button type="submit" class="submit-btn">Inscription</button>
+            <button type="submit" class="submit-btn">✓</button>
             <?php
             if(isset($_GET['register_error'])){
                 $err = $_GET['register_error'];
@@ -37,7 +36,7 @@
                     echo "<p style='color:red'>Utilisateur déjà inscrit</p>";
                 }
                 elseif($err==2){
-                    echo "<p style='color:green'>Inscription réussite</p>";
+                    echo "<p style='color:green'>Inscription réussie</p>";
                 }
             }
             ?>
@@ -50,14 +49,14 @@
         var z = document.getElementById("btn");
 
         function inscription(){
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px";
+            x.style.left = "-100%";
+            y.style.left = "25%";
+            z.style.left = "50%";
         }
         function connexion(){
-            x.style.left = "50px";
-            y.style.left = "450px";
-            z.style.left = "0";
+            x.style.left = "25%";
+            y.style.left = "-100%";
+            z.style.left = "25%";
         }
     </script>
 </html>
