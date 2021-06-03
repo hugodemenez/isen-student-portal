@@ -19,8 +19,12 @@ recognition.onresult = function(event)
 }
 
 function alerte(){
-		recognition.lang = "fr-FR";
-		recognition.start();
+	if (!('webkitSpeechRecognition' in window)) {
+		alert("La reconnaissance vocale n'est pas disponible sur votre navigateur")}
+		else {
+			recognition.lang = "fr-FR";
+			recognition.start();
+		}
 }
 
 function afficher(){
