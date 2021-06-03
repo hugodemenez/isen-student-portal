@@ -43,7 +43,7 @@
             if(isset($_GET['register_error'])){
                 $err = $_GET['register_error'];
                 if($err==1){
-                    echo "<p style='color:red'>Impossible de se connecter à Aurion</p>";
+                    echo "<p style='color:red'>Utilisateur déjà inscrit</p>";
                 }
                 elseif($err==2){
                     echo "<p style='color:green'>Inscription réussite</p>";
