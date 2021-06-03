@@ -1,5 +1,0 @@
-import os
-import random
-music1=['C:/Users/Hakim/Desktop/Music/westworld-season-2-heart-shaped-box-ramin-djawadi-official.mp3','C:/Users/Hakim/Desktop/Music/ultimate-gaming-music-mix-2015-electrohousedubstep-dropsdrumstep.mp3','C:/Users/Hakim/Desktop/Music/official-westworld-soundtrack-paint-it-black-ramin-djawadi.mp3','C:/Users/Hakim/Desktop/Music/game-of-thrones-season-6-ost-02-blood-of-my-blood.mp3','C:/Users/Hakim/Desktop/Music/BEST MUSIC MIX - Gaming Music- Dubstep, EDM, Trap -.mp3','C:/Users/Hakim/Desktop/Music/westworld-season-2-heart-shaped-box-ramin-djawadi-official.mp3','C:/Users/Hakim/Desktop/Music/Best Pop remixes Mix 2015 New Mash Up Charts.mp3','C:/Users/Hakim/Desktop/Music/Electro & House Summer Party Dance Mix 2015.mp3']
-music2=random.choice([music1[0],music1[1],music1[2],music1[3],music1[4],music1[5],music1[6]])
-os.system(music2)
