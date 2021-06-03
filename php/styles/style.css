@@ -1,0 +1,76 @@
+body{
+    font-family: "muliregular";
+    background-image: radial-gradient(circle at center center, transparent,rgb(255,255,255)),repeating-linear-gradient(
+        135deg
+        , rgb(255,255,255) 0px, rgb(255,255,255) 12px,transparent 12px, transparent 19px,rgb(255,255,255) 19px, rgb(255,255,255) 24px,transparent 24px, transparent 28px),repeating-linear-gradient(
+        45deg
+        , rgb(245,245,245) 0px, rgb(245,245,245) 7px,transparent 7px, transparent 14px),linear-gradient(
+        90deg
+        , rgb(255,255,255),rgb(255,255,255));
+}
+
+@font-face {
+    font-family: 'muliregular';
+    src: url('../font/muli-regular-webfont.woff2') format('woff2'),
+         url('../font/muli-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+form {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    width:600px;
+    height:600px;
+    border-radius: 45px;
+    border: 1px solid white;
+    background: white;
+    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
+}
+
+h1{
+	font-size: 32px;
+	font-weight: normal;
+	font-style: normal;
+	margin-bottom: 18px;
+}
+
+
+input[type=text], input[type=password] {
+    text-align: center;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.26);
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #F2F2F2;
+}
+
+
+input[type=submit] {
+    border-radius: 20px;
+    background-color: #dbdbdb;
+    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
+    color: black;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width:30%;
+}
+input[type=submit]:hover {
+    border-radius: 20px;
+    background-color: rgb(199, 199, 199);
+    color: black;
+}
+
+.neutral{
+    background-color: #F2F2F2;
+}
