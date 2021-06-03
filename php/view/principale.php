@@ -37,6 +37,8 @@
             echo $meteo->main->temp;
 
         ?>
+    <br>
+    <a href="../index.php">Se déconnecter</a>
     <!-- Chatbot -->
     <div class="chat_icon">
     <i class="fas fa-comments"></i>
@@ -71,7 +73,4 @@
         </form>
     <!-- Chatbot -->
     </body>
-    <footer>
-    <a href="../index.php">Se déconnecter</a>
-    </footer>
 </html>
