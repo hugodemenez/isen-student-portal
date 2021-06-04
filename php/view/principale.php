@@ -1,6 +1,8 @@
 <html>
     <link rel="stylesheet" href="../styles/chatbot_style.css" media="screen" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/jquery.convform.css">
+    <link rel="stylesheet" type="text/css" href="../styles/principale.css">
+    <link rel="stylesheet" type="text/css" href="../styles/weather.css">
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
     <script type="text/javascript" src="../js/jquery.convform.js"></script>
@@ -13,9 +15,9 @@
         <?php
             session_start();
             if (isset($_SESSION['username'])) {
-            echo 'Bienvenue, '.$_SESSION['username']; 
+            echo "<h1>".'Bienvenue, '.$_SESSION['username']."</h1>";
             } else {
-            echo "Vous n'êtes pas connecté";
+            echo "<h1>Vous n'êtes pas connecté</h1>";
             }
             $apiKey = "ef7a9b79630b7257c06221b69e13fdb9";
             $cityId = "2998324";
@@ -33,12 +35,17 @@
     
             curl_close($ch);
             $meteo = json_decode($response);
-            echo "<br />".$meteo->weather[0]->description . "<br />";
-            echo $meteo->main->temp;
+            echo "<div class='hot'><span class='sun'>".$meteo->main->temp."°C</span><span class='sunx'></span></div>";
 
         ?>
+        
     <br>
-    <a href="../index.php">Se déconnecter</a>
+    <form action="../index.php">
+    <?php
+    session_destroy ();
+    ?>
+    <button class= "logout-btn">Se déconnecter</button>
+    </form>
     <!-- Chatbot -->
     <div class="chat_icon">
     <i class="fas fa-comments"></i>

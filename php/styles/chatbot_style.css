@@ -9,12 +9,15 @@
 }
 
 .chat_box{
+    border-radius: 24px;
+    font-family: "Poppins", sans-serif;
     position: fixed;
     right: 40px;
     bottom: 100px;
     width: 400px;
     height: 80vh;
-    background: #dedede;
+    background: white;
+    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
     z-index: 1000;
     transition: all 0.3s ease-out;
     transform: scaleY(0);
@@ -29,7 +32,7 @@
 }
 
 .conv-form-wrapper textarea{
-    height: 30px;
+    height: 10px;
     overflow: hidden;
     resize: none;
 }
