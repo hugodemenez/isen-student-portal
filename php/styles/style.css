@@ -2,7 +2,7 @@
 
 
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 960px){
     body{
         background-color: #fcfcfc;
         opacity: 1;
@@ -139,7 +139,7 @@
     }
 
 
-@media only screen and (max-width: 1600px) and (min-width: 900px){
+@media only screen and (max-width: 1600px) and (min-width: 960px){
     body{
         background-color: #fcfcfc;
         opacity: 1;
