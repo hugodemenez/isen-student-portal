@@ -27,8 +27,8 @@ recognition.onresult = function(event)
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
 	let re = /planning/;
-	if (texte.search(re) != -1) 
-	{texte_comprendre = "voici le planning de votre journée";}
+	if (texte.search(/planning/) != -1 ) {texte_comprendre = "voici le planning de votre journée";}
+	if (texte.search(/note/) != -1) {texte_comprendre = "voici votre dernière note: "}
 	else {texte_comprendre = "l'instruction n'est pas clair";}
 	return texte_comprendre;
 }
