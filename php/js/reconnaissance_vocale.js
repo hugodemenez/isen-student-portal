@@ -11,13 +11,10 @@ prononcer.addEventListener('click' ,synthetiser);
 
 
 
-let final_transcript = '';
+let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
 recognition.interimResults = true;
-	 
-
-
 recognition.onresult = function(event) 
 { 
 	//alert(event.results[0][0].transcript);
@@ -27,11 +24,11 @@ recognition.onresult = function(event)
 
 
 
-function comprendre(texte){
+function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
 	let re = /planning/;
 	if (texte.search(re) != -1) 
-	{texte_comprendre = "afficher le planning";}
+	{texte_comprendre = "voici le planning de votre journée";}
 	else {texte_comprendre = "l'instruction n'est pas clair";}
 	return texte_comprendre;
 }
