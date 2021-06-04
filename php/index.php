@@ -29,7 +29,7 @@
             <input type="password" class="input-field" placeholder="password" name="password_register" required>
             <input type="text" class="input-field" placeholder="niveau" name="niveau_register" required>
             <input type="text" class="input-field" placeholder="specialite" name="specialite_register" required>
-            <button type="submit" class="submit-btn">S'inscrir</button>
+            <button type="submit" class="submit-btn">S'inscrire</button>
             <?php
             if(isset($_GET['register_error'])){
                 $err = $_GET['register_error'];
