@@ -29,7 +29,7 @@ recognition.onresult = function(event)
 function synthetiser(message){
 	let msg = new SpeechSynthesisUtterance();
 	let voices = window.speechSynthesis.getVoices();
-	msg.voice = voices[10]; // Note: some voices don't support altering params
+	msg.voice = voices[6]; // Note: some voices don't support altering params
 	msg.voiceURI = 'native';
 	msg.volume = 1; // 0 to 1
 	msg.rate = 1; // 0.1 to 2
