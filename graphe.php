@@ -1,8 +1,9 @@
-<?php // content="text/plain; charset=utf-8"
-require_once ('jpgraph/jpgraph.php');
-require_once ('jpgraph/jpgraph_pie.php');
+<?php
+ini_set('display_errors', 'on');
+require_once ('jpgraph-4.3.4/src/jpgraph.php');
+require_once ('jpgraph-4.3.4/src/jpgraph_pie.php');
 // Some data
-$data = array(40,21,17,14,23);
+$data = array(40,60);
 
 // Create the Pie Graph. 
 $graph = new PieGraph(350,250);
