@@ -21,15 +21,7 @@ recognition.interimResults = true;
 
 
 
-var msg = new SpeechSynthesisUtterance();
-var voices = window.speechSynthesis.getVoices();
-msg.voice = voices[10]; // Note: some voices don't support altering params
-msg.voiceURI = 'native';
-msg.volume = 1; // 0 to 1
-msg.rate = 2; // 0.1 to 2
-msg.pitch =1; //0 to 2
-msg.text = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul";
-msg.lang = 'fr-FR'
+
 
 
 
@@ -39,9 +31,23 @@ recognition.onresult = function(event)
 	final_transcript = event.results[0][0].transcript;
 	
 }
+function init(message){
+	let msg = new SpeechSynthesisUtterance();
+	let voices = window.speechSynthesis.getVoices();
+	msg.voice = voices[10]; // Note: some voices don't support altering params
+	msg.voiceURI = 'native';
+	msg.volume = 1; // 0 to 1
+	msg.rate = 1; // 0.1 to 2
+	msg.pitch =1; //0 to 2
+	msg.text = message
+	}
+
+let jj = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul"
+
 
 function synthetiser(){
-	
+
+init(jj)
 speechSynthesis.speak(msg);
 
 }
