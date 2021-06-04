@@ -27,12 +27,12 @@
 
 <div id ="GESTION">
 <h2>Gestion de projet</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/a579c3dd82197ade58e5c8727bf4661bed7ccd28/assets/grantt.svg?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/4b599a2f103d4208800308d49610600feba39c62/assets/gantt.svg?sanitize=true' width=100%>
 <p>Nous avons créé un projet sur github avec une liste des différentes tâches classées selon leur état d'avancement :</p>
 <li><a href ='https://github.com/hugodemenez/Projet_2021_Informatique/projects/1'>Suivre l'état d'avancement du projet</a></li>
 <br>
 <p>Nous nous sommes entendus pour avoir une répartition équitable des tâches :</p>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/a579c3dd82197ade58e5c8727bf4661bed7ccd28/assets/repartition.svg?sanitize=true' width=100%>
+<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/4b599a2f103d4208800308d49610600feba39c62/assets/repartition.svg?sanitize=true' width=100%>
 </div>
 
 <div id="SCRUM">
