@@ -42,10 +42,11 @@ function init(message){
 	msg.text = message
 	}
 
-let jj = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul" // message que l'on veut dire
+
 
 
 function synthetiser(){
+let jj = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul" // message que l'on veut dire
 init(jj)
 speechSynthesis.speak(msg);
 
