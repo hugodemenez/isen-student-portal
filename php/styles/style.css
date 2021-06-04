@@ -1,133 +1,423 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-body{
-    background-color: #fcfcfc;
-    opacity: 1;
-    background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
-    background-size: 34px 34px;
-    background-position: 0 0,17px 17px;
-}
-input,button{
-    font-family: "Poppins", sans-serif;
-}
-
-button{
-    font-weight: 600;
-}
-
-.neutral{
-    background-color: #F2F2F2;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-}
 
 
-.form-box{
-    margin: 30px auto;
-    width: 50%;
-    height: 80%;
-    position: relative;
-    margin: 6% auto;
-    background: white;
-    filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
-    padding: 5px;
-    overflow: hidden;
-    border-radius: 30px;
+
+@media only screen and (max-width: 900px){
+    body{
+        background-color: #fcfcfc;
+        opacity: 1;
+        background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
+        background-size: 34px 34px;
+        background-position: 0 0,17px 17px;
+    }
+    input,button{
+        font-family: "Poppins", sans-serif;
+    }
+    
+    button{
+        font-weight: 600;
+    }
+    
+    .neutral{
+        background-color: #F2F2F2;
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
     
     
+    .form-box{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin : 0 auto;
+        background: white;
+        filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 0; 
+        overflow: auto;
+    }
+    
+    .button-box{
+        top:5%;
+        margin: 0px auto;
+        position:relative;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0.5vh;
+        border-radius: 30px;
+    }
+    
+    .toggle-btn{
+        font-weight: 600;
+        padding: 2vh 5vw;
+        cursor: pointer;
+        background:none;
+        border: 0;
+        outline: none;
+        position: relative;
+    }
+    
+    #btn{
+        top: 0;
+        left: 25%;
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        background : #00BFA6;
+        border-radius: 30px;
+        transition: .5s;
+    }
+    
+    .input-group{
+        text-align: center;
+        top: 20vh;
+        position:absolute;
+        width: 50%;
+        transition: .5s;
+    }
+    
+    .input-field{
+        padding: 3vh 0;
+        margin: 1vh auto;
+        border:0;
+        text-align: center;
+        outline: none;
+        border-radius: 25px;
+        box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.26);
+        width: 75%;
+        display: flex;
+        background-color: #F2F2F2;
+        overflow: hidden;
+    }
+    
+    .submit-btn{
+        font-weight: 400;
+        padding: 15px 15px;
+        cursor: pointer;
+        display: block;
+        margin: 15px auto;
+        border: 0;
+        outline: none;
+        border-radius: 20px;
+        background-color: #00BFA6;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        color: black;
+        width:75%;
+    }
+    
+    .check-box{
+        margin: 30px 10px 30px 0;
+    }
+    
+    span{
+        color: rgb(119, 119, 119);
+        font-size: 15px;
+        bottom: 58px;
+        position: absolute; 
+    }
+    .img-background{
+        height:30%;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        z-index:-1;
+    }
+    #connexion{
+        left: 25%;
+    
+    }
+    
+    #inscription{
+        left: -100%;
+    }
+    }
+
+
+@media only screen and (max-width: 1600px) and (min-width: 900px){
+    body{
+        background-color: #fcfcfc;
+        opacity: 1;
+        background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
+        background-size: 34px 34px;
+        background-position: 0 0,17px 17px;
+    }
+    input,button{
+        font-family: "Poppins", sans-serif;
+    }
+    
+    button{
+        font-weight: 600;
+    }
+    
+    .neutral{
+        background-color: #F2F2F2;
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    .form-box{
+        top:10%;
+        width: 80%;
+        height: 75%;
+        position: relative;
+        margin : 0 auto;
+        background: white;
+        filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 25px; 
+        overflow: auto;
+    }
+    
+    .button-box{
+        top:5%;
+        margin: 0px auto;
+        position:relative;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0.5vh;
+        border-radius: 30px;
+    }
+    
+    .toggle-btn{
+        font-weight: 600;
+        padding: 2vh 5vw;
+        cursor: pointer;
+        background:none;
+        border: 0;
+        outline: none;
+        position: relative;
+    }
+    
+    #btn{
+        top: 0;
+        left: 25%;
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        background : #00BFA6;
+        border-radius: 30px;
+        transition: .5s;
+    }
+    
+    .input-group{
+        text-align: center;
+        top: 20vh;
+        position:absolute;
+        width: 50%;
+        transition: .5s;
+    }
+    
+    .input-field{
+        padding: 3vh 0;
+        margin: 1vh auto;
+        border:0;
+        text-align: center;
+        outline: none;
+        border-radius: 25px;
+        box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.26);
+        width: 75%;
+        display: flex;
+        background-color: #F2F2F2;
+        overflow: hidden;
+    }
+    
+    .submit-btn{
+        font-weight: 400;
+        padding: 15px 15px;
+        cursor: pointer;
+        display: block;
+        margin: 15px auto;
+        border: 0;
+        outline: none;
+        border-radius: 20px;
+        background-color: #00BFA6;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        color: black;
+        width:75%;
+    }
+    
+    .check-box{
+        margin: 30px 10px 30px 0;
+    }
+    
+    span{
+        color: rgb(119, 119, 119);
+        font-size: 15px;
+        bottom: 58px;
+        position: absolute; 
+    }
+    .img-background{
+        height:30%;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        z-index:1;
+    }
+
+    #connexion{
+        left: 25%;
+    
+    }
+    
+    #inscription{
+        left: -100%;
+    }
+
+    }
+
+    
+
+
+@media only screen and (max-width: 6000px) and (min-width: 1600px){
+    body{
+        background-color: #fcfcfc;
+        opacity: 1;
+        background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
+        background-size: 34px 34px;
+        background-position: 0 0,17px 17px;
+    }
+    input,button{
+        font-family: "Poppins", sans-serif;
+    }
+    
+    button{
+        font-weight: 600;
+    }
+    
+    .neutral{
+        background-color: #F2F2F2;
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    .form-box{
+        margin: 30px auto;
+        width: 50%;
+        height: 80%;
+        position: relative;
+        margin: 6% auto;
+        background: white;
+        filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 30px;
+        
+        
+    }
+    
+    .button-box{
+        font-weight: 800;
+        width: 100%;
+        top:5%;
+        margin: 30px auto;
+        position:relative;
+        text-align: center;
+        margin: 15px auto;
+        width: 50%;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    
+    .toggle-btn{
+        padding: 2% 5%;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        outline: none;
+        position: relative;
+    }
+    
+    #btn{
+        top: 0;
+        left: 25%;
+        position: absolute;
+        width: 110px;
+        height: 100%;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        background : #00BFA6;
+        border-radius: 30px;
+        transition: .5s;
+    }
+    
+    .input-group{
+        text-align: center;
+        top: 25%;
+        position:absolute;
+        width: 50%;
+        transition: .5s;
+    }
+    
+    .input-field{
+        padding: 20px 0;
+        margin: 15px auto;
+        border:0;
+        text-align: center;
+        outline: none;
+        border-radius: 25px;
+        box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.26);
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: #F2F2F2;
+    }
+    
+    .submit-btn{
+        font-weight: 400;
+        padding: 15px 15px;
+        cursor: pointer;
+        display: block;
+        margin: 15px auto;
+        border: 0;
+        outline: none;
+        border-radius: 20px;
+        background-color: #00BFA6;
+        filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
+        color: black;
+        width:75%;
+    }
+    
+    .check-box{
+        margin: 30px 10px 30px 0;
+    }
+    
+    span{
+        color: rgb(119, 119, 119);
+        font-size: 15px;
+        bottom: 58px;
+        position: absolute; 
+    }
+    .img-background{
+        height:30%;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        z-index:1;
+    }
+    
+    #connexion{
+        left: 25%;
+    
+    }
+    
+    #inscription{
+        left: -100%;
+    }
 }
-
-.button-box{
-    font-weight: 800;
-    width: 100%;
-    top:5%;
-    margin: 30px auto;
-    position:relative;
-    text-align: center;
-    margin: 15px auto;
-    width: 50%;
-    padding: 10px;
-    border-radius: 30px;
-}
-
-.toggle-btn{
-    padding: 2% 5%;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-
-#btn{
-    top: 0;
-    left: 25%;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    filter: drop-shadow(0 0 0.1rem rgb(105, 105, 105));
-    background : #00BFA6;
-    border-radius: 30px;
-    transition: .5s;
-}
-
-.input-group{
-    text-align: center;
-    top: 25%;
-    position:absolute;
-    width: 50%;
-    transition: .5s;
-}
-
-.input-field{
-    padding: 20px 0;
-    margin: 15px auto;
-    border:0;
-    text-align: center;
-    outline: none;
-    border-radius: 25px;
-    box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.26);
-    width: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-    background-color: #F2F2F2;
-}
-
-.submit-btn{
-    padding: 15px 15px;
-
-    cursor: pointer;
-    display: block;
-    margin: 15px auto;
-    border: 0;
-    outline: none;
-    border-radius: 20px;
-    background-color: #00BFA6;
-    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
-    color: black;
-    width:20%;
-
-}
-
-.check-box{
-    margin: 30px 10px 30px 0;
-}
-
-span{
-    color: rgb(119, 119, 119);
-    font-size: 15px;
-    bottom: 58px;
-    position: absolute; 
-}
-
-#connexion{
-    left: 25%;
-
-}
-
-#inscription{
-    left: -100%;
-}
-
+    
