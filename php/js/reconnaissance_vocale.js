@@ -11,7 +11,7 @@ prononcer.addEventListener('click' , synthetiser);
 
 
 
-let final_transcript = '';
+let final_transcript = 'Test, Bonjour';
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
 recognition.interimResults = true;
@@ -42,11 +42,10 @@ function init(message){
 	msg.text = message
 	}
 
-let jj = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul"
+let jj = "Sacha suce son sachet chaud sans chasser avec ses chiens sachant se sécher tout seul" // message que l'on veut dire
 
 
 function synthetiser(){
-
 init(jj)
 speechSynthesis.speak(msg);
 
