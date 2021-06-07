@@ -13,7 +13,9 @@
         </div>
         <form id="connexion" class="input-group" action="view/login_verification.php" method="POST">
             <input type="text" class="input-field" placeholder="username" name="username" required>
-            <input type="password" class="input-field" placeholder="password" name="password" required>
+            <input type="password" class="input-field" placeholder="password" name="password" required id="password">
+            
+            <div class="check-box"><input type="checkbox" onclick="reveal_password()">Show Password</div>
             <button type="submit" class="submit-btn">Se connecter</button>
             <?php
             if(isset($_GET['erreur'])){
@@ -26,9 +28,8 @@
         <form id="inscription" class="input-group" action="view/register_verification.php" method="POST">
             <input type="email" class="input-field" placeholder="email" name="email_register" required>
             <input type="text" class="input-field" placeholder="username" name="username_register" required>
-            <input type="password" class="input-field" placeholder="password" name="password_register" required>
-            <input type="text" class="input-field" placeholder="niveau" name="niveau_register" required>
-            <input type="text" class="input-field" placeholder="specialite" name="specialite_register" required>
+            <input type="password" class="input-field" placeholder="password" name="password_register" required id="password">
+            <div class="check-box"><input type="checkbox" onclick="reveal_password()">Show Password</div>
             <button type="submit" class="submit-btn">S'inscrire</button>
             <?php
             if(isset($_GET['register_error'])){
@@ -61,6 +62,15 @@
             x.style.left = "25%";
             y.style.left = "-100%";
             z.style.left = "25%";
+        }
+
+        function reveal_password() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
         }
     </script>
 </html>

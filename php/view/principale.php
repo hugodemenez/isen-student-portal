@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
     <script type="text/javascript" src="../js/jquery.convform.js"></script>
+    <script src='../js/reconnaissance_vocale.js' async></script>
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     <head>
     <meta charset="utf-8">
@@ -44,6 +45,13 @@
         ?>
         <button class= "logout-btn">Se déconnecter</button>
     </form>
+    <!-- Vocal Assistant -->
+    <button id='b1'>
+    <div class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
+    </button>
+   
+
+    <!-- Vocal Assistant -->
     <!-- Chatbot -->
     <div class="chat_icon">
     <i class="fas fa-comments"></i>
