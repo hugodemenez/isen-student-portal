@@ -1,20 +1,32 @@
+
 from seleniumwire import webdriver
-from selenium.webdriver import FirefoxOptions
 from time import sleep
 import json
 import re
-
-
-
+from selenium.webdriver import FirefoxOptions
 class scraping():
     """
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
-        #Configuration du Headless Webbrowser
-        opts = FirefoxOptions()
-        opts.add_argument("--headless")
-        self.driver = webdriver.Firefox(firefox_options=opts)
+        from selenium import webdriver 
+        DRIVER_LOCATION = "/usr/bin/chromedriver" 
+        BINARY_LOCATION = "/usr/bin/google-chrome" 
+
+        # start selenium
+        options = webdriver.ChromeOptions() 
+        options.binary_location = BINARY_LOCATION 
+
+        driver = webdriver.Chrome(executable_path=DRIVER_LOCATION, options=options) 
+
+        driver.get("https://www.imdb.com") 
+        print(driver.page_source.encode('utf-8')) 
+
+        # close browser and quit driver
+        driver.close() 
+        driver.quit() 
+
+        
 
     def getting_identification_from_database(self):
         #Exemple avec un utilisateur
@@ -41,7 +53,7 @@ class scraping():
 
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
-
+        print (self.driver.page_source.encode("utf-8"))
         #Remplissage du nom utilisateur
         inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
@@ -56,7 +68,6 @@ class scraping():
         #Recherche de la zone pour acceder au planning
         counter=0
         while(True):
-            
             try:
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 break
