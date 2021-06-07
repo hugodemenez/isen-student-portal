@@ -66,9 +66,8 @@
                     $results = $conn->query("SELECT * FROM query WHERE username='$username_register'");
                     $planning = implode(" ",$results);
                     
-                    echo "<input type='text' data-conv-question='".$planning."'>";
-                    ?>
-                    
+                    echo "<input type='text' data-conv-question='".$planning."'data-no-answer='true'>";
+                    ?>   
 	            </div>
 	            <div data-conv-case="note">
 		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">
