@@ -61,8 +61,11 @@
 	            <div data-conv-case="planning">
 	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
                     <?php 
-                    $planning = ['Maths','Francais'];
-                    $planning  = implode("|",$planning);
+                    include '../db/db_connection.php';
+                    $conn = OpenCon();
+                    $results = $conn->query("SELECT * FROM query WHERE username='$username_register'");
+                    $planning = implode(" ",$results);
+                    
                     echo "<input type='text' data-conv-question='".$planning."'>";
                     ?>
                     
