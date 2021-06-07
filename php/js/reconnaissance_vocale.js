@@ -17,7 +17,7 @@ recognition.onspeechend = function(){
 	buffer = comprendre(final_transcript);
 	if (buffer != "-1"){
 	document.location.href=buffer;}
-	if (buffer == "-1") { alert("L'instruction n'est pas clair");}
+	if (buffer == "-1") { alert("L'instruction n'est pas claire");}
 }
 
 
