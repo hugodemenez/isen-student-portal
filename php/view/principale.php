@@ -62,7 +62,7 @@
 	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
                     <?php 
                     $planning = ['Maths','Francais'];
-                    $planning  = ;
+                    $planning  = implode("|",$planning);
                     echo "<input type='text' data-conv-question='".$planning."'>";
                     ?>
                     
