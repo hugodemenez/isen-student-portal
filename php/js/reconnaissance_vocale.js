@@ -1,9 +1,7 @@
 let enregistrement_audio = document.getElementById('b1');
-let ajouter = document.getElementById('b2');
 let prononcer = document.getElementById('b3');
 
 
-ajouter.addEventListener('click', afficher);
 enregistrement_audio.addEventListener('click', alerte);
 //prononcer.addEventListener('click' , function(){synthetiser("pourquoi")});
 prononcer.addEventListener('click' ,synthetiser);
@@ -19,18 +17,22 @@ recognition.onresult = function(event)
 { 
 	//alert(event.results[0][0].transcript);
 	final_transcript = event.results[0][0].transcript;
-	
 }
+recognition.onspeechend = function(){
+	buffer = comprendre(final_transcript);
+	if (buffer != "-1"){
+	document.location.href=buffer;}
+	if (buffer == "-1") { alert("L'instruction n'est pas clair");}
+}
+
 
 
 
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
-	let re = /planning/;
-	if (texte.search(/planning/) != -1 ) {texte_comprendre = "voici le planning de votre journée";}
-	if (texte.search(/note/) != -1) {texte_comprendre = "voici votre dernière note: "}
-	if (text.search(/note/)!= -1) {texte_comprendre = "Voici la météo: "}
-	else {texte_comprendre = "l'instruction n'est pas clair";}
+	if (texte.search(/planning/) != -1 ) {texte_comprendre = "http://iseninfo.fr/";}
+	if (texte.search(/note/) != -1) {texte_comprendre = "http://iseninfo.fr/"}
+	else {texte_comprendre = "-1";}
 	return texte_comprendre;
 }
 
@@ -46,11 +48,6 @@ function alerte(){
 	}
 }
 
-function afficher(){
-    let para = document.createElement('p');
-    para.textContent = comprendre(final_transcript);
-    document.body.appendChild(para);
-}
 function synthetiser(){
 	let msg = new SpeechSynthesisUtterance();
 	let voices = window.speechSynthesis.getVoices();
