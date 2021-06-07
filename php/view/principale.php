@@ -39,10 +39,10 @@
         ?>
     <br>
     <form action="../index.php">
-    <?php
-    session_destroy ();
-    ?>
-    <button class= "logout-btn">Se déconnecter</button>
+        <?php
+        session_destroy ();
+        ?>
+        <button class= "logout-btn">Se déconnecter</button>
     </form>
     <!-- Chatbot -->
     <div class="chat_icon">
@@ -59,10 +59,12 @@
             </select>
             <div data-conv-fork="programmer">
 	            <div data-conv-case="planning">
-	 	            <input type="text" data-conv-question="Votre planning est le suivant :">
-                     <?php 
-                     echo "<input type="text" data-conv-question='Test'>"
-                     ?>
+	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
+                    <?php 
+                    $planning = ['Maths','Francais'];
+                    $planning  = ;
+                    echo "<input type='text' data-conv-question='".$planning."'>";
+                    ?>
                     
 	            </div>
 	            <div data-conv-case="note">
