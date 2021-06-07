@@ -1,13 +1,8 @@
 let enregistrement_audio = document.getElementById('b1');
-let prononcer = document.getElementById('b3');
 
 
 enregistrement_audio.addEventListener('click', alerte);
 //prononcer.addEventListener('click' , function(){synthetiser("pourquoi")});
-prononcer.addEventListener('click' ,synthetiser);
-
-
-
 
 let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
@@ -24,8 +19,6 @@ recognition.onspeechend = function(){
 	document.location.href=buffer;}
 	if (buffer == "-1") { alert("L'instruction n'est pas clair");}
 }
-
-
 
 
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
@@ -46,16 +39,4 @@ function alerte(){
 		recognition.lang = "fr-FR";
 		recognition.start();
 	}
-}
-
-function synthetiser(){
-	let msg = new SpeechSynthesisUtterance();
-	let voices = window.speechSynthesis.getVoices();
-	msg.voice = voices[6]; //6 pour la voix française
-	msg.voiceURI = 'native';
-	msg.volume = 1; // 0 to 1
-	msg.rate = 1; // 0.1 to 2
-	msg.pitch =2; //0 to 2
-	msg.text = comprendre(final_transcript);
-	speechSynthesis.speak(msg);
 }
