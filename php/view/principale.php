@@ -35,16 +35,14 @@
     
             curl_close($ch);
             $meteo = json_decode($response);
-            echo "<div class='hot'><span class='sun'>".$meteo->main->temp."°C</span><span class='sunx'></span></div>";
-
+            echo "<div class='container'><div class='weatherIcon'><div class=".$meteo->weather[0]->main."><div class='inner'><div style='position: absolute; top:120%;left:50%;'>".$meteo->main->temp."°C</div></div></div></div></div>";
         ?>
-        
     <br>
     <form action="../index.php">
-    <?php
-    session_destroy ();
-    ?>
-    <button class= "logout-btn">Se déconnecter</button>
+        <?php
+        session_destroy ();
+        ?>
+        <button class= "logout-btn">Se déconnecter</button>
     </form>
     <!-- Chatbot -->
     <div class="chat_icon">
@@ -61,7 +59,13 @@
             </select>
             <div data-conv-fork="programmer">
 	            <div data-conv-case="planning">
-	 	            <input type="text" data-conv-question="Votre planning est le suivant :">
+	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
+                    <?php 
+                    $planning = ['Maths','Francais'];
+                    $planning  = ;
+                    echo "<input type='text' data-conv-question='".$planning."'>";
+                    ?>
+                    
 	            </div>
 	            <div data-conv-case="note">
 		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">

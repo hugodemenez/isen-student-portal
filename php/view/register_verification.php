@@ -15,6 +15,7 @@ if (mysqli_num_rows($results)==1){
 else{
     $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
     CloseCon($conn);
-    header('Location: ../index.php?register_error=2');
+    $username=$username_register;
+    header('Location: ../principale.php');
 }
 ?>
