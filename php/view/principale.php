@@ -35,10 +35,8 @@
     
             curl_close($ch);
             $meteo = json_decode($response);
-            echo "<div class='hot'><span class='sun'>".$meteo->main->temp."°C</span><span class='sunx'></span></div>";
-
+            echo "<div class='container'><div class='weatherIcon'><div class=".$meteo->weather[0]->main."><div class='inner'><div style='position: absolute; top:120%;left:50%;'>".$meteo->main->temp."°C</div></div></div></div></div>";
         ?>
-        
     <br>
     <form action="../index.php">
     <?php
@@ -62,6 +60,10 @@
             <div data-conv-fork="programmer">
 	            <div data-conv-case="planning">
 	 	            <input type="text" data-conv-question="Votre planning est le suivant :">
+                     <?php 
+                     echo "<input type="text" data-conv-question='Test'>"
+                     ?>
+                    
 	            </div>
 	            <div data-conv-case="note">
 		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">
