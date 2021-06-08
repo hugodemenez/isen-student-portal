@@ -43,7 +43,7 @@
         <?php
         session_destroy ();
         ?>
-        <button class= "logout-btn">Se déconnecter</button>
+        <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
     </form>
     <!-- Vocal Assistant -->
     <button id='b1'>
