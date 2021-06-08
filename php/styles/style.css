@@ -82,8 +82,10 @@
         width: 100%;
         display: flex;
         overflow: hidden;
-        border-radius: 25px;
-        background: #e3e4ea;
+        border-radius: 10px;
+        background: #2F2D52;
+        color:white;
+        
     }
     
     .submit-btn{
@@ -92,13 +94,14 @@
         cursor: pointer;
         display: block;
         margin: 100px auto;
-        border: 0;
         outline: none;
-        border-radius: 50px;
-        background: #ffffff;
-        box-shadow:  5px 5px 17px #dbdbdb,
-                     -5px -5px 17px #ffffff;
         width:75%;
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
     
     .check-box{
