@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 body{
-    background-color: #fcfcfc;
-    opacity: 1;
-    background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
-    background-size: 34px 34px;
-    background-position: 0 0,17px 17px;
     font-size: 16px;
     overflow: hidden;
 }
@@ -40,11 +35,7 @@ button,input,h1{
     overflow: hidden;
     border-radius: 0; 
     overflow: auto;
-    background-color: #74EBD5;
-background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-
-
-
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
 
 }
 

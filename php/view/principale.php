@@ -11,6 +11,7 @@
     <head>
     <meta charset="utf-8">
         <link rel="stylesheet" href="../style/style.css" media="screen" type="text/css" />
+        <title>IsenInfo - Accueil</title>
     </head>
     <body class="neutral">
         <?php
@@ -36,7 +37,17 @@
     
             curl_close($ch);
             $meteo = json_decode($response);
-            echo "<div class='container'><div class='weatherIcon'><div class=".$meteo->weather[0]->main."><div class='inner'><div style='position: absolute; top:120%;left:50%;'>".$meteo->main->temp."°C</div></div></div></div></div>";
+            $temperature = $meteo->main->temp;
+            $temperature=substr($temperature, 0, strpos($temperature, "."));
+            echo "<div class='container'><div class='weatherIcon'><div class=".$meteo->weather[0]->main."><div class='inner'><div style='position: absolute; top:120%;left:50%;'>".$temperature."°C</div></div></div></div></div>";
+            $weather = $meteo->weather[0]->main;
+            if ($weather=== "sun"){
+                $content= '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
+            }
+            elseif( $weather==="Clouds"){
+                $content='<div class="cloudy"><span class="cloud"></span><span class="cloudx"></span></div>';
+            }       
+            echo '<div class="weather"><div class="temperature">'.$temperature.'</div>'.$content.'</div>';
         ?>
     <br>
     <form action="../index.php">
@@ -46,9 +57,9 @@
         <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
     </form>
     <!-- Vocal Assistant -->
-    <button id='b1'>
-    <div class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
-    </button>
+    
+    <div id='b1' class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
+    
    
 
     <!-- Vocal Assistant -->
