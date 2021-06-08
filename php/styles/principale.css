@@ -56,4 +56,5 @@ h1{
     z-index: 1000;
     color: aliceblue;
     filter: drop-shadow(5px 10px 10px #1a1a1a);
+    transform: translate(0%,-50%);
 }
