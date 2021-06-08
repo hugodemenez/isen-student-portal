@@ -3,9 +3,11 @@
     right: 30px;
     bottom: 0;
     font-size: 80px;
-    color: #3AB395;
+
     cursor: pointer;
     z-index: 1000;
+    color: aliceblue;
+    filter: drop-shadow(5px 10px 10px #1a1a1a);
 }
 
 .chat_box{

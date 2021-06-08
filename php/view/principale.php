@@ -12,6 +12,11 @@
     <meta charset="utf-8">
         <link rel="stylesheet" href="../style/style.css" media="screen" type="text/css" />
         <title>IsenInfo - Accueil</title>
+        <?php
+            header('Cache-Control: no-cache, no-store, must-revalidate');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+        ?>
     </head>
     <body class="neutral">
         <?php
@@ -44,10 +49,11 @@
             if ($weather=== "sun"){
                 $content= '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
             }
-            elseif( $weather==="Clouds"){
+            elseif( $weather==="Clouds" or $weather=="Clear"){
                 $content='<div class="cloudy"><span class="cloud"></span><span class="cloudx"></span></div>';
             }       
-            echo '<div class="weather"><div class="temperature">'.$temperature.'</div>'.$content.'</div>';
+            echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
+            
         ?>
     <br>
     <form action="../index.php">

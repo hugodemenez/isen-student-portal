@@ -1,7 +1,7 @@
 
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-div
+.cloudy,.hot
 {
 	width:130px;
 	height:130px;
@@ -14,8 +14,17 @@ div
 	font-family: "Poppins", sans-serif;
 	font-weight: bold;
 	z-index: 0;
-	bottom:5px;
-	right:5px;
+	position:absolute;
+	transform: translate(+50%,+50%);
+	top: 100%;
+	left: 100%;
+	font-size: 50px;
+	color: #e0e5eb;
+	text-shadow: 
+	-8px -8px 12px rgba(255,255,255,0.4),
+	8px 8px 12px rgba(0,0,0,0.08);
+	caret-color:#262626;
+	outline: none;
 }
 .weather {
 	position:absolute;
