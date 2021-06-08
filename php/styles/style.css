@@ -1,19 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 body{
-    
     background-color: #fcfcfc;
     opacity: 1;
     background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
     background-size: 34px 34px;
     background-position: 0 0,17px 17px;
+    font-size: 16px;
+    overflow: hidden;
 }
 
 
-button,input{
+button,input,h1{
     font-weight: 400;
     font-family: "Poppins", sans-serif;
+    color:#2F2D52;
+    font-size: 16px;
 }
+
+
 
 .neutral{
     background-color: #F2F2F2;
@@ -30,12 +35,17 @@ button,input{
     height: 100%;
     position: relative;
     margin : 0 auto;
-    background: #f9fbff;
     filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
     padding: 5px;
     overflow: hidden;
     border-radius: 0; 
     overflow: auto;
+    background-color: #74EBD5;
+background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+
+
+
+
 }
 
 .button-box{
@@ -47,18 +57,22 @@ button,input{
     width: 100%;
     padding: 0.5vh;
     border-radius: 30px;
+    
 }
 
 .toggle-btn{
     font-weight: 600;
-    padding: 2vh 5vw;
+    padding-top: 2vh;
+    padding-bottom:4vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
     cursor: pointer;
     background:none;
     border: 0;
     outline: none;
     position: relative;
+    
 }
-
 
 
 .input-group{
@@ -67,6 +81,40 @@ button,input{
     position:absolute;
     width: 50%;
     transition: .5s;
+    
+}
+
+.field_group{
+    border-radius: 100px;
+    padding: 2vh 0;
+    margin: 1vh auto;
+    border:0;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    background: rgba( 105, 103, 194, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color:white; 
+}
+
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover, 
+.input-field:-webkit-autofill:focus, 
+.input-field:-webkit-autofill:active
+{
+    background: rgba( 105, 103, 194, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 15px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width:50%;
 }
 
 .input-field{
@@ -78,25 +126,27 @@ button,input{
     width: 100%;
     display: flex;
     overflow: hidden;
-    border-radius: 10px;
-    background: #2F2D52;
-    color:white;
-    
+    background: none;
+    color:rgb(255, 255, 255); 
 }
 
+input::placeholder {
+    color: rgb(218, 218, 218);
+  }
+
 .submit-btn{
-    font-weight: 400;
-    padding: 15px 15px;
+    padding: 10px;
     cursor: pointer;
     display: block;
-    margin: 100px auto;
+    margin: auto;
+    margin-top: 50px;
     outline: none;
-    width:75%;
+    width:100%;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
+    border-radius: 25px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
@@ -107,7 +157,6 @@ button,input{
 
 span{
     color: rgb(119, 119, 119);
-    font-size: 15px;
     bottom: 58px;
     position: absolute; 
 }
@@ -132,5 +181,5 @@ span{
     width: 100%;
     margin-bottom: 15px;
 }
-}
+
 

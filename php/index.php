@@ -1,7 +1,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css" />
+        <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+        <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css"/>
         <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -14,10 +15,10 @@
         </div>
         <form id="connexion" class="input-group" action="view/login_verification.php" method="POST">
     
-            <i class="fas fa-user input-field">
+            <i class="fas fa-user field_group">
             <input type="text" class="input-field" placeholder="username" name="username" required>
             </i>
-            <i class="fas fa-lock input-field">
+            <i class="fas fa-lock field_group">
             <input id="password" type="password" class="input-field" placeholder="password" name="password" required>
             <i id="eye" class="fas fa-eye" onclick="reveal_password()"></i>
             </i>
@@ -26,18 +27,19 @@
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                    echo "<h1 style='color:red;position:absolute;top:-20px;left:0px;right:0px;margin:auto;'>⚠️Utilisateur ou mot de passe incorrect</h1>";
             }
             ?>
         </form>
+        
         <form id="inscription" class="input-group" action="view/register_verification.php" method="POST">
-            <i class="fas fa-envelope input-field">
+            <i class="fas fa-envelope field_group">
                 <input type="email" class="input-field" placeholder="email" name="email_register" required>
             </i>
-            <i class="fas fa-user input-field">
+            <i class="fas fa-user field_group">
                 <input type="text" class="input-field" placeholder="username" name="username_register" required>
             </i>
-            <i class="fas fa-lock input-field">
+            <i class="fas fa-lock field_group">
                 <input id="password_register" type="password" class="input-field" placeholder="password" name="password_register" required>
                 <i id="eye_register" class="fas fa-eye" onclick="reveal_password_register()"></i>
             </i>
