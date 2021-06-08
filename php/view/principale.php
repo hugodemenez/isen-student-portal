@@ -23,6 +23,7 @@
             session_start();
             if (isset($_SESSION['username'])) {
             echo "<h1>".'Bienvenue, '.$_SESSION['username']."</h1>";
+            
             } else {
             echo "<h1>Vous n'êtes pas connecté</h1>";
             }
@@ -44,7 +45,6 @@
             $meteo = json_decode($response);
             $temperature = $meteo->main->temp;
             $temperature=substr($temperature, 0, strpos($temperature, "."));
-            echo "<div class='container'><div class='weatherIcon'><div class=".$meteo->weather[0]->main."><div class='inner'><div style='position: absolute; top:120%;left:50%;'>".$temperature."°C</div></div></div></div></div>";
             $weather = $meteo->weather[0]->main;
             if ($weather=== "sun"){
                 $content= '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
@@ -56,6 +56,7 @@
             
         ?>
     <br>
+    
     <form action="../index.php">
         <?php
         session_destroy ();
@@ -63,7 +64,6 @@
         <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
     </form>
     <!-- Vocal Assistant -->
-    
     <div id='b1' class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
     
    
@@ -86,13 +86,18 @@
 	            <div data-conv-case="planning">
 	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
                     <?php 
+                    $username=$_SESSION['username'];
                     include '../db/db_connection.php';
                     $conn = OpenCon();
-                    $results = $conn->query("SELECT * FROM query WHERE username='$username_register'");
-                    $planning = implode(" ",$results);
-                    
-                    echo "<input type='text' data-conv-question='".$planning."'data-no-answer='true'>";
-                    ?>   
+                    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+                    $planning = $results->fetch_assoc();
+                    echo "<input type='text' data-conv-question='".implode(" ",$planning)."'data-no-answer='true'>";
+                    ?>  
+
+                    <select name="other" data-conv-question="Avez vous une autre question ?">
+			            <option value="Oui">Oui</option>
+			            <option value="Non">Non</option>
+		            </select> 
 	            </div>
 	            <div data-conv-case="note">
 		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">
