@@ -38,8 +38,8 @@
                 <input type="text" class="input-field" placeholder="username" name="username_register" required>
             </i>
             <i class="fas fa-lock input-field">
-                <input id="password" type="password" class="input-field" placeholder="password" name="password_register" required>
-                <i id="eye" class="fas fa-eye" onclick="reveal_password()"></i>
+                <input id="password_register" type="password" class="input-field" placeholder="password" name="password_register" required>
+                <i id="eye_register" class="fas fa-eye" onclick="reveal_password_register()"></i>
             </i>
             <button type="submit" class="submit-btn">S'inscrire</button>
             <?php
@@ -77,6 +77,18 @@
         function reveal_password() {
             var x = document.getElementById("password");
             var y = document.getElementById("eye");
+            if (x.type === "password") {
+                x.type = "text";
+                y.className = "fas fa-eye-slash";
+            } else {
+                x.type = "password";
+                y.className = "fas fa-eye";
+                
+            }
+        }
+        function reveal_password_register() {
+            var x = document.getElementById("password_register");
+            var y = document.getElementById("eye_register");
             if (x.type === "password") {
                 x.type = "text";
                 y.className = "fas fa-eye-slash";
