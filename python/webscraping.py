@@ -15,10 +15,6 @@ class scraping():
         profile.set_preference('intl.accept_languages', 'fr-FR, fr')
         self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
         
-
-
-        
-
     def getting_identification_from_database(self):
         #Exemple avec un utilisateur
         username = 'p64059'
@@ -62,6 +58,8 @@ class scraping():
             try:
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 print("Planning trouvé")
+                #Une fois la zone selectionnée : on clique dessus
+                inputElement.click()
                 break
             except:
                 sleep(1)
@@ -73,8 +71,7 @@ class scraping():
 
         while(True):
             try:
-                #Une fois la zone selectionnée : on clique dessus
-                inputElement.click() 
+                self.driver.get('https://aurion.junia.com/')
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
                 for request in self.driver.requests:
                     #S'il y a une reponse
@@ -87,7 +84,6 @@ class scraping():
                 response
                 break
             except Exception as error:
-                print(error)
                 sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
