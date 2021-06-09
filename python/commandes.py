@@ -111,7 +111,9 @@ class complete_database:
 
     def add_planning_to_database(self,planning:dict,username:str):
         number = 0
-
+        sql = "DELETE FROM planning WHERE username= '%s'" % (username)
+        self.cursor.execute(sql)
+        self.database.commit()
         for cours in planning:
             id = number
             room = cours['salle']
