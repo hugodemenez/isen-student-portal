@@ -25,7 +25,9 @@ class scraping():
             'password':password,
             'email':email
             }
-        return dict
+        Liste = []
+        Liste.append(dict)
+        return Liste
 
     def get_planning(self,username,password):
         """
@@ -56,6 +58,7 @@ class scraping():
         counter=0
         while(True):
             try:
+                print("looking for planning")
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 print("Planning trouvé")
                 #Une fois la zone selectionnée : on clique dessus
@@ -68,10 +71,11 @@ class scraping():
                 counter+=1
                 pass
         
-
+        self.driver.get('https://aurion.junia.com/')
         while(True):
             try:
-                self.driver.get('https://aurion.junia.com/')
+                print("waiting for server's response")
+                
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
                 for request in self.driver.requests:
                     #S'il y a une reponse
@@ -280,5 +284,4 @@ class scraping():
 
 
 if __name__ == "__main__":
-    user = scraping().getting_identification_from_database()
-    print(scraping().get_planning(user['username'],user['password']))
+    pass

@@ -7,9 +7,9 @@ from datetime import datetime
 from webscraping import scraping
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
-import sqlite3
 import mysql.connector
-class envoie_planning():
+
+class envoie_planning:
     def __init__(self):
         #Lecture base de données
         ################################################################
@@ -97,5 +97,40 @@ class envoie_planning():
         }
         service.events().insert(calendarId='primary', body=evenement).execute()
 
-if __name__ == '__main':
-    pass
+
+class complete_database:
+    def __init__(self):
+        self.database = mysql.connector.connect(
+        host="localhost",
+        user="hugodemenez",
+        password="password",
+        database="database",
+        auth_plugin='mysql_native_password',
+        )
+        self.cursor = self.database.cursor()
+
+    def add_planning_to_database(self,planning:dict,username:str):
+        number = 0
+
+        for cours in planning:
+            id = number
+            room = cours['salle']
+            teacher = cours['professeur']
+            date = cours['date_debut']
+            start = cours['heure_debut']
+            end = cours['heure_fin']
+            subject = cours['cours']
+            sql="INSERT INTO planning (id,room, teacher,date,start,end,subject,username) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+            self.cursor.execute(sql,(id,room,teacher,date,start,end,subject,username))
+            self.database.commit()
+            number +=1
+        
+if __name__ == "__main__":
+    try:
+        
+        users = scraping().getting_identification_from_database()
+        print(users)
+        for user in users:
+            complete_database().add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
+    except Exception as error:
+        print(error)
