@@ -11,8 +11,10 @@ class scraping():
     def __init__(self):
         options = Options()
         options.headless = True
-        self.driver = webdriver.Firefox(options=options)
-
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference('intl.accept_languages', 'fr-FR, fr')
+        self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
+        
 
 
         
@@ -58,7 +60,8 @@ class scraping():
         counter=0
         while(True):
             try:
-                inputElement =self.driver.find_element_by_link_text("My Schedule")
+                inputElement =self.driver.find_element_by_link_text("Mon Planning")
+                print("Planning trouvé")
                 break
             except:
                 sleep(1)
@@ -83,7 +86,8 @@ class scraping():
                                 response=str(response)
                 response
                 break
-            except:
+            except Exception as error:
+                print(error)
                 sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
