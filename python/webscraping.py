@@ -67,6 +67,7 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 20:
+                    self.driver.quit()
                     raise Exception("Unable to load schedule")
                 counter+=1
                 pass

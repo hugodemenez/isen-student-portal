@@ -108,6 +108,16 @@ class complete_database:
         auth_plugin='mysql_native_password',
         )
         self.cursor = self.database.cursor()
+        try:
+            users = self.getting_identification_from_database()
+            print(users)
+            for user in users:
+                try:
+                    self.add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
+                except:
+                    pass
+        except Exception as error:
+            print(error)
 
     def add_planning_to_database(self,planning:dict,username:str):
         number = 0
@@ -127,12 +137,15 @@ class complete_database:
             self.database.commit()
             number +=1
         
+    def getting_identification_from_database(self):
+        sql = "SELECT * FROM user"
+        self.cursor.execute(sql)
+        Liste=[]
+        for username,password,email in self.cursor:
+            Liste.append({'username': username, 'password': password})
+        return Liste
+
+
+
 if __name__ == "__main__":
-    try:
-        
-        users = scraping().getting_identification_from_database()
-        print(users)
-        for user in users:
-            complete_database().add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
-    except Exception as error:
-        print(error)
+    complete_database()

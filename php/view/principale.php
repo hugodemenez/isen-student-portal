@@ -90,8 +90,9 @@
                     include '../db/db_connection.php';
                     $conn = OpenCon();
                     $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
-                    $planning = $results->fetch_assoc();
-                    echo "<input type='text' data-conv-question='".implode(" ",$planning)."'data-no-answer='true'>";
+                    while( $row =$results->fetch_assoc()){
+                        echo "<input type='text' data-conv-question='".implode(" ",$row)."'data-no-answer='true'>";
+                    }
                     ?>  
 
                     <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
