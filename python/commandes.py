@@ -120,22 +120,25 @@ class complete_database:
             print(error)
 
     def add_planning_to_database(self,planning:dict,username:str):
-        number = 0
-        sql = "DELETE FROM planning WHERE username= '%s'" % (username)
-        self.cursor.execute(sql)
-        self.database.commit()
-        for cours in planning:
-            id = number
-            room = cours['salle']
-            teacher = cours['professeur']
-            date = cours['date_debut']
-            start = cours['heure_debut']
-            end = cours['heure_fin']
-            subject = cours['cours']
-            sql="INSERT INTO planning (id,room, teacher,date,start,end,subject,username) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-            self.cursor.execute(sql,(id,room,teacher,date,start,end,subject,username))
+        try:
+            number = 0
+            sql = "DELETE FROM planning WHERE username= '%s'" % (username)
+            self.cursor.execute(sql)
             self.database.commit()
-            number +=1
+            for cours in planning:
+                id = number
+                room = cours['salle']
+                teacher = cours['professeur']
+                date = cours['date_debut']
+                start = cours['heure_debut']
+                end = cours['heure_fin']
+                subject = cours['cours']
+                sql="INSERT INTO planning (id,room, teacher,date,start,end,subject,username) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+                self.cursor.execute(sql,(str(id)+username,room,teacher,date,start,end,subject,username))
+                self.database.commit()
+                number +=1
+        except Exception as error:
+            print(error)
         
     def getting_identification_from_database(self):
         sql = "SELECT * FROM user"
