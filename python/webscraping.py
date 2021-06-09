@@ -3,28 +3,17 @@ from seleniumwire import webdriver
 from time import sleep
 import json
 import re
-from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.firefox.options import Options
 class scraping():
     """
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
-        from selenium import webdriver 
-        DRIVER_LOCATION = "/usr/bin/chromedriver" 
-        BINARY_LOCATION = "/usr/bin/google-chrome" 
+        options = Options()
+        options.headless = True
+        self.driver = webdriver.Firefox(options=options)
 
-        # start selenium
-        options = webdriver.ChromeOptions() 
-        options.binary_location = BINARY_LOCATION 
 
-        driver = webdriver.Chrome(executable_path=DRIVER_LOCATION, options=options) 
-
-        driver.get("https://www.imdb.com") 
-        print(driver.page_source.encode('utf-8')) 
-
-        # close browser and quit driver
-        driver.close() 
-        driver.quit() 
 
         
 
@@ -53,7 +42,7 @@ class scraping():
 
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
-        print (self.driver.page_source.encode("utf-8"))
+        
         #Remplissage du nom utilisateur
         inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
@@ -64,16 +53,16 @@ class scraping():
 
         #Validation des données d'identification
         inputElement.submit() 
-
+        
         #Recherche de la zone pour acceder au planning
         counter=0
         while(True):
             try:
-                inputElement =self.driver.find_element_by_link_text("Mon Planning")
+                inputElement =self.driver.find_element_by_link_text("My Schedule")
                 break
             except:
                 sleep(1)
-                if counter == 10:
+                if counter == 20:
                     raise Exception("Unable to load schedule")
                 counter+=1
                 pass
@@ -92,7 +81,7 @@ class scraping():
                             if 'POST' in request.method:
                                 response = request.response.body
                                 response=str(response)
-                
+                response
                 break
             except:
                 sleep(1)
