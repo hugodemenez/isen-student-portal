@@ -7,7 +7,7 @@ from datetime import datetime
 from webscraping import scraping
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
-import mysql.connector
+import mysql.connector,time
 
 class envoie_planning:
     def __init__(self):
@@ -151,4 +151,6 @@ class complete_database:
 
 
 if __name__ == "__main__":
-    complete_database()
+    while(True):
+        complete_database()
+        time.sleep(3600)
