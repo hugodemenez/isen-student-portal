@@ -162,7 +162,7 @@ class scraping():
         inputElement.submit() 
         
 
-        #Recherche de la zone pour acceder au planning
+        #Recherche de la zone pour acceder a la zone scolarité
         counter=0
         while(True):
             
@@ -172,14 +172,14 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to load schedule")
+                    raise Exception("Unable to find Scolarite")
                 counter+=1
                 pass
 
         #Une fois la zone selectionnée : on clique dessus
         inputElement.click() 
 
-        #Recherche de la zone pour acceder au planning
+        #Recherche de la zone pour acceder aux notes
         counter=0
         while(True):
             
@@ -189,7 +189,7 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to load schedule")
+                    raise Exception("Unable to load marks")
                 counter+=1
                 pass
 
