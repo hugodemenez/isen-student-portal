@@ -19,14 +19,19 @@ class scan:
             for ligne in fichier:
                 liste.append(ligne)
 
-            #On regarde si les listes sont différentes
+            #Si les listes sont differentes alors quelqu'un s'est inscrit, on actualise la base de données
             if (liste != liste_test):
                 complete_database()
                 liste_test = liste
             fichier.close()
-            if self.timer >60:
+
+            #On complete la base de données toutes les 12heures même si personne s'est inscrit
+            if self.timer >43200:
                 complete_database()
                 self.timer=0
+
+            time.sleep(60)
+            self.timer +=60
             
             
 
