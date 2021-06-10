@@ -84,6 +84,7 @@
     }
     
     .conv-form-wrapper textarea{
+        display: none !important;
         height: 10px;
         overflow: hidden;
         resize: none;
