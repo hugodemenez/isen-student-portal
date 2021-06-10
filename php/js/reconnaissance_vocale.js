@@ -24,7 +24,7 @@ recognition.onspeechend = function(){
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
 	if (texte.search(/planning/) != -1 ) {texte_comprendre = "http://iseninfo.fr/";}
-	if (texte.search(/note/) != -1) {texte_comprendre = "http://iseninfo.fr/";}
+	else if (texte.search(/note/) != -1) {texte_comprendre = "http://iseninfo.fr/";}
 	else {texte_comprendre = "-1";}
 	return texte_comprendre;
 }
