@@ -247,7 +247,7 @@ class scraping():
         return notes
 
     def check_connection(self,username,password):
-
+        """Returns True when connection is established else returns False"""
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -261,15 +261,19 @@ class scraping():
 
         #Validation des données d'identification
         inputElement.submit() 
-        sleep(5)
-        try :
-            self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
-            self.driver.quit()
-            return False
-        except:
-            self.driver.quit()
-            return True
+        counter = 0
+        while(True):
+            try :
+                counter += 1
+                self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
+                self.driver.quit()
+                return False
+            except:
+                if counter >5:
+                    self.driver.quit()
+                    return True
+                sleep(1)
 
 
 if __name__ == "__main__":
-    pass
+    print(scraping().check_connection('p64059','ny5mJb8z'))
