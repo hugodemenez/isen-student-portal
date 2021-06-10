@@ -15,19 +15,6 @@ class scraping():
         profile.set_preference('intl.accept_languages', 'fr-FR, fr')
         self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
         
-    def getting_identification_from_database(self):
-        #Exemple avec un utilisateur
-        username = 'p64059'
-        password = 'ny5mJb8z'
-        email = 'hugo.demenez@isen.yncrea.fr'
-        dict = {
-            'username':username,
-            'password':password,
-            'email':email
-            }
-        Liste = []
-        Liste.append(dict)
-        return Liste
 
     def get_planning(self,username,password):
         """
