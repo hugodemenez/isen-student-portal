@@ -82,7 +82,9 @@
 <h2>Les fonctionnalités présentes</h2>
 <li>ChatBot</li>
 <p>
-Test
+Nous avons eu l'idée d'ajouter un chatbot afin que l'utilisateur puisse profiter d'une nouvelle expérience et cela permet d'obtenir d'autres services.
+Notre chatbot pourra par exemple afficher le planning de la semaine, le planning du jour, la moyenne, la dernière note obtenue, etc ...
+L'utilsateur n'aura qu'à ouvrir la chatbox en cliquant sur l'icone en bas à droite puis le bot posera une question et l'utilisateur choisira sa réponse en cliquant dessus.
 </p>
 <br>
 <p>
