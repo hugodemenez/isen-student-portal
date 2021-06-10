@@ -1,42 +1,91 @@
-.chat_icon{
-    position: fixed;
-    right: 30px;
-    bottom: 0;
-    font-size: 80px;
+@supports not (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
+    .chat_icon{
+        position: fixed;
+        right: 30px;
+        bottom: 0;
+        font-size: 80px;
+    
+        cursor: pointer;
+        z-index: 1000;
+        color: aliceblue;
+        filter: drop-shadow(5px 10px 10px #1a1a1a);
+        transform: translate(0%,-50%);
+    }
+    
+    .chat_box{
+        border-radius: 24px;
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        position: fixed;
+        right: 40px;
+        bottom: 100px;
+        width: 40vw;
+        height: 80vh;
+        background: white;
+        filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
+        z-index: 1000;
+        transition: all 0.3s ease-out;
+        transform: scaleY(0);
+    }
+    
+    .chat_box.active{
+        transform: scaleY(1);
+    }
+    
+    .hidden{
+        display: none !important;
+    }
+    
+    .conv-form-wrapper textarea{
+        height: 10px;
+        overflow: hidden;
+        resize: none;
+    }
+  }
 
-    cursor: pointer;
-    z-index: 1000;
-    color: aliceblue;
-    filter: drop-shadow(5px 10px 10px #1a1a1a);
-    transform: translate(0%,-50%);
-}
-
-.chat_box{
-    border-radius: 24px;
-    font-family: "Poppins", sans-serif;
-    position: fixed;
-    right: 40px;
-    bottom: 100px;
-    width: 400px;
-    height: 80vh;
-    background: white;
-    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
-    z-index: 1000;
-    transition: all 0.3s ease-out;
-    transform: scaleY(0);
-}
-
-.chat_box.active{
-    transform: scaleY(1);
-}
-
-.hidden{
-    display: none !important;
-}
-
-.conv-form-wrapper textarea{
-    height: 10px;
-    overflow: hidden;
-    resize: none;
-}
-
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
+    .chat_icon{
+        position: fixed;
+        right: 30px;
+        bottom: 0;
+        font-size: 80px;
+    
+        cursor: pointer;
+        z-index: 1000;
+        color: aliceblue;
+        filter: drop-shadow(5px 10px 10px #1a1a1a);
+        transform: translate(0%,-50%);
+    }
+    
+    .chat_box{
+        border-radius: 24px;
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        position: fixed;
+        right: 40px;
+        bottom: 100px;
+        width: 80vw;
+        height: 80vh;
+        background: white;
+        filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
+        z-index: 1000;
+        transition: all 0.3s ease-out;
+        transform: scaleY(0);
+    }
+    
+    .chat_box.active{
+        transform: scaleY(1);
+    }
+    
+    .hidden{
+        display: none !important;
+    }
+    
+    .conv-form-wrapper textarea{
+        height: 10px;
+        overflow: hidden;
+        resize: none;
+    }
+  }

@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../js/jquery.convform.js"></script>
     <script src='../js/reconnaissance_vocale.js' async></script>
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
+    <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
     <head>
     <meta charset="utf-8">
         <link rel="stylesheet" href="../style/style.css" media="screen" type="text/css" />
@@ -97,7 +98,6 @@
 
                     <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                         <option value="yes" data-callback="rollback">Oui</option>
-                        <option value="no" data-callback="restore">Non</option>
                     </select>
 	            </div>
 	            <div data-conv-case="note">
@@ -108,18 +108,17 @@
                     <div data-conv-fork="note">
                         <div data-conv-case="Oui">
                             <input type="text" data-conv-question="Votre note est :">
+                            <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                                <option value="yes" data-callback="rollback">Oui</option>
+                            </select>
                         </div> 
                         <div data-conv-case="Non">
                             <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                                 <option value="yes" data-callback="rollback">Oui</option>
-                                <option value="no" data-callback="restore">Non</option>
                             </select>
                         </div> 
                     </div> 
 	            </div>
-                <select data-conv-question="Bonne journée !" id="">
-                    <option value="">Awesome!</option>
-                </select>
             </div>
         </form>
         <script>
