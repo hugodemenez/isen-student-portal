@@ -4,7 +4,7 @@ from commandes import complete_database
 
 class scan:
     def __init__(self):
-        self.path = 'waiting_list.txt'
+        self.path = '/home/ubuntu/waiting_list.txt'
         fichier = open(self.path,"r")
         liste_init = []
         for ligne in fichier:
