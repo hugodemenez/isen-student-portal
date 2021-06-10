@@ -1,26 +1,9 @@
-.logout-btn{
-    padding: 15px 15px;
-    cursor: pointer;
-    border: 0;
-    outline: none;
-    border-radius: 20px;
-    background-color: white;
-    filter: drop-shadow(0 0 0.2rem rgb(105, 105, 105));
-    color: black;
-    width:10vw;
-    font-size:12px;
-    position:absolute;
-    right:2px;
-    top:5px;
-}
+
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
     background-color: #fcfcfc;
     opacity: 1;
-    background-image:  radial-gradient(#00BFA6 0.8500000000000001px, transparent 0.8500000000000001px), radial-gradient(#00BFA6 0.8500000000000001px, #fcfcfc 0.8500000000000001px);
-    background-size: 34px 34px;
-    background-position: 0 0,17px 17px;
     z-index: -1;
 }
 input,button{
@@ -43,4 +26,36 @@ h1{
     width: 50%;
     padding: 10px;
     border-radius: 30px;
+}
+
+.voice_icon{
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+    font-size: 80px;
+
+    cursor: pointer;
+    z-index: 1000;
+    color: aliceblue;
+    filter: drop-shadow(5px 10px 10px #1a1a1a);
+    transform: translate(0%,-50%);
+}
+
+.logout-btn{
+    padding: 15px 15px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    color: black;
+    width:10vw;
+    font-size:16px;
+    position:absolute;
+    right:2px;
+    top:5px;
+    background: rgba( 255, 255, 255, 0.65 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }

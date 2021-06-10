@@ -7,9 +7,9 @@ from datetime import datetime
 from webscraping import scraping
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
-import sqlite3
-import mysql.connector
-class envoie_planning():
+import mysql.connector,time
+
+class envoie_planning:
     def __init__(self):
         #Lecture base de données
         ################################################################
@@ -97,5 +97,60 @@ class envoie_planning():
         }
         service.events().insert(calendarId='primary', body=evenement).execute()
 
-if __name__ == '__main':
-    pass
+
+class complete_database:
+    def __init__(self):
+        self.database = mysql.connector.connect(
+        host="localhost",
+        user="hugodemenez",
+        password="password",
+        database="database",
+        auth_plugin='mysql_native_password',
+        )
+        self.cursor = self.database.cursor()
+        try:
+            users = self.getting_identification_from_database()
+            print(users)
+            for user in users:
+                try:
+                    self.add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
+                except:
+                    pass
+        except Exception as error:
+            print(error)
+
+    def add_planning_to_database(self,planning:dict,username:str):
+        try:
+            number = 0
+            sql = "DELETE FROM planning WHERE username= '%s'" % (username)
+            self.cursor.execute(sql)
+            self.database.commit()
+            for cours in planning:
+                id = number
+                room = cours['salle']
+                teacher = cours['professeur']
+                date = cours['date_debut']
+                start = cours['heure_debut']
+                end = cours['heure_fin']
+                subject = cours['cours']
+                sql="INSERT INTO planning (id,room, teacher,date,start,end,subject,username) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+                self.cursor.execute(sql,(str(id)+username,room,teacher,date,start,end,subject,username))
+                self.database.commit()
+                number +=1
+        except Exception as error:
+            print(error)
+        
+    def getting_identification_from_database(self):
+        sql = "SELECT * FROM user"
+        self.cursor.execute(sql)
+        Liste=[]
+        for username,password,email in self.cursor:
+            Liste.append({'username': username, 'password': password})
+        return Liste
+
+
+
+if __name__ == "__main__":
+    while(True):
+        complete_database()
+        time.sleep(3600)

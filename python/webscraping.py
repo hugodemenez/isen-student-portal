@@ -1,32 +1,20 @@
+
 from seleniumwire import webdriver
-from selenium.webdriver import FirefoxOptions
 from time import sleep
 import json
 import re
-
-
-
+from selenium.webdriver.firefox.options import Options
 class scraping():
     """
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
-        #Configuration du Headless Webbrowser
-        opts = FirefoxOptions()
-        opts.add_argument("--headless")
-        self.driver = webdriver.Firefox(firefox_options=opts)
-
-    def getting_identification_from_database(self):
-        #Exemple avec un utilisateur
-        username = 'p64059'
-        password = 'ny5mJb8z'
-        email = 'hugo.demenez@isen.yncrea.fr'
-        dict = {
-            'username':username,
-            'password':password,
-            'email':email
-            }
-        return dict
+        options = Options()
+        options.headless = True
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference('intl.accept_languages', 'fr-FR, fr')
+        self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
+        
 
     def get_planning(self,username,password):
         """
@@ -41,7 +29,7 @@ class scraping():
 
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
-
+        
         #Remplissage du nom utilisateur
         inputElement = self.driver.find_element_by_id("username")
         inputElement.send_keys(username)
@@ -52,26 +40,30 @@ class scraping():
 
         #Validation des données d'identification
         inputElement.submit() 
-
+        
         #Recherche de la zone pour acceder au planning
         counter=0
         while(True):
-            
             try:
+                print("looking for planning")
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
+                print("Planning trouvé")
+                #Une fois la zone selectionnée : on clique dessus
+                inputElement.click()
                 break
             except:
                 sleep(1)
-                if counter == 10:
+                if counter == 20:
+                    self.driver.quit()
                     raise Exception("Unable to load schedule")
                 counter+=1
                 pass
         
-
+        self.driver.get('https://aurion.junia.com/')
         while(True):
             try:
-                #Une fois la zone selectionnée : on clique dessus
-                inputElement.click() 
+                print("waiting for server's response")
+                
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
                 for request in self.driver.requests:
                     #S'il y a une reponse
@@ -81,9 +73,9 @@ class scraping():
                             if 'POST' in request.method:
                                 response = request.response.body
                                 response=str(response)
-                
+                response
                 break
-            except:
+            except Exception as error:
                 sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
@@ -170,7 +162,7 @@ class scraping():
         inputElement.submit() 
         
 
-        #Recherche de la zone pour acceder au planning
+        #Recherche de la zone pour acceder a la zone scolarité
         counter=0
         while(True):
             
@@ -180,14 +172,14 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to load schedule")
+                    raise Exception("Unable to find Scolarite")
                 counter+=1
                 pass
 
         #Une fois la zone selectionnée : on clique dessus
         inputElement.click() 
 
-        #Recherche de la zone pour acceder au planning
+        #Recherche de la zone pour acceder aux notes
         counter=0
         while(True):
             
@@ -197,7 +189,7 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to load schedule")
+                    raise Exception("Unable to load marks")
                 counter+=1
                 pass
 
@@ -255,7 +247,7 @@ class scraping():
         return notes
 
     def check_connection(self,username,password):
-
+        """Returns True when connection is established else returns False"""
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
@@ -269,16 +261,19 @@ class scraping():
 
         #Validation des données d'identification
         inputElement.submit() 
-        sleep(5)
-        try :
-            self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
-            self.driver.quit()
-            return False
-        except:
-            self.driver.quit()
-            return True
+        counter = 0
+        while(True):
+            try :
+                counter += 1
+                self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
+                self.driver.quit()
+                return False
+            except:
+                if counter >5:
+                    self.driver.quit()
+                    return True
+                sleep(1)
 
 
 if __name__ == "__main__":
-    user = scraping().getting_identification_from_database()
-    print(scraping().get_planning(user['username'],user['password']))
+    print(scraping().check_connection('p64059','ny5mJb8z'))
