@@ -8,7 +8,7 @@
 <li><a href="#STRUCTURE"> Structure du projet  </a></li>
 <li><a href="#INSPIRATION"> Inspiration pour la projet  </a></li>
 <li><a href="#LANGAGES"> Langage de programmation  </a></li>
-
+<li><a href="#FONCTIONNALITES"> Fonctionnalités  </a></li>
 </header>
 
 
@@ -75,6 +75,18 @@
             </ul>
         </li>
     </ul>
+</p>
+</div>
+
+<div id="FONCTIONNALITES">
+<h2>Les fonctionnalités présentes</h2>
+<li>ChatBot</li>
+<p>
+Test
+</p>
+<br>
+<p>
+
 </p>
 </div>
 

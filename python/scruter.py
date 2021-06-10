@@ -1,24 +1,34 @@
 import time #chemin est la variable qui donne l'emplacement du fichier à vérifier
-def init(chemin):
-    fichier = open(chemin,"r")
-    liste_test = []
-    for ligne in fichier:
-        liste_test.append(ligne)
-    return liste_test
+from commandes import complete_database
 
-def scruter(liste_test,chemin):
-    while True:
-        liste = []
-        fichier = open(chemin,"r")
+
+class scan:
+    def __init__(self):
+        self.path = 'waiting_list.txt'
+        fichier = open(self.path,"r")
+        liste_init = []
         for ligne in fichier:
-            liste.append(ligne)
-        if (liste != liste_test):
-            #action à exécuter
-            print("ok")
+            liste_init.append(ligne)
+        self.timer = 0
+        self.scruter(liste_init)
+        
+    def scruter(self,liste):
+        while True:
+            liste = []
+            fichier = open(self.path,"r")
+            for ligne in fichier:
+                liste.append(ligne)
 
-            liste_test = liste
-        fichier.close()
-        time.sleep(3600) #on attend 1 heure
+            #On regarde si les listes sont différentes
+            if (liste != liste_test):
+                complete_database()
+                liste_test = liste
+            fichier.close()
+            if self.timer >60:
+                complete_database()
+                self.timer=0
+            
+            
 
 
 # liste_test = init()
