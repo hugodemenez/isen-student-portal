@@ -38,7 +38,8 @@
     }
     
     .conv-form-wrapper textarea{
-        height: 10px;
+        display: none !important;
+        height: 2px;
         overflow: hidden;
         resize: none;
     }

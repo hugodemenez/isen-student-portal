@@ -48,13 +48,18 @@
             $temperature=substr($temperature, 0, strpos($temperature, "."));
             $weather = $meteo->weather[0]->main;
             if ($weather=== "sun"){
-                $content= '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
+                $content = '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
             }
-            elseif( $weather==="Clouds" or $weather=="Clear"){
-                $content='<div class="cloudy"><span class="cloud"></span><span class="cloudx"></span></div>';
-            }       
+            if( $weather==="Clouds" or $weather=="Clear"){
+                $content = '<div class="cloudy"><span class="cloud"></span><span class="cloudx"></span></div>';
+            }
+            if( $weather==="Drizzle" or $weather=="Thunderstorm" or $weather=="Rain"){
+                $content = '<div class="breezy"><ul><li></li><li></li><li></li><li></li><li></li></ul><span class="cloudr"></span></div>';
+            }  
+            elseif( $weather==="Snow"){
+                $content = '<div class="stormy"><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><span class="snowe"></span><span class="snowex"></span><span class="stick"></span><span class="stick2"></span></div>';
+            }    
             echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
-            
         ?>
     <br>
     
