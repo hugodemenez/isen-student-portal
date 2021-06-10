@@ -36,7 +36,5 @@ class scan:
             
 
 
-# liste_test = init()
-# print(liste_test)
-# time.sleep(60)
-# scruter(liste_test)
+if __name__ == "__main__":
+    scan()
