@@ -3,10 +3,12 @@
         <meta charset="utf-8">
         <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
         <link rel="stylesheet" href="styles/style.css" media="screen" type="text/css"/>
+        <link rel="stylesheet" href="styles/background.css" media="screen" type="text/css"/>
         <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     </head>
+ 
     <body>
-        
+           
     <div class="form-box">
         <div class="button-box">
             <button type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
