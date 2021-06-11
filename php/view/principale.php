@@ -113,15 +113,6 @@
                     <div data-conv-fork="note">
                         <div data-conv-case="Oui">
                             <input type="text" data-conv-question="Votre note est :">
-                            <?php 
-                            $username=$_SESSION['username'];
-                            include '../db/db_connection.php';
-                            $conn = OpenCon();
-                            $results = $conn->query("SELECT * FROM marks WHERE username = '$username'");
-                            while( $row =$results->fetch_assoc()){
-                                echo "<input type='text' data-conv-question='".implode(" ",$row)."'data-no-answer='true'>";
-                            }
-                            ?>  
                             <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                                 <option value="yes" data-callback="rollback">Oui</option>
                             </select>
