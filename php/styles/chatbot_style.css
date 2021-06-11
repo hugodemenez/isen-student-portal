@@ -1,17 +1,6 @@
 @supports not (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
-    .chat_icon{
-        position: fixed;
-        right: 30px;
-        bottom: 0;
-        font-size: 80px;
     
-        cursor: pointer;
-        z-index: 1000;
-        color: aliceblue;
-        filter: drop-shadow(5px 10px 10px #1a1a1a);
-        transform: translate(0%,-50%);
-    }
     
     .chat_box{
         border-radius: 24px;
@@ -47,18 +36,7 @@
 
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
-    .chat_icon{
-        position: fixed;
-        right: 30px;
-        bottom: 0;
-        font-size: 80px;
-    
-        cursor: pointer;
-        z-index: 1000;
-        color: aliceblue;
-        filter: drop-shadow(5px 10px 10px #1a1a1a);
-        transform: translate(0%,-50%);
-    }
+
     
     .chat_box{
         border-radius: 24px;
