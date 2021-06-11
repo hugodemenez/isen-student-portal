@@ -110,53 +110,48 @@
     <div class="chat_icon">
     <i class="fas fa-comments"></i>
     </div>
-
-    <div class="chat_box">
-        <div class="conv-form-wrapper">
-        <form action="" method="GET" class="hidden">
-            <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]" data-no-answer="true">
-            <select name="question" data-callback="storeState" data-conv-question="En quoi puis-je vous aider ?">
-	            <option value="planning">planning</option>
-	            <option value="note">note</option>
-            </select>
-            <div data-conv-fork="question">
-	            <div data-conv-case="planning">
-	 	            <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">
-                    <?php 
-                    $username=$_SESSION['username'];
-                    include '../db/db_connection.php';
-                    $conn = OpenCon();
-                    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
-                    while( $row =$results->fetch_assoc()){
-                        echo "<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
-                    }
-                    ?>  
-
-                    <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                        <option value="yes" data-callback="rollback">Oui</option>
-                    </select>
-	            </div>
-	            <div data-conv-case="note">
-		            <select name="note" data-conv-question="Voulez-vous votre dernière note ?">
-			            <option value="Oui">Oui</option>
-			            <option value="Non">Non</option>
-		            </select>
-                    <div data-conv-fork="note">
-                        <div data-conv-case="Oui">
-                            <input type="text" data-conv-question="Votre note est :">
-                            <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                                <option value="yes" data-callback="rollback">Oui</option>
-                            </select>
-                        </div> 
-                        <div data-conv-case="Non">
-                            <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                                <option value="yes" data-callback="rollback">Oui</option>
-                            </select>
-                        </div> 
-                    </div> 
-	            </div>
+    <?php 
+    $username=$_SESSION['username'];
+    include '../db/db_connection.php';
+    $conn = OpenCon();
+    $planning ='';
+    $notes ='';
+    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+    while( $row =$results->fetch_assoc()){
+        $planning = $planning."<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
+    }
+    $results = $conn->query("SELECT * FROM marks WHERE username = '$username'");
+    while( $row =$results->fetch_assoc()){
+        $notes = $notes."<input type='text' data-conv-question='".$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
+    }
+    echo ('<div class="chat_box">
+    <div class="conv-form-wrapper">
+    <form action="" method="GET" class="hidden">
+        <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]" data-no-answer="true">
+        <select name="question" data-callback="storeState" data-conv-question="En quoi puis-je vous aider ?">
+            <option value="planning">planning</option>
+            <option value="note">note</option>
+        </select>
+        <div data-conv-fork="question">
+            <div data-conv-case="planning">
+                 <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">'
+                 .$planning.
+                '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                    <option value="yes" data-callback="rollback">Oui</option>
+                </select>
             </div>
-        </form>
+            <div data-conv-case="note">
+                <input type="text" data-conv-question="Voici vos notes :" data-no-answer="true">'
+                .$notes.
+                '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                    <option value="yes" data-callback="rollback">Oui</option>
+                </select>
+            </div> 
+        </div>
+    </form>')
+    ?>
+
+    
         <script>
         var rollbackTo = false;
 		var originalState = false;
