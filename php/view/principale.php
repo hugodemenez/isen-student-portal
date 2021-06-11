@@ -72,7 +72,6 @@
         
         // For drawing the lines
         var [time,values]=<?php
-            ini_set('display_errors', 'on');
             $username=$_SESSION['username'];
             include '../db/db_connection.php';
             $conn = OpenCon();
