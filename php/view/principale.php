@@ -69,9 +69,26 @@
         <canvas id="myChart" width="1600" height="900"></canvas>
         <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
         <script>
-        var time =<?php $abscisses =[2018,201,1700,1750,1800,1850,1900,1950,1999,3500]; echo json_encode($abscisses); ?>;
+        
         // For drawing the lines
-        var values =<?php $ordonnees =[86,114,106,106,107,111,133,221,783,2478]; echo json_encode($ordonnees); ?>;
+        var [time,values]=<?php
+            ini_set('display_errors', 'on');
+            $username=$_SESSION['username'];
+            include '../db/db_connection.php';
+            $conn = OpenCon();
+            $marks=[];
+            $dates=[];
+            $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+            while($row=$results->fetch_assoc()){
+                array_push($marks,$row['mark']);
+                array_push($dates,$row['date']);
+                }
+            echo "[";
+            echo json_encode($dates);
+            echo ",";
+            echo json_encode($marks);
+            echo "]";
+        ?>;
         
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
