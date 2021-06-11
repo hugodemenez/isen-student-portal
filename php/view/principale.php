@@ -68,7 +68,7 @@
         <!-- Fond animé -->
         <canvas class="background"></canvas>
         <script src="path/to/particles.min.js"></script>
-        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.1,});};</script>
+        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.3,});};</script>
         
         <!-- Boutton deconnexion -->
         <form action="../index.php">
