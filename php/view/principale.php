@@ -120,9 +120,13 @@
     while( $row =$results->fetch_assoc()){
         $planning = $planning."<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
     }
-    $results = $conn->query("SELECT * FROM marks WHERE username = '$username'");
+    $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
     while( $row =$results->fetch_assoc()){
-        $notes = $notes."<input type='text' data-conv-question='".$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
+        $note = "<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
+    }
+    $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') DESC LIMIT 5");
+    while( $row =$results->fetch_assoc()){
+        $notes = $notes."<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
     }
     echo ('<div class="chat_box">
     <div class="conv-form-wrapper">
@@ -141,9 +145,21 @@
                 </select>
             </div>
             <div data-conv-case="note">
-                <input type="text" data-conv-question="Voici vos notes :" data-no-answer="true">'
-                .$notes.
-                '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                <select name="question_note" data-conv-question="Que souhaitez-vous savoir ?">
+                    <option value="5notes">5 dernières notes</option>
+                    <option value="1note">La dernière note</option>
+                </select>
+                <div data-conv-fork="question_note">
+                    <div data-conv-case="1note">
+                        <input type="text" data-conv-question="Voici votre dernière note :" data-no-answer="true">'
+                        .$note.
+                    '</div>
+                    <div data-conv-case="5notes">
+                        <input type="text" data-conv-question="Voici vos 5 dernières notes :" data-no-answer="true">'
+                        .$notes.
+                    '</div>
+                </div>
+                <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                     <option value="yes" data-callback="rollback">Oui</option>
                 </select>
             </div> 
