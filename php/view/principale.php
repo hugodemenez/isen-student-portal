@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../js/jquery.convform.js"></script>
     <script src='../js/reconnaissance_vocale.js' async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     
     <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
@@ -88,8 +89,10 @@
           }
         });
         </script>
-
     </div>
+    <canvas class="background"></canvas>
+        <script src="path/to/particles.min.js"></script>
+        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.1,});};</script>
     
     <form action="../index.php">
         <?php

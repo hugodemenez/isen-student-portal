@@ -15,3 +15,10 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -30000;
+  }
