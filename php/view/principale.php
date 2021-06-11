@@ -3,11 +3,14 @@
     <link rel="stylesheet" type="text/css" href="../styles/jquery.convform.css">
     <link rel="stylesheet" type="text/css" href="../styles/principale.css">
     <link rel="stylesheet" type="text/css" href="../styles/weather.css">
+    <link rel="stylesheet" type="text/css" href="../styles/graph.css">
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
     <script type="text/javascript" src="../js/jquery.convform.js"></script>
     <script src='../js/reconnaissance_vocale.js' async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
+    
     <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
     <head>
     <meta charset="utf-8">
@@ -61,7 +64,33 @@
             }    
             echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
         ?>
-    <br>
+    <div class="wrapper">
+        <canvas id="myChart" width="1600" height="900"></canvas>
+        <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
+        <?php
+        echo ("<script>
+        var years = [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050];
+        // For drawing the lines
+        var africa = [86,114,106,106,107,111,133,221,783,2478];
+
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: years,
+            datasets: [
+              { 
+                data: africa ,
+                label:'Africa',
+                borderColor: '#3e95cd',
+                fill: false,
+              }
+            ]
+          }
+        });
+        </script>")
+        ?>
+    </div>
     
     <form action="../index.php">
         <?php
@@ -163,5 +192,6 @@
             });
         </script>
     <!-- Chatbot -->
+    
     </body>
 </html>
