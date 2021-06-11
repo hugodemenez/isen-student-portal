@@ -227,17 +227,20 @@ class scraping():
         response=response.replace(r"\'", "'")
 
         #On decoupe les resultats à chaque fois que l'on dispose d'une date sous la forme : D/M/Y
-        responses = re.split('[0-9/]{10}', response)
+        responses = re.split(r'(\d{2}/\d{2}/\d{4})', response)
         
 
         notes = []
-        for response in responses:
+        for position in range (len(responses)-1):
             try:
+                date=responses[position]
                 #On recupère la note et l'intitulé de la matère
-                note = re.search("[0-9]{1,2}[.][0-9]{2}",response).group()
-                matiere = re.sub("[a-z]+",'',response.split(' ', 1)[0])[:-1]
+                note = re.search("[0-9]{1,2}[.][0-9]{2}",responses[position+1]).group()
+                matiere = re.sub("[a-z]+",'',responses[position+1].split(' ', 1)[0])[:-1]
+                
                 #On ajoute le dictionnaire dans une liste que l'on renvoit par la suite
-                notes.append({'title':matiere,'mark':note})
+                notes.append({'title':matiere,'mark':note,'date':date})
+                position+=2
             except:
                 pass
         
@@ -276,4 +279,4 @@ class scraping():
 
 
 if __name__ == "__main__":
-    print(scraping().check_connection('p64059','ny5mJb8z'))
+    print(scraping().get_marks('p64059','ny5mJb8z'))
