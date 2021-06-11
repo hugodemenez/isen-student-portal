@@ -65,6 +65,20 @@
             }    
             echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
         ?>
+
+    <canvas class="background"></canvas>
+        <script src="path/to/particles.min.js"></script>
+        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.1,});};</script>
+    
+    <form action="../index.php">
+        <?php
+        session_destroy ();
+        ?>
+        <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
+    </form>
+    <!-- Vocal Assistant -->
+    <div id='b1' class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
+    
     <div class="wrapper">
         <canvas id="myChart" width="1600" height="900"></canvas>
         <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
@@ -107,20 +121,6 @@
         });
         </script>
     </div>
-    <canvas class="background"></canvas>
-        <script src="path/to/particles.min.js"></script>
-        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.1,});};</script>
-    
-    <form action="../index.php">
-        <?php
-        session_destroy ();
-        ?>
-        <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
-    </form>
-    <!-- Vocal Assistant -->
-    <div id='b1' class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
-    
-   
 
     <!-- Vocal Assistant -->
     <!-- Chatbot -->
