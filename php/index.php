@@ -11,8 +11,8 @@
            
     <div class="form-box">
         <div class="button-box">
-            <button type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
-            <button type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
+            <button id="login_btn" type="button" class="toggle-btn active" onclick="connexion()">Connexion</button>
+            <button id="register_btn" type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
             
         </div>
         <form id="connexion" class="input-group" action="view/login_verification.php" method="POST">
@@ -66,16 +66,21 @@
         var x = document.getElementById("connexion");
         var y = document.getElementById("inscription");
         var z = document.getElementById("btn");
-
+        var login_btn = document.getElementById("login_btn");
+        var register_btn = document.getElementById("register_btn");
         function inscription(){
             x.style.left = "-100%";
             y.style.left = "25%";
             z.style.left = "50%";
+            register_btn.className = "toggle-btn active";
+            login_btn.className = "toggle-btn";
         }
         function connexion(){
             x.style.left = "25%";
             y.style.left = "-100%";
             z.style.left = "25%";
+            login_btn.className = "toggle-btn active";
+            register_btn.className = "toggle-btn";
         }
 
         function reveal_password() {
