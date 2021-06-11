@@ -79,6 +79,49 @@
         <div id='b1' class="voice_icon">
             <i class="fas fa-microphone-alt"></i>
         </div>
+        <!-- Graphiques -->
+        <div class="wrapper">
+            <canvas id="myChart" width="1600" height="900"></canvas>
+            <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
+            <script>
+            
+            // For drawing the lines
+            var [time,values]=<?php
+                $username=$_SESSION['username'];
+                include '../db/db_connection.php';
+                $conn = OpenCon();
+                $marks=[];
+                $dates=[];
+                $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+                CloseCon($conn);
+                while($row=$results->fetch_assoc()){
+                    array_push($marks,$row['mark']);
+                    array_push($dates,$row['date']);
+                    }
+                echo "[";
+                echo json_encode($dates);
+                echo ",";
+                echo json_encode($marks);
+                echo "]";
+            ?>;
+            
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: time,
+                datasets: [
+                { 
+                    data: values ,
+                    label: 'Notes',
+                    borderColor: '#3e95cd',
+                    fill: false,
+                }
+                ]
+            }
+            });
+            </script>
+        </div>
         <!-- Chatbot -->
         <div class="chatbot">
             <div class="chat_icon">
@@ -179,49 +222,7 @@
             </script>
             <!-- Chatbot -->
         </div>  
-        <!-- Graphiques -->
-        <div class="wrapper">
-            <canvas id="myChart" width="1600" height="900"></canvas>
-            <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
-            <script>
-            
-            // For drawing the lines
-            var [time,values]=<?php
-                $username=$_SESSION['username'];
-                include '../db/db_connection.php';
-                $conn = OpenCon();
-                $marks=[];
-                $dates=[];
-                $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
-                CloseCon($conn);
-                while($row=$results->fetch_assoc()){
-                    array_push($marks,$row['mark']);
-                    array_push($dates,$row['date']);
-                    }
-                echo "[";
-                echo json_encode($dates);
-                echo ",";
-                echo json_encode($marks);
-                echo "]";
-            ?>;
-            
-            var ctx = document.getElementById('myChart');
-            var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: time,
-                datasets: [
-                { 
-                    data: values ,
-                    label: 'Notes',
-                    borderColor: '#3e95cd',
-                    fill: false,
-                }
-                ]
-            }
-            });
-            </script>
-        </div>
+
 
     </body>
 </html>
