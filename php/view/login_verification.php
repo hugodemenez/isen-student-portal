@@ -7,6 +7,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    $conn = OpenCon();
    $results = $conn->query("SELECT * FROM user WHERE username = '$username'");
    $row = $results->fetch_assoc();
+   CloseCon($conn);
    if($row["password"]==$password){
       session_start();
       $_SESSION['username'] = $username;
@@ -17,5 +18,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    {
       header('Location: ../index.php?erreur=1');
    }
+   
 }
 ?>

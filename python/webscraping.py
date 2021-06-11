@@ -236,6 +236,10 @@ class scraping():
                 date=responses[position]
                 #On recupère la note et l'intitulé de la matère
                 note = re.search("[0-9]{1,2}[.][0-9]{2}",responses[position+1]).group()
+                if float(note)>20:
+                    note = note[1:]
+                
+
                 matiere = re.sub("[a-z]+",'',responses[position+1].split(' ', 1)[0])[:-1]
                 
                 #On ajoute le dictionnaire dans une liste que l'on renvoit par la suite

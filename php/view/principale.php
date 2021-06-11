@@ -79,6 +79,7 @@
             $marks=[];
             $dates=[];
             $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+            CloseCon($conn);
             while($row=$results->fetch_assoc()){
                 array_push($marks,$row['mark']);
                 array_push($dates,$row['date']);
@@ -145,6 +146,7 @@
     while( $row =$results->fetch_assoc()){
         $notes = $notes."<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
     }
+    CloseCon($conn);
     echo ('<div class="chat_box">
     <div class="conv-form-wrapper">
     <form action="" method="GET" class="hidden">
