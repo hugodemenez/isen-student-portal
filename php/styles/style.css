@@ -192,9 +192,7 @@ button:hover {
     transition:0.1s;
 }
 
-button.active{
-    text-decoration: underline;
-}
+
 
 .neutral{
     background-color: #F2F2F2;

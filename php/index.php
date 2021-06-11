@@ -11,7 +11,7 @@
            
     <div class="form-box">
         <div class="button-box">
-            <button id="login_btn" type="button" class="toggle-btn active" onclick="connexion()">Connexion</button>
+            <button id="login_btn" type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
             <button id="register_btn" type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
             
         </div>
@@ -72,15 +72,11 @@
             x.style.left = "-100%";
             y.style.left = "25%";
             z.style.left = "50%";
-            register_btn.className = "toggle-btn active";
-            login_btn.className = "toggle-btn";
         }
         function connexion(){
             x.style.left = "25%";
             y.style.left = "-100%";
             z.style.left = "25%";
-            login_btn.className = "toggle-btn active";
-            register_btn.className = "toggle-btn";
         }
 
         function reveal_password() {
