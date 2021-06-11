@@ -153,7 +153,7 @@ class complete_database:
                 title = mark['title']
                 __mark = mark['mark']
                 sql="INSERT INTO marks (id,title,mark,username) VALUES (%s,%s,%s,%s)"
-                self.cursor.execute(sql,id+username,title,__mark,username))
+                self.cursor.execute(sql,(id+username,title,__mark,username))
                 self.database.commit()
                 number +=1
         except Exception as error:
