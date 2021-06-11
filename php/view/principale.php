@@ -67,31 +67,28 @@
     <div class="wrapper">
         <canvas id="myChart" width="1600" height="900"></canvas>
         <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
-        <?php
-        $abscisse = [1500,1600,1700,1750,1800,1850,1900,1950,1999,3500];
-        $ordonnee = [86,114,106,106,107,111,133,221,783,2478];
-        echo ("<script>
-        var years =[1500,1600,1700,1750,1800,1850,1900,1950,1999,3500];
+        <script>
+        var time =<?php $abscisses =[2018,201,1700,1750,1800,1850,1900,1950,1999,3500]; echo json_encode($abscisses); ?>;
         // For drawing the lines
-        var africa = [86,114,106,106,107,111,133,221,783,2478];
+        var values =<?php $ordonnees =[86,114,106,106,107,111,133,221,783,2478]; echo json_encode($ordonnees); ?>;
         
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
           type: 'line',
           data: {
-            labels: years,
+            labels: time,
             datasets: [
               { 
-                data: africa ,
-                label: 'Africa',
+                data: values ,
+                label: 'Notes',
                 borderColor: '#3e95cd',
                 fill: false,
               }
             ]
           }
         });
-        </script>")
-        ?>
+        </script>
+
     </div>
     
     <form action="../index.php">
