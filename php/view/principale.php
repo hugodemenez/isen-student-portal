@@ -65,159 +65,163 @@
             }    
             echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
         ?>
-
-    <canvas class="background"></canvas>
+        <!-- Fond animé -->
+        <canvas class="background"></canvas>
         <script src="path/to/particles.min.js"></script>
         <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.1,});};</script>
-    
-    <form action="../index.php">
-        <?php
-        session_destroy ();
-        ?>
-        <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
-    </form>
-    <!-- Vocal Assistant -->
-    <div id='b1' class="voice_icon"><i class="fas fa-microphone-alt"></i></div>
-    
-    <div class="wrapper">
-        <canvas id="myChart" width="1600" height="900"></canvas>
-        <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
-        <script>
         
-        // For drawing the lines
-        var [time,values]=<?php
+        <!-- Boutton deconnexion -->
+        <form action="../index.php">
+            <?phpsession_destroy ();?>
+            <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
+        </form>
+        <!-- Assistant vocal -->
+        <div id='b1' class="voice_icon">
+            <i class="fas fa-microphone-alt"></i>
+        </div>
+        <!-- Chatbot -->
+        <div class="chatbot">
+            <div class="chat_icon">
+            <i class="fas fa-comments"></i>
+            </div>
+            <?php 
             $username=$_SESSION['username'];
             include '../db/db_connection.php';
             $conn = OpenCon();
-            $marks=[];
-            $dates=[];
+            $planning ='';
+            $notes ='';
+            $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+            while( $row =$results->fetch_assoc()){
+                $planning = $planning."<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
+            }
             $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+            while( $row =$results->fetch_assoc()){
+                $note = "<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
+            }
+            $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') DESC LIMIT 5");
+            while( $row =$results->fetch_assoc()){
+                $notes = $notes."<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
+            }
             CloseCon($conn);
-            while($row=$results->fetch_assoc()){
-                array_push($marks,$row['mark']);
-                array_push($dates,$row['date']);
-                }
-            echo "[";
-            echo json_encode($dates);
-            echo ",";
-            echo json_encode($marks);
-            echo "]";
-        ?>;
-        
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: time,
-            datasets: [
-              { 
-                data: values ,
-                label: 'Notes',
-                borderColor: '#3e95cd',
-                fill: false,
-              }
-            ]
-          }
-        });
-        </script>
-    </div>
-
-    <!-- Vocal Assistant -->
-    <!-- Chatbot -->
-    <div class="chat_icon">
-    <i class="fas fa-comments"></i>
-    </div>
-    <?php 
-    $username=$_SESSION['username'];
-    include '../db/db_connection.php';
-    $conn = OpenCon();
-    $planning ='';
-    $notes ='';
-    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
-    while( $row =$results->fetch_assoc()){
-        $planning = $planning."<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
-    }
-    $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
-    while( $row =$results->fetch_assoc()){
-        $note = "<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
-    }
-    $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') DESC LIMIT 5");
-    while( $row =$results->fetch_assoc()){
-        $notes = $notes."<input type='text' data-conv-question='".$row['date'].' '.$row['title'].' : '.$row['mark']."'data-no-answer='true'>";
-    }
-    CloseCon($conn);
-    echo ('<div class="chat_box">
-    <div class="conv-form-wrapper">
-    <form action="" method="GET" class="hidden">
-        <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]" data-no-answer="true">
-        <select name="question" data-callback="storeState" data-conv-question="En quoi puis-je vous aider ?">
-            <option value="planning">planning</option>
-            <option value="note">note</option>
-        </select>
-        <div data-conv-fork="question">
-            <div data-conv-case="planning">
-                <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">'
-                .$planning.
-                '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                    <option value="yes" data-callback="rollback">Oui</option>
-                </select>
-            </div>
-            <div data-conv-case="note">
-                <select name="question_note" data-conv-question="Que souhaitez-vous savoir ?">
-                    <option value="5notes">5 dernières notes</option>
-                    <option value="1note">La dernière note</option>
-                </select>
-                <div data-conv-fork="question_note">
-                    <div data-conv-case="1note">
-                        <input type="text" data-conv-question="Voici votre dernière note :" data-no-answer="true">'
-                        .$note.
-                    '</div>
-                    <div data-conv-case="5notes">
-                        <input type="text" data-conv-question="Voici vos 5 dernières notes :" data-no-answer="true">'
-                        .$notes.
-                    '</div>
+            echo ('
+            <div class="chat_box">
+                <div class="conv-form-wrapper">
+                    <form action="" method="GET" class="hidden">
+                        <input data-conv-question="Bonjour" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]" data-no-answer="true">
+                        <select name="question" data-callback="storeState" data-conv-question="En quoi puis-je vous aider ?">
+                            <option value="planning">planning</option>
+                            <option value="note">note</option>
+                        </select>
+                        <div data-conv-fork="question">
+                            <div data-conv-case="planning">
+                                <input type="text" data-conv-question="Votre planning est le suivant :" data-no-answer="true">'
+                                .$planning.
+                                '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                                    <option value="yes" data-callback="rollback">Oui</option>
+                                </select>
+                            </div>
+                            <div data-conv-case="note">
+                                <select name="question_note" data-conv-question="Que souhaitez-vous savoir ?">
+                                    <option value="5notes">5 dernières notes</option>
+                                    <option value="1note">La dernière note</option>
+                                </select>
+                                <div data-conv-fork="question_note">
+                                    <div data-conv-case="1note">
+                                        <input type="text" data-conv-question="Voici votre dernière note :" data-no-answer="true">'
+                                        .$note.
+                                    '</div>
+                                    <div data-conv-case="5notes">
+                                        <input type="text" data-conv-question="Voici vos 5 dernières notes :" data-no-answer="true">'
+                                        .$notes.
+                                    '</div>
+                                </div>
+                                <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                                    <option value="yes" data-callback="rollback">Oui</option>
+                                </select>
+                            </div> 
+                        </div>
+                    </form>
                 </div>
-                <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                    <option value="yes" data-callback="rollback">Oui</option>
-                </select>
-            </div> 
-        </div>
-    </form>')
-    ?>
-    <script>
-        var rollbackTo = false;
-        var originalState = false;
-        function storeState(stateWrapper, ready) {
-            rollbackTo = stateWrapper.current;
-            console.log("storeState called: ",rollbackTo);
-            ready();
-        }
-        function rollback(stateWrapper, ready) {
-            console.log("rollback called: ", rollbackTo, originalState);
-            console.log("answers at the time of user input: ", stateWrapper.answers);
-            if(rollbackTo!=false) {
-                if(originalState==false) {
-                    originalState = stateWrapper.current.next;
-                        console.log('stored original state');
+            </div>')
+            ?>
+            <script>
+                var rollbackTo = false;
+                var originalState = false;
+                function storeState(stateWrapper, ready) {
+                    rollbackTo = stateWrapper.current;
+                    console.log("storeState called: ",rollbackTo);
+                    ready();
                 }
-                stateWrapper.current.next = rollbackTo;
-                console.log('changed current.next to rollbackTo');
+                function rollback(stateWrapper, ready) {
+                    console.log("rollback called: ", rollbackTo, originalState);
+                    console.log("answers at the time of user input: ", stateWrapper.answers);
+                    if(rollbackTo!=false) {
+                        if(originalState==false) {
+                            originalState = stateWrapper.current.next;
+                                console.log('stored original state');
+                        }
+                        stateWrapper.current.next = rollbackTo;
+                        console.log('changed current.next to rollbackTo');
+                    }
+                    ready();
+                }
+                function restore(stateWrapper, ready) {
+                    if(originalState != false) {
+                        stateWrapper.current.next = originalState;
+                        console.log('changed current.next to originalState');
+                    }
+                    ready();
+                }
+                jQuery(function($){
+                        convForm = $('#chat').convform({selectInputStyle: 'disable'});
+                        console.log(convForm);
+                    });
+            </script>
+            <!-- Chatbot -->
+        </div>  
+        <!-- Graphiques -->
+        <div class="wrapper">
+            <canvas id="myChart" width="1600" height="900"></canvas>
+            <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
+            <script>
+            
+            // For drawing the lines
+            var [time,values]=<?php
+                $username=$_SESSION['username'];
+                include '../db/db_connection.php';
+                $conn = OpenCon();
+                $marks=[];
+                $dates=[];
+                $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+                CloseCon($conn);
+                while($row=$results->fetch_assoc()){
+                    array_push($marks,$row['mark']);
+                    array_push($dates,$row['date']);
+                    }
+                echo "[";
+                echo json_encode($dates);
+                echo ",";
+                echo json_encode($marks);
+                echo "]";
+            ?>;
+            
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: time,
+                datasets: [
+                { 
+                    data: values ,
+                    label: 'Notes',
+                    borderColor: '#3e95cd',
+                    fill: false,
+                }
+                ]
             }
-            ready();
-        }
-        function restore(stateWrapper, ready) {
-            if(originalState != false) {
-                stateWrapper.current.next = originalState;
-                console.log('changed current.next to originalState');
-            }
-            ready();
-        }
-        jQuery(function($){
-                convForm = $('#chat').convform({selectInputStyle: 'disable'});
-                console.log(convForm);
             });
-    </script>
-    <!-- Chatbot -->
-    
+            </script>
+        </div>
+
     </body>
 </html>
