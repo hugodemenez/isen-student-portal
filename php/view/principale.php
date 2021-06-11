@@ -128,7 +128,7 @@
                     $conn = OpenCon();
                     $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
                     while( $row =$results->fetch_assoc()){
-                        echo "<input type='text' data-conv-question='".implode(" ",$row)."'data-no-answer='true'>";
+                        echo "<input type='text' data-conv-question='Le ".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
                     }
                     ?>  
 
