@@ -114,6 +114,7 @@ class complete_database:
             for user in users:
                 try:
                     self.add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
+                    self.add_marks_to_database(scraping().get_marks(user['username'],user['password']),user['username'])
                 except:
                     pass
         except Exception as error:
@@ -140,6 +141,24 @@ class complete_database:
         except Exception as error:
             print(error)
         
+    def add_marks_to_database(self,marks:dict,username:str):
+        try:
+            number = 0
+            sql = "DELETE FROM marks WHERE username= '%s'" % (username)
+            self.cursor.execute(sql)
+            self.database.commit()
+            
+            for mark in marks:
+                title = mark['title']
+                __mark = mark['mark']
+                
+                sql="INSERT INTO marks (title,mark,username) VALUES (%s,%s,%s)"
+                self.cursor.execute(sql,(title,__mark,username))
+                self.database.commit()
+                number +=1
+        except Exception as error:
+            print(error)
+
     def getting_identification_from_database(self):
         sql = "SELECT * FROM user"
         self.cursor.execute(sql)
@@ -151,6 +170,4 @@ class complete_database:
 
 
 if __name__ == "__main__":
-    while(True):
-        complete_database()
-        time.sleep(3600)
+    complete_database()
