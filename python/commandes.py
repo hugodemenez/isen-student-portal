@@ -147,13 +147,13 @@ class complete_database:
             sql = "DELETE FROM marks WHERE username= '%s'" % (username)
             self.cursor.execute(sql)
             self.database.commit()
-            
+            number=0
             for mark in marks:
+                id = str(number)
                 title = mark['title']
                 __mark = mark['mark']
-                
-                sql="INSERT INTO marks (title,mark,username) VALUES (%s,%s,%s)"
-                self.cursor.execute(sql,(title,__mark,username))
+                sql="INSERT INTO marks (id,title,mark,username) VALUES (%s,%s,%s,%s)"
+                self.cursor.execute(sql,id+username,title,__mark,username))
                 self.database.commit()
                 number +=1
         except Exception as error:
