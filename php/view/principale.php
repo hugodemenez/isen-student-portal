@@ -159,9 +159,9 @@
                                             </select>
                                         </div>
                                         <div data-conv-case="mail">
-                                            <input type="text" data-conv-question="Voici votre planning de la semaine :" data-no-answer="true">'
-                                            .$note.
-                                            '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
+                                            <input type="text" data-conv-question="Voici votre planning de la semaine :" data-no-answer="true">
+                                            
+                                            <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                                                 <option value="yes" data-callback="rollback">Oui</option>
                                             </select>
                                         </div>
