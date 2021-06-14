@@ -13,7 +13,6 @@
         <div class="button-box">
             <button id="login_btn" type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
             <button id="register_btn" type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
-            
         </div>
         <form id="connexion" class="input-group" action="view/login_verification.php" method="POST">
     
@@ -51,6 +50,7 @@
                 $err = $_GET['register_error'];
                 if($err==1){
                     echo "<p style='color:red'>Utilisateur déjà inscrit</p>";
+                    echo "<script>inscription();</script>";
                 }
                 elseif($err==2){
                     echo "<p style='color:green'>Inscription réussie</p>";
@@ -65,18 +65,19 @@
     <script>
         var x = document.getElementById("connexion");
         var y = document.getElementById("inscription");
-        var z = document.getElementById("btn");
         var login_btn = document.getElementById("login_btn");
         var register_btn = document.getElementById("register_btn");
         function inscription(){
             x.style.left = "-100%";
             y.style.left = "25%";
-            z.style.left = "50%";
+            login_btn.style.textDecoration  = "none";
+            register_btn.style.textDecoration  = "underline";
         }
         function connexion(){
             x.style.left = "25%";
             y.style.left = "-100%";
-            z.style.left = "25%";
+            login_btn.style.textDecoration  = "underline";
+            register_btn.style.textDecoration  = "none";
         }
 
         function reveal_password() {

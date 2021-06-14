@@ -165,7 +165,7 @@ class complete_database:
         self.cursor.execute(sql)
         Liste=[]
         for username,password,email in self.cursor:
-            Liste.append({'username': username, 'password': password})
+            Liste.append({'username': username, 'password': password,'email':email})
         return Liste
 
 
