@@ -1,6 +1,7 @@
-import time #chemin est la variable qui donne l'emplacement du fichier à vérifier
-from commandes import complete_database
-
+import time
+from commandes import complete_database,envoie_planning
+from datetime import datetime
+from time import strftime
 
 class scan:
     def __init__(self):
@@ -13,7 +14,14 @@ class scan:
         self.scruter(liste_init)
         
     def scruter(self,liste):
+        cst =0
         while True:
+            if (datetime.now().strftime("%w")=="0") & (cst ==0): #si on est dimanche on envoie le planning,
+                envoie_planning()                                   #on utilise une constante pour n'envoyer le mail qu'une fois
+                cst=1
+            if (datetime.now().strftime("%w")=="1"): 
+                cst = 0
+
             new_liste = []
             fichier = open(self.path,"r")
             for ligne in fichier:
@@ -32,7 +40,7 @@ class scan:
 
             time.sleep(60)
             self.timer +=60
-            
+
             
 
 
