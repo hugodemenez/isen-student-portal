@@ -12,20 +12,10 @@ if (mysqli_num_rows($results)==1){
     header('Location: ../index.php?register_error=1');
 }
 else{
-    $item=$_POST['username_register'];
-    $item2=$_POST['password_register'];
-    set_time_limit (20);
-    $tmp = exec("python3 ../scripts/aurion_check.py $item $item2");
-    echo $tmp;
-    if ($tmp==true){
-        $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
-        $_SESSION['username']=$username_register;
-        file_put_contents("../scripts/waiting_list.txt", "1");
-        header('Location: ../principale.php');
-    }
-    
-
-
+    $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
+    $_SESSION['username']=$username_register;
+    file_put_contents("../scripts/waiting_list.txt", "1");
+    header('Location: principale.php');
 }
 CloseCon($conn);
 ?>
