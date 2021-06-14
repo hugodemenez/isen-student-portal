@@ -1,6 +1,6 @@
 let enregistrement_audio = document.getElementById('b1');
 
-
+let variable_a_modifier;
 let message_synthetise = ''
 enregistrement_audio.addEventListener('click', alerte);
 //prononcer.addEventListener('click' , function(){synthetiser("pourquoi")});
@@ -51,7 +51,7 @@ function synthetiser(){
 	msg.volume = 1; // 0 to 1
 	msg.rate = 1; // 0.1 to 2
 	msg.pitch =1; //0 to 2
-	msg.text = message_synthetise;
+	msg.text = message_synthetise + variable_a_modifier;
 	speechSynthesis.speak(msg);
 }
 
