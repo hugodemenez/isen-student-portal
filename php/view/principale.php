@@ -197,9 +197,11 @@
             ?>
             <script>
                 var rollbackTo = false;
-                var originalState = true;
+                var originalState = false;
+                var rollbackAnswers  = false;
                 function storeState(stateWrapper, ready) {
                     rollbackTo = stateWrapper.current;
+                    rollbackAnswers = { ...stateWrapper.answers };
                     console.log("storeState called: ",rollbackTo);
                     ready();
                 }
@@ -210,7 +212,8 @@
                             console.log('stored original state');
                         }
                         stateWrapper.current = rollbackTo;
-                        console.log('changed current.next to rollbackTo');
+                        stateWrapper.answers = { ...rollbackAnswers};
+                        console.log('changed current to rollbackTo');
                     }
                     ready();
                 }
