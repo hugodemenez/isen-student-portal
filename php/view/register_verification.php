@@ -23,7 +23,7 @@ else{
     echo $tmp;
     if ($tmp==true){
         $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
-        $username=$username_register;
+        $_SESSION['username']=$username_register;
         file_put_contents("/home/ubuntu/waiting_list.txt", "1");
         header('Location: ../principale.php');
     }
