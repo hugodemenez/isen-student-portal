@@ -68,7 +68,7 @@
         <!-- Fond animé -->
         <canvas class="background"></canvas>
         <script src="path/to/particles.min.js"></script>
-        <script>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.3,});};</script>
+        <script async>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.3,});};</script>
         
         <!-- Boutton deconnexion -->
         <form action="../index.php">
@@ -79,49 +79,8 @@
         <div id='b1' class="voice_icon">
             <i class="fas fa-microphone-alt"></i>
         </div>
-        <!-- Graphiques -->
-        <div class="wrapper">
-            <canvas id="myChart" width="1600" height="900"></canvas>
-            <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
-            <script>
-            
-            // For drawing the lines
-            var [time,values]=<?php
-                $username=$_SESSION['username'];
-                include '../db/db_connection.php';
-                $conn = OpenCon();
-                $marks=[];
-                $dates=[];
-                $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
-                CloseCon($conn);
-                while($row=$results->fetch_assoc()){
-                    array_push($marks,$row['mark']);
-                    array_push($dates,$row['date']);
-                    }
-                echo "[";
-                echo json_encode($dates);
-                echo ",";
-                echo json_encode($marks);
-                echo "]";
-            ?>;
-            
-            var ctx = document.getElementById('myChart');
-            var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: time,
-                datasets: [
-                { 
-                    data: values ,
-                    label: 'Notes',
-                    borderColor: '#3e95cd',
-                    fill: false,
-                }
-                ]
-            }
-            });
-            </script>
-        </div>
+
+
         <!-- Chatbot -->
         <div class="chatbot">
             <div class="chat_icon">
@@ -187,7 +146,7 @@
                 </div>
             </div>')
             ?>
-            <script>
+            <script defer>
                 var rollbackTo = false;
                 var originalState = false;
                 function storeState(stateWrapper, ready) {
@@ -223,6 +182,47 @@
             <!-- Chatbot -->
         </div>  
 
+        <!-- Graphiques -->
+        <div class="graphics">
+            <canvas id="graphiques_notes"></canvas>
+            <h2>Evolution de votre moyenne depuis votre entrée à l'isen</h2>
+            <script>
+            var [time,values]=<?php
+                $username=$_SESSION['username'];
+                include '../db/db_connection.php';
+                $conn = OpenCon();
+                $marks=[];
+                $dates=[];
+                $graph_results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+                CloseCon($conn);
+                while($row=$graph_results->fetch_assoc()){
+                    array_push($marks,$row['mark']);
+                    array_push($dates,$row['date']);
+                    }
+                echo "[";
+                echo json_encode($dates);
+                echo ",";
+                echo json_encode($marks);
+                echo "]";
+            ?>;
+            
+            var ctx = document.getElementById('graphiques_notes');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: time,
+                    datasets: [
+                    { 
+                        data: values ,
+                        label: 'Notes',
+                        borderColor: '#3e95cd',
+                        fill: false,
+                    }
+                    ]
+                }
+            });
+            </script>
+        </div>
 
     </body>
 </html>
