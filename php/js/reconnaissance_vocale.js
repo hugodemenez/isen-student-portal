@@ -3,8 +3,6 @@ let enregistrement_audio = document.getElementById('b1');
 let variable_a_modifier;
 let message_synthetise = ''
 enregistrement_audio.addEventListener('click', alerte);
-//prononcer.addEventListener('click' , function(){synthetiser("pourquoi")});
-
 let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
