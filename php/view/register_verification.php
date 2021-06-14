@@ -14,9 +14,8 @@ if (mysqli_num_rows($results)==1){
 else{
     $item=$_POST['username_register'];
     $item2=$_POST['password_register'];
-    $item3=$_POST['email_register'];
     set_time_limit (20);
-    $tmp = exec("python /home/ubuntu/aurion_check.py $item $item2 &");
+    $tmp = exec("python3 /home/ubuntu/aurion_check.py $item $item2 &");
     echo $tmp;
     if ($tmp==true){
         $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
