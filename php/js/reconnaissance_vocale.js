@@ -1,6 +1,7 @@
 let enregistrement_audio = document.getElementById('b1');
 
 
+let message_synthetise = ''
 enregistrement_audio.addEventListener('click', alerte);
 //prononcer.addEventListener('click' , function(){synthetiser("pourquoi")});
 
@@ -16,15 +17,15 @@ recognition.onresult = function(event)
 recognition.onspeechend = function(){
 	buffer = comprendre(final_transcript);
 	if (buffer != "-1"){
-	document.location.href=buffer;}
+		synthetiser()}
 	if (buffer == "-1") { alert("L'instruction n'est pas claire");}
 }
 
 
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
-	if (texte.search(/planning/) != -1 ) {texte_comprendre = "http://iseninfo.fr/";}
-	else if (texte.search(/note/) != -1) {texte_comprendre = "http://iseninfo.fr/";}
+	if (texte.search(/planning/) != -1 ) {message_synthetise = "voici votre planning";}
+	else if (texte.search(/note/) != -1) {message_synthetise = "voici votre dernière note";}
 	else {texte_comprendre = "-1";}
 	return texte_comprendre;
 }
@@ -40,3 +41,19 @@ function alerte(){
 		recognition.start();
 	}
 }
+
+
+function synthetiser(){
+	let msg = new SpeechSynthesisUtterance();
+	let voices = window.speechSynthesis.getVoices();
+	msg.voice = voices[6]; //6 pour la voix française
+	msg.voiceURI = 'native';
+	msg.volume = 1; // 0 to 1
+	msg.rate = 1; // 0.1 to 2
+	msg.pitch =1; //0 to 2
+	msg.text = message_synthetise;
+	speechSynthesis.speak(msg);
+}
+
+
+
