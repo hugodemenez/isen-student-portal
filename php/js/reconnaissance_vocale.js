@@ -1,7 +1,6 @@
 let enregistrement_audio = document.getElementById('b1');
-
 let variable_a_modifier;
-let message_synthetise = ''
+let message_synthetise = '';
 enregistrement_audio.addEventListener('click', alerte);
 let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
@@ -36,9 +35,6 @@ function comprendre(texte){ //regex pour comprendre la commande par exemple si l
 	return texte_comprendre;
 }
 
-
-
-
 function alerte(){
 	if (!('webkitSpeechRecognition' in window)) {
 	alert("La reconnaissance vocale n'est pas disponible sur votre navigateur")}
@@ -57,7 +53,7 @@ function synthetiser(variable_a_modifier){
 	msg.volume = 1; // 0 to 1
 	msg.rate = 1; // 0.1 to 2
 	msg.pitch =1; //0 to 2
-	msg.text = message_synthetise + variable_a_modifier;
+	msg.text = message_synthetise + " bonjour";
 	speechSynthesis.speak(msg);
 }
 
