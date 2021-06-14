@@ -69,7 +69,7 @@
 
         <!-- Graphiques -->
         <div class="graphics">
-            <canvas id="graphiques_notes"></canvas>
+            <canvas id="graphiques_notes" width="100%" height="65%"></canvas>
             <script>
             var [time,values]=<?php
                 ini_set('display_errors', 'on');
@@ -119,6 +119,7 @@
             $conn = OpenCon();
             $planning ='';
             $notes ='';
+            $note = '';
             $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
             while( $row =$results->fetch_assoc()){
                 $planning = $planning."<input type='text' data-conv-question='".$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject']."'data-no-answer='true'>";
@@ -148,20 +149,12 @@
                                 <div data-conv-case="planning">
                                     <select name="question_planning" data-conv-question="Que souhaitez-vous savoir ?">
                                         <option value="planning">mon planning</option>
-                                        <option value="mail">envoyer un mail</option>
                                     </select>
                                     <div data-conv-fork="question_planning">
                                         <div data-conv-case="planning">
                                             <input type="text" data-conv-question="Voici votre planning de la semaine :" data-no-answer="true">'
                                             .$planning.
                                             '<select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
-                                                <option value="yes" data-callback="rollback">Oui</option>
-                                            </select>
-                                        </div>
-                                        <div data-conv-case="mail">
-                                            <input type="text" data-conv-question="Voici votre planning de la semaine :" data-no-answer="true">
-                                            
-                                            <select name="callbackTest" data-conv-question="Avez-vous une autre question ?">
                                                 <option value="yes" data-callback="rollback">Oui</option>
                                             </select>
                                         </div>
@@ -225,7 +218,7 @@
 
         <!-- Fond animé -->
         <canvas class="background"></canvas>
-        <script async>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#4F42DE',speed:0.3,});};</script>
+        <script async>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#626262',speed:0.3,});};</script>
         
         <!-- Boutton deconnexion -->
         <form action="../index.php">

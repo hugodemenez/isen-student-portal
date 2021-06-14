@@ -16,7 +16,7 @@ recognition.onspeechend = function(){
 	buffer = comprendre(final_transcript);
 	if (buffer != "-1"){
 		synthetiser()}
-	if (buffer == "-1") { alert("L'instruction n'est pas claire");}
+	if (buffer == "-1") {alert("L'instruction n'est pas claire");}
 }
 
 
