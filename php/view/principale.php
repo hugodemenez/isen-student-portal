@@ -224,13 +224,11 @@
             <?phpsession_destroy ();?>
             <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
         </form>
+        
         <!-- Assistant vocal -->
         <div id='b1' class="voice_icon">
             <i class="fas fa-microphone-alt"></i>
         </div>
-
-       
-
 
     </body>
 
