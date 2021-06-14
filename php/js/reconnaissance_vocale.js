@@ -53,7 +53,7 @@ function synthetiser(variable_a_modifier){
 	msg.volume = 1; // 0 to 1
 	msg.rate = 1; // 0.1 to 2
 	msg.pitch =1; //0 to 2
-	msg.text = message_synthetise + " bonjour";
+	msg.text = message_synthetise + " cette fonctionnalité n'est pas disponible pour le moment";
 	speechSynthesis.speak(msg);
 }
 
