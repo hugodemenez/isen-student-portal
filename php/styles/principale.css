@@ -159,5 +159,6 @@
         left: 0;
         z-index: -30000;
         background: #FFFFFF;
+        display:none;
     }
 }
