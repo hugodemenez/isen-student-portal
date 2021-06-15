@@ -66,8 +66,8 @@
             echo '<div class="weather">'.$content.'<div class="temperature">'.$temperature.'°C</div></div>';
         ?>
 
-        <!-- Graphiques -->
-        <div class="graphics">
+        <!-- Graphique ordinateur et tablette -->
+        <div class="graphics other">
             <canvas id="graphiques_notes" width="100%" height="65%"></canvas>
             <script>
             var [time,values]=<?php
@@ -99,7 +99,49 @@
                         data: values ,
                         label: 'Notes',
                         borderColor: '#3e95cd',
-                        fill: false,
+                        
+                    }
+                    ]
+                }
+            });
+            </script>
+            <h2>Evolution de vos notes depuis votre entrée à l'isen</h2>
+        </div>
+
+        <!-- Graphique telephone -->
+        <div class="graphics iphone">
+            <canvas id="graphiques_notes_iphone" width="100%" height="100%"></canvas>
+            <script>
+            var [time,values]=<?php
+                ini_set('display_errors', 'on');
+                $username=$_SESSION['username'];
+                $conn2 = OpenCon();
+                $marks=[];
+                $dates=[];
+                $graph_results = $conn2->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') DESC LIMIT 5");
+                CloseCon($conn2);
+                while($row=$graph_results->fetch_assoc()){
+                    array_push($marks,$row['mark']);
+                    array_push($dates,$row['date']);
+                    }
+                echo "[";
+                echo json_encode(array_reverse($dates));
+                echo ",";
+                echo json_encode(array_reverse($marks));
+                echo "]";
+            ?>;
+            
+            var ctx = document.getElementById('graphiques_notes_iphone');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: time,
+                    datasets: [
+                    { 
+                        data: values ,
+                        label: 'Notes',
+                        borderColor: '#3e95cd',
+                        
                     }
                     ]
                 }
