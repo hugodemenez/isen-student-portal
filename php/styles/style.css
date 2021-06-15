@@ -2,13 +2,26 @@
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
     
+    img{
+        height:5vh;
+        position:absolute;
+    }
+
+    .background {
+        display: none;
+    }
 
     
     button,input,h1{
         font-weight: 400;
         font-family: "Poppins", sans-serif;
-        color:#2F2D52;
+        color:#3872E1;
         font-size: 16px;
+    }
+    
+    button:hover {
+        color:#707791;
+        transition:0.1s;
     }
     
     
@@ -33,8 +46,12 @@
         overflow: hidden;
         border-radius: 0; 
         overflow: auto;
-        background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-    
+        background: rgba( 255, 255, 255, 0.30 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 5.0px );
+        -webkit-backdrop-filter: blur( 5.0px );
+        border-radius: 16px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
     
     .button-box{
@@ -73,9 +90,10 @@
         
     }
     
+
     .field_group{
         border-radius: 100px;
-        padding: 2vh 0;
+        padding: 0.2vh 0;
         margin: 1vh auto;
         border:0;
         text-align: center;
@@ -83,31 +101,22 @@
         width: 100%;
         display: flex;
         overflow: hidden;
-        background: rgba( 105, 103, 194, 0.25 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 4px );
-        -webkit-backdrop-filter: blur( 4px );
-        border-radius: 25px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        color:white; 
+        background: white;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border-radius: 12px;
+        color:#3872E1; 
     }
     
-    .input-field:-webkit-autofill,
-    .input-field:-webkit-autofill:hover, 
-    .input-field:-webkit-autofill:focus, 
-    .input-field:-webkit-autofill:active
-    {
-        background: rgba( 105, 103, 194, 0.25 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 4px );
-        -webkit-backdrop-filter: blur( 4px );
-        border-radius: 15px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        width:50%;
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
     }
     
+
     .input-field{
-        padding: 2vh 0;
+        padding: 0.2vh 0;
         margin: 1vh auto;
         border:0;
         text-align: center;
@@ -116,7 +125,7 @@
         display: flex;
         overflow: hidden;
         background: none;
-        color:rgb(255, 255, 255); 
+        color:#707791; 
     }
     
     input::placeholder {
@@ -130,12 +139,13 @@
         margin: auto;
         margin-top: 50px;
         outline: none;
-        width:100%;
+        inset: 0;
+        width:75%;
         background: rgba( 255, 255, 255, 0.25 );
         box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
         backdrop-filter: blur( 4px );
         -webkit-backdrop-filter: blur( 4px );
-        border-radius: 25px;
+        border-radius: 12px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
     
@@ -179,16 +189,23 @@
     overflow: hidden;
 }
 
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -30000;
+	background: #FFFFFF;
+  }
 
 button,input,h1{
     font-weight: 400;
     font-family: "Poppins", sans-serif;
-    color:#2F2D52;
+    color:#3872E1;
     font-size: 16px;
 }
 
 button:hover {
-    color:white;
+    color:#707791;
     transition:0.1s;
 }
 
@@ -203,21 +220,28 @@ button:hover {
     padding: 0;
 }
 
+img{
+    height:5vh;
+    position:absolute;
+}
 
 .form-box{
-    width: 90vh;
-    height: 90vh;
+    width: 75vh;
+    height: 75vh;
     position: absolute;
     margin : auto auto;
-    filter: drop-shadow(0 0 0.5rem rgb(105, 105, 105));
     padding: auto auto;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     overflow: hidden;
-    border-radius: 50px; 
-    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    background: rgba( 255, 255, 255, 0.30 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5.0px );
+    -webkit-backdrop-filter: blur( 5.0px );
+    border-radius: 16px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .button-box{
@@ -266,13 +290,10 @@ button:hover {
     width: 100%;
     display: flex;
     overflow: hidden;
-    background: rgba( 105, 103, 194, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 25px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    color:white; 
+    background: white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 12px;
+    color:#3872E1; 
 }
 
 input:-webkit-autofill,
@@ -292,11 +313,11 @@ input:-webkit-autofill:active {
     display: flex;
     overflow: hidden;
     background: none;
-    color:rgb(255, 255, 255); 
+    color:#707791; 
 }
 
 input::placeholder {
-    color: rgb(218, 218, 218);
+    color: rgb(190, 190, 190)
   }
 
 .submit-btn{
@@ -306,12 +327,13 @@ input::placeholder {
     margin: auto;
     margin-top: 50px;
     outline: none;
-    width:100%;
+    inset: 0;
+    width:50%;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
-    border-radius: 25px;
+    border-radius: 12px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 

@@ -27,7 +27,7 @@
             session_start();
             include '../db/db_connection.php';
             if (isset($_SESSION['username'])) {
-            echo "<h1>".'Bienvenue, '.$_SESSION['username']."</h1>";
+            echo "<h1>Bienvenue</h1>";
             
             } else {
             echo "<h1>Vous n'êtes pas connecté</h1>";
@@ -57,13 +57,13 @@
             if( $weather==="Clouds" or $weather=="Clear"){
                 $content = '<div class="cloudy"><span class="cloud"></span><span class="cloudx"></span></div>';
             }
-            if( $weather==="Drizzle" or $weather=="Thunderstorm" or $weather=="Rain"){
+            if( $weather==="Drizzle" or $weather=="Thunderstorm" or $weather=="Rain" or $weather=="Mist" or $weather=="Haze"){
                 $content = '<div class="breezy"><ul><li></li><li></li><li></li><li></li><li></li></ul><span class="cloudr"></span></div>';
             }  
             elseif( $weather==="Snow"){
                 $content = '<div class="stormy"><ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><span class="snowe"></span><span class="snowex"></span><span class="stick"></span><span class="stick2"></span></div>';
             }    
-            echo '<div class="weather"><div class="temperature">'.$temperature.'°C</div>'.$content.'</div>';
+            echo '<div class="weather">'.$content.'<div class="temperature">'.$temperature.'°C</div></div>';
         ?>
 
         <!-- Graphiques -->
