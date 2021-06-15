@@ -3,8 +3,11 @@
     /* CSS specific to iOS devices */ 
     
     img{
-        height:5vh;
-        position:absolute;
+        height:10vh;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index: 100;
     }
 
     .background {
@@ -188,6 +191,14 @@
     font-size: 16px;
     overflow: hidden;
 }
+img{
+    height:10vh;
+    position:absolute;
+    bottom:0;
+    right:0;
+    z-index: 100;
+}
+
 
 .background {
 	position: absolute;
@@ -220,10 +231,6 @@ button:hover {
     padding: 0;
 }
 
-img{
-    height:5vh;
-    position:absolute;
-}
 
 .form-box{
     width: 75vh;
