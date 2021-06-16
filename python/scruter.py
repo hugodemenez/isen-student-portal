@@ -10,7 +10,7 @@ class scan:
         liste_init = []
         for ligne in fichier:
             liste_init.append(ligne)
-        self.timer = 0
+        self.timer = 3600
         self.scruter(liste_init)
         
     def scruter(self,liste):
@@ -34,12 +34,12 @@ class scan:
             fichier.close()
 
             #On complete la base de données toutes les 12heures même si personne s'est inscrit
-            if self.timer >43200:
+            if self.timer >3600:
                 complete_database()
                 self.timer=0
 
-            time.sleep(60)
-            self.timer +=60
+            time.sleep(1)
+            self.timer +=1
 
             
 
