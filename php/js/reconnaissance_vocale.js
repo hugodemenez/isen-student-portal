@@ -54,7 +54,7 @@ function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui n
 
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
-	if (texte.search(/planning/) != -1 ) {
+	if ((texte.search(/planning/) != -1 ) || (texte.search(/emploi du temps/)) != -1) {
 		//createCookie("Cookie_planning","le cookie fonctionne")
 		alert(readCookie('Cookie_planning'));
 		message_synthetise = "voici votre planning :" + caractere_cpeciaux(readCookie('Cookie_planning'));
