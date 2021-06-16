@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/reconnaissance_vocale.js" async></script>
+    
     <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
 
     <head>
@@ -98,7 +99,7 @@
                     { 
                         data: values ,
                         label: 'Notes',
-                        borderColor: '#3e95cd',
+                        borderColor: '#004980',
                         
                     }
                     ]
@@ -140,7 +141,7 @@
                     { 
                         data: values ,
                         label: 'Notes',
-                        borderColor: '#3e95cd',
+                        borderColor: '#004980',
                         
                     }
                     ]
@@ -257,10 +258,6 @@
             <!-- Chatbot -->
         </div>  
 
-        <!-- Fond animé -->
-        <canvas class="background"></canvas>
-        <script async>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#626262',speed:0.3,});};</script>
-        
         <!-- Boutton deconnexion -->
         <form action="../index.php">
             <?phpsession_destroy ();?>

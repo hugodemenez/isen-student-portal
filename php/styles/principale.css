@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
+body{
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
+}
+
 @supports (-webkit-touch-callout: none) {
-    body{
-        background-color: #fcfcfc;
-        opacity: 1;
-        z-index: -1;
-    }
+    /* CSS specific to iOS devices */ 
+
     input,button{
         font-family: "Poppins", sans-serif;
     }
@@ -74,91 +77,150 @@
         border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
 
-    .background {
-        display:none;
-    }
 }
 
 @supports not (-webkit-touch-callout: none) {
-    body{
-        background-color: #fcfcfc;
-        opacity: 1;
-        z-index: -1;
+    @media only screen and (max-width: 768px){
+        /* CSS specific to mobile devices */ 
+        input,button{
+            font-family: "Poppins", sans-serif;
+        }
+    
+        button{
+            font-weight: 600;
+        }
+    
+        h1{
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            width: 100%;
+            top:5%;
+            margin: 30px auto;
+            position:relative;
+            text-align: center;
+            margin: 15px auto;
+            width: 50%;
+            padding: 10px;
+            border-radius: 30px;
+        }
+    
+        .voice_icon{
+            position: fixed;
+            left: 30px;
+            bottom: 0;
+            font-size: 80px;
+    
+            cursor: pointer;
+            z-index: 1000;
+            color: aliceblue;
+            filter: drop-shadow(2px 2px 2px #838383);
+            transform: translate(0%,-50%);
+        }
+    
+        .chat_icon{
+            position: fixed;
+            right: 30px;
+            bottom: 0;
+            font-size: 80px;
+    
+            cursor: pointer;
+            z-index: 1000;
+            color: aliceblue;
+            filter: drop-shadow(2px 2px 2px #838383);
+            transform: translate(0%,-50%);
+        }
+    
+    
+        .logout-btn{
+            padding: 15px 15px;
+            cursor: pointer;
+            border: 0;
+            outline: none;
+            color: black;
+            width:10vw;
+            font-size:16px;
+            position: fixed;
+            right:2px;
+            top:5px;
+            background: rgba( 255, 255, 255, 0.65 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+    
+
     }
-    input,button{
-        font-family: "Poppins", sans-serif;
-    }
+    @media only screen and (min-width: 768px){
+        /* CSS specific to computer devices */ 
+        input,button{
+            font-family: "Poppins", sans-serif;
+        }
 
-    button{
-        font-weight: 600;
-    }
+        button{
+            font-weight: 600;
+        }
 
-    h1{
-        font-family: "Poppins", sans-serif;
-        font-weight: 800;
-        width: 100%;
-        top:5%;
-        margin: 30px auto;
-        position:relative;
-        text-align: center;
-        margin: 15px auto;
-        width: 50%;
-        padding: 10px;
-        border-radius: 30px;
-    }
+        h1{
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            width: 100%;
+            top:5%;
+            margin: 30px auto;
+            position:relative;
+            text-align: center;
+            margin: 15px auto;
+            width: 50%;
+            padding: 10px;
+            border-radius: 30px;
+        }
 
-    .voice_icon{
-        position: fixed;
-        left: 30px;
-        bottom: 0;
-        font-size: 80px;
+        .voice_icon{
+            position: fixed;
+            left: 30px;
+            bottom: 0;
+            font-size: 80px;
 
-        cursor: pointer;
-        z-index: 1000;
-        color: aliceblue;
-        filter: drop-shadow(2px 2px 2px #838383);
-        transform: translate(0%,-50%);
-    }
+            cursor: pointer;
+            z-index: 1000;
+            color: aliceblue;
+            filter: drop-shadow(2px 2px 2px #838383);
+            transform: translate(0%,-50%);
+        }
 
-    .chat_icon{
-        position: fixed;
-        right: 30px;
-        bottom: 0;
-        font-size: 80px;
+        .chat_icon{
+            position: fixed;
+            right: 30px;
+            bottom: 0;
+            font-size: 80px;
 
-        cursor: pointer;
-        z-index: 1000;
-        color: aliceblue;
-        filter: drop-shadow(2px 2px 2px #838383);
-        transform: translate(0%,-50%);
-    }
+            cursor: pointer;
+            z-index: 1000;
+            color: aliceblue;
+            filter: drop-shadow(2px 2px 2px #838383);
+            transform: translate(0%,-50%);
+        }
 
 
-    .logout-btn{
-        padding: 15px 15px;
-        cursor: pointer;
-        border: 0;
-        outline: none;
-        color: black;
-        width:10vw;
-        font-size:16px;
-        position: fixed;
-        right:2px;
-        top:5px;
-        background: rgba( 255, 255, 255, 0.65 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 4px );
-        -webkit-backdrop-filter: blur( 4px );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-    }
+        .logout-btn{
+            padding: 15px 15px;
+            cursor: pointer;
+            border: 0;
+            outline: none;
+            color: black;
+            width:10vw;
+            font-size:16px;
+            position: fixed;
+            right:2px;
+            top:5px;
+            background: rgba( 255, 255, 255, 0.65 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
 
-    .background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -30000;
-        background: #FFFFFF;
-        display:none;
     }
 }
