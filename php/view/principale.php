@@ -24,6 +24,7 @@
         ?>
     </head>
     <body>
+        
         <?php
             session_start();
             include '../db/db_connection.php';
