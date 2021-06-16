@@ -24,7 +24,6 @@
         ?>
     </head>
     <body>
-        
         <?php
             session_start();
             include '../db/db_connection.php';
@@ -100,7 +99,7 @@
                     { 
                         data: values ,
                         label: 'Notes',
-                        borderColor: '#3e95cd',
+                        borderColor: '#004980',
                         
                     }
                     ]
@@ -142,7 +141,7 @@
                     { 
                         data: values ,
                         label: 'Notes',
-                        borderColor: '#3e95cd',
+                        borderColor: '#004980',
                         
                     }
                     ]
@@ -259,10 +258,6 @@
             <!-- Chatbot -->
         </div>  
 
-        <!-- Fond animé -->
-        <canvas class="background"></canvas>
-        <script async>window.onload = function() {Particles.init({selector: '.background',maxParticles: 150,connectParticles: true,color: '#626262',speed:0.3,});};</script>
-        
         <!-- Boutton deconnexion -->
         <form action="../index.php">
             <?phpsession_destroy ();?>
