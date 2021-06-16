@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/ed342dc3ca.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/reconnaissance_vocale.js" async></script>
+    
     <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
 
     <head>
