@@ -42,8 +42,8 @@
                         </div> 
 	            </div>
             </div>
-        </form>
     <!-- Chatbot -->
+        </form>
     </body>
 </html>
  
