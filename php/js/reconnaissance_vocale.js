@@ -21,14 +21,47 @@ recognition.onspeechend = function(){
 }
 
 
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}	
+	return null;	
+}
+
+function caractere_cpeciaux(texte){
+
+	texte = texte.replace(/%2C/g, ",");
+	texte = texte.replace(/\+/g, " ");
+	texte = texte.replace (/%2F/g, "/");
+	texte = texte.replace (/%C3%A9/g, "é");
+	texte = texte.replace (/%C3%A8/g, "è");
+	texte = texte.replace (/%C3%AA/g, "ê");
+	texte = texte.replace (/%C3%A2/g, "â");
+	texte = texte.replace (/%C3%A0/g, "à");
+	texte = texte.replace (/%C3%AE/g, "î");
+	texte = texte.replace (/%C3%AF/g, "ï");
+	texte = texte.replace (/%26/g, "et");
+	return texte;
+}
+
+
+
+
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
 	if (texte.search(/planning/) != -1 ) {
-		message_synthetise = "voici votre planning";
+		//createCookie("Cookie_planning","le cookie fonctionne")
+		alert(readCookie('Cookie_planning'));
+		message_synthetise = "voici votre planning :" + caractere_cpeciaux(readCookie('Cookie_planning'));
 		return "planning";
 	}
 	else if (texte.search(/note/) != -1) {
-		message_synthetise = "voici votre dernière note";
+		message_synthetise = "voici votre dernière note :" + caractere_cpeciaux(readCookie("Cookie_note"));
 		return "note"
 	}
 	else {texte_comprendre = "-1";}
@@ -53,7 +86,7 @@ function synthetiser(variable_a_modifier){
 	msg.volume = 1; // 0 to 1
 	msg.rate = 1; // 0.1 to 2
 	msg.pitch =1; //0 to 2
-	msg.text = "Cette fonctionnalité n'est pas disponible pour le moment";
+	msg.text = message_synthetise;
 	speechSynthesis.speak(msg);
 }
 
