@@ -1,5 +1,5 @@
 <h1>Projet d'informatique ISEN fin de 3ème année</h1>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/b78d38da6ba679d9bd39ffc4ce0704d588679223/assets/logo_isen.svg?sanitize=true' width=100%>
+<img src='\assets\logo_isen.png' width=100%>
 
 <header>
 
