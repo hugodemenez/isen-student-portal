@@ -16,13 +16,18 @@
 <div id="IDEE">
 <h2>Idée du projet</h2>
 <p>
-<li>Interface web (html), une fois connecté envoie automatiquement (tous les dimanches) un mail avec l'emploi du temps de la semaine au format .ics et les nouvelles notes.</li>
+Nous sommes partis d'un constat et d'un problème que tous les membres du projet avaient rencontrés.
+ " Il est difficile de récuperer les informations d'Aurion et de les avoir disponibles dans notre telephone sans être connecté à internet. "
+ 
+<li>Interface web (php,html,css), une fois connecté envoie automatiquement (tous les dimanches) un mail avec l'emploi du temps de la semaine au format .csv et les nouvelles notes.</li>
 <br>
-<li>Alimente la base de donnée avec l'identifiant, le mot de passe, l'email, le planning et les notes.</li>
+<li>Alimenter la base de donnée avec l'identifiant, le mot de passe, l'email, le planning et les notes.</li>
 <br>
 <li>Checking des informations tous les jours pour voir s'il y a des changements. (attention s'il y a trop d'inscrits cela pourrait surcharger le serveur Aurion)</li>
 <br>
 <li>Créer un assistant vocal qui sera disponible sur la page web pour permettre de poser des questions concernant par exemple le nombre d'heures de cette semaine ou calculer la moyenne génerale</li>
+<br>
+<li>Créer des graphiques pour visualiser les notes</li>
 </p>
 </div>
 
@@ -88,8 +93,20 @@ Notre chatbot pourra par exemple afficher le planning de la semaine, le planning
 L'utilsateur n'aura qu'à ouvrir la chatbox en cliquant sur l'icone en bas à droite puis le bot posera une question et l'utilisateur choisira sa réponse en cliquant dessus.
 </p>
 <br>
+<li>Reconnaissance Vocale</li>
 <p>
-
+Nous avons souhaité ajouter une fonctionnalité de reconnaissance vocale pour nous permettre d'explorer des langages de programmations que nous ne connaissions pas forcément.
+La notion de reconnaissance vocale paraît être une tâche complexe et cela nous a permi de nous challanger.
+</p>
+<br>
+<li>Graphiques Dynamiques</li>
+<p>
+Pour permettre aux étudiants de suivre l'évolution de leurs notes au cours de leur scolarité, nous avons souhaité dessiner des graphiques, pour pouvoir visualiser leur forme et leur permettre de retravailler certaines matières.
+</p>
+<br>
+<li>Station Météorologique</li>
+<p>
+Pourquoi pas beneficier de widgets supplémentaires qui nous seraient bien utiles lorsque l'on se prépare le matin. Nous avons donc, à l'aide d'une API, récuperé la météo de la zone géographique du campus de ISEN Lille.
 </p>
 </div>
 
