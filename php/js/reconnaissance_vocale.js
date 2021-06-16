@@ -33,7 +33,7 @@ function readCookie(name) {
 	return null;	
 }
 
-function caractere_cpeciaux(texte){
+function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui ne s'enregistre pas comme tels quand in créer les cookies
 
 	texte = texte.replace(/%2C/g, ",");
 	texte = texte.replace(/\+/g, " ");
@@ -45,7 +45,7 @@ function caractere_cpeciaux(texte){
 	texte = texte.replace (/%C3%A0/g, "à");
 	texte = texte.replace (/%C3%AE/g, "î");
 	texte = texte.replace (/%C3%AF/g, "ï");
-	texte = texte.replace (/%26/g, "et");
+	texte = texte.replace (/%26/g, "&");
 	return texte;
 }
 
