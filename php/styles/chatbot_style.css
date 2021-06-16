@@ -1,7 +1,5 @@
 @supports not (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
-    
-    
     .chat_box{
         border-radius: 24px;
         font-family: "Poppins", sans-serif;
@@ -35,6 +33,7 @@
   }
 
 @supports (-webkit-touch-callout: none) {
+    /* CSS specific to mobile devices */ 
     @media only screen and (max-width: 768px){
         .chat_box{
             border-radius: 24px;
@@ -68,6 +67,7 @@
         }
     }
     @media only screen and (min-width: 768px){
+    /* CSS specific to computer devices */ 
     .chat_box{
         border-radius: 24px;
         font-family: "Poppins", sans-serif;

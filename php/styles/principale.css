@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 @supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
     body{
         background-color: #fcfcfc;
         opacity: 1;
@@ -81,6 +82,7 @@
 
 @supports not (-webkit-touch-callout: none) {
     @media only screen and (max-width: 768px){
+        /* CSS specific to mobile devices */ 
         body{
             background-color: #fcfcfc;
             opacity: 1;
@@ -159,6 +161,7 @@
         }
     }
     @media only screen and (min-width: 768px){
+        /* CSS specific to computer devices */ 
         body{
             background-color: #fcfcfc;
             opacity: 1;
