@@ -56,7 +56,7 @@ function comprendre(texte){ //regex pour comprendre la commande par exemple si l
 	let texte_comprendre;
 	if ((texte.search(/planning/) != -1 ) || (texte.search(/emploi du temps/)) != -1) {
 		//createCookie("Cookie_planning","le cookie fonctionne")
-		alert(readCookie('Cookie_planning'));
+		alert(caractere_cpeciaux(readCookie('Cookie_planning')));
 		message_synthetise = "voici votre planning :" + caractere_cpeciaux(readCookie('Cookie_planning'));
 		return "planning";
 	}
