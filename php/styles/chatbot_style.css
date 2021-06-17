@@ -2,7 +2,7 @@
 
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
-    .chat_icon{
+    .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
         position: fixed;
         right: 30px;
         bottom: 0;
@@ -15,7 +15,7 @@
         transform: translate(0%,-50%);
     }
     
-    .chat_box{
+    .chat_box{                       /* Classe qui permet de customiser la boite de dialogue du chatbot */
         border-radius: 24px;
         font-family: "Poppins", sans-serif;
         font-size: 18px;
@@ -31,7 +31,7 @@
         transform: scaleY(0);
     }
     
-    .chat_box.active{
+    .chat_box.active{           /* Classe qui permet d'ouvrir le chatbot quand on clique sur l'icone */
         transform: scaleY(1);
     }
     
@@ -39,7 +39,7 @@
         display: none !important;
     }
     
-    .conv-form-wrapper textarea{
+    .conv-form-wrapper textarea{         /* Classe qui permet de customiser la zone de texte chatbot */
         display: none !important;
         height: 10px;
         overflow: hidden;
@@ -51,7 +51,7 @@
 @supports not (-webkit-touch-callout: none) {
     @media only screen and (max-width: 768px){
     /* CSS specific to mobile devices */ 
-        .chat_icon{
+        .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
             position: fixed;
             right: 30px;
             bottom: 0;
@@ -64,7 +64,7 @@
             transform: translate(0%,-50%);
         }
 
-        .chat_box{
+        .chat_box{                      /* Classe qui permet de customiser la boite de dialogue du chatbot */
             border-radius: 24px;
             font-family: "Poppins", sans-serif;
             font-size: 18px;
@@ -88,7 +88,7 @@
             display: none !important;
         }
 
-        .conv-form-wrapper textarea{
+        .conv-form-wrapper textarea{        /* Classe qui permet de customiser la zone de texte chatbot */
             display: none !important;
             height: 10px;
             overflow: hidden;
@@ -97,7 +97,7 @@
     }
     @media only screen and (min-width: 768px){
     /* CSS specific to computer devices */ 
-        .chat_icon{
+        .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
             position: fixed;
             right: 30px;
             bottom: 0;
@@ -110,7 +110,7 @@
             transform: translate(0%,-50%);
         }
         
-        .chat_box{
+        .chat_box{                      /* Classe qui permet de customiser la boite de dialogue du chatbot */
             border-radius: 24px;
             font-family: "Poppins", sans-serif;
             font-size: 18px;
@@ -134,7 +134,7 @@
             display: none !important;
         }
         
-        .conv-form-wrapper textarea{
+        .conv-form-wrapper textarea{        /* Classe qui permet de customiser la zone de texte chatbot */
             display: none !important;
             height: 2px;
             overflow: hidden;
