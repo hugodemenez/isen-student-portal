@@ -114,7 +114,6 @@
             <canvas id="graphiques_notes_iphone" width="100%" height="100%"></canvas>
             <script>
             var [time,values]=<?php
-                ini_set('display_errors', 'on');
                 $username=$_SESSION['username'];
                 $conn2 = OpenCon();
                 $marks=[];
