@@ -6,7 +6,8 @@ let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
 recognition.interimResults = true;
-recognition.onresult = function(event) 
+recognition.onresult = function(event);
+var note_bdd ="";
 { 
 	//alert(event.results[0][0].transcript);
 	final_transcript = event.results[0][0].transcript;
@@ -14,9 +15,10 @@ recognition.onresult = function(event)
 recognition.onspeechend = function(){
 	buffer = comprendre(final_transcript);
 	if (buffer == "planning"){
-		synthetiser()}
+		synthetiser();}
 	if (buffer == "note"){
-		synthetiser()}
+		synthetiser();
+		alert(note_bdd);}
 	if (buffer == "-1") {alert("L'instruction n'est pas claire");}
 }
 
@@ -66,8 +68,8 @@ function comprendre(texte){ //regex pour comprendre la commande par exemple si l
 		return "planning";
 	}
 	else if (texte.search(/note/) != -1) {
-		var note_bdd = caractere_cpeciaux(readCookie('Cookie_note')).replace(/_/g," ");
-		alert(note_bdd);
+		note_bdd = caractere_cpeciaux(readCookie('Cookie_note')).replace(/_/g," ");
+		//alert(note_bdd);
 		message_synthetise = "voici votre dernière note :" + note_bdd;
 		return "note";
 	}
