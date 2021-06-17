@@ -91,7 +91,7 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Vous avez une nouvelle note</h1>'
+        html_txt = '<h1>Bonjour</h1><br><p>Vous avez une nouvelle note</p>'
 
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
@@ -108,7 +108,7 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Vous avez une changement dans votre planning</h1>'
+        html_txt = '<h1>Bonjour</h1><br><p>Vous avez une changement dans votre planning</p>'
 
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
@@ -125,8 +125,8 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Vous pouvez dès à présent consulter votre planning et vos notes sur notre site</h1>'
-
+        html_txt = '<h1>Bonjour</h1><br><p>Vous pouvez dès à présent consulter votre planning et vos notes sur notre site</p>'
+        
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
         mailserver.ehlo()
