@@ -13,7 +13,7 @@
     $Cookie_note ='';
     $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
     while( $row =$results->fetch_assoc()){
-        $Cookie_note = $Cookie_note.' '.$row['date'].' '.$row['title'].' : '.$row['mark'];
+        $Cookie_note =$row['title'].' : '.$row['mark'];
     }
     CloseCon($conn);
     setcookie('Cookie_note', $Cookie_note);
