@@ -33,6 +33,7 @@ function readCookie(name) {
 	return null;	
 }
 
+
 function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui ne s'enregistre pas comme tels quand in créer les cookies
 
 	texte = texte.replace(/%2C/g, ",");
