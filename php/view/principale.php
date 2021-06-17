@@ -72,7 +72,6 @@
             <canvas id="graphiques_notes" width="100%" height="65%"></canvas>
             <script>
             var [time,values]=<?php
-                ini_set('display_errors', 'on');
                 $username=$_SESSION['username'];
                 $conn2 = OpenCon();
                 $marks=[];
@@ -114,7 +113,6 @@
             <canvas id="graphiques_notes_iphone" width="100%" height="100%"></canvas>
             <script>
             var [time,values]=<?php
-                ini_set('display_errors', 'on');
                 $username=$_SESSION['username'];
                 $conn2 = OpenCon();
                 $marks=[];
@@ -260,7 +258,7 @@
 
         <!-- Boutton deconnexion -->
         <form action="../index.php">
-            <?phpsession_destroy ();?>
+            <?php session_destroy ();?>
             <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
         </form>
         

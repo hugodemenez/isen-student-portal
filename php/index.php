@@ -17,7 +17,7 @@
  
     <body>
         <div class="form-box">
-            <img src="../assets/logo.png" alt="">
+            <img src="../assets/logo.svg" alt="">
             <div class="button-box">
                 <button id="login_btn" type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
                 <button id="register_btn" type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
