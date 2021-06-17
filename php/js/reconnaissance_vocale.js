@@ -67,6 +67,7 @@ function comprendre(texte){ //regex pour comprendre la commande par exemple si l
 	}
 	else if (texte.search(/note/) != -1) {
 		var note_bdd = caractere_cpeciaux(readCookie('Cookie_note')).replace(/_/g," ");
+		alert(note_bdd);
 		message_synthetise = "voici votre dernière note :" + note_bdd;
 		return "note";
 	}
