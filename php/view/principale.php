@@ -1,3 +1,18 @@
+<?php
+    ini_set('display_errors', 'on');
+    session_start();
+    include '../db/db_connection.php';     
+    $username=$_SESSION['username'];
+    $conn = OpenCon();
+    $Cookie_planning ='';
+    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+    while( $row =$results->fetch_assoc()){
+        $Cookie_planning = $Cookie_planning.' '.$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject'];
+    }
+    CloseCon($conn);
+    setcookie('Cookie_planning', $Cookie_planning);
+?>
+
 <html>
     <link rel="stylesheet" href="../styles/chatbot_style.css" media="screen" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/jquery.convform.css">
@@ -25,8 +40,6 @@
     </head>
     <body>
         <?php
-            session_start();
-            include '../db/db_connection.php';
             if (isset($_SESSION['username'])) {
             echo "<h1>Bienvenue</h1>";
             

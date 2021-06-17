@@ -37,6 +37,9 @@ function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui n
 
 	texte = texte.replace(/%2C/g, ",");
 	texte = texte.replace(/%20/g, " ");
+	texte = texte.replace(/%3A/g, ":");
+	texte = texte.replace(/%28/g, "(");
+	texte = texte.replace(/%29/g, ")");
 	texte = texte.replace(/\+/g, " ");
 	texte = texte.replace (/%2F/g, "/");
 	texte = texte.replace (/%C3%A9/g, "é");
