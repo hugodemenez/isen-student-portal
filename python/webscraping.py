@@ -9,9 +9,11 @@ class scraping():
     Cette classe regroupe les differentes fonctions de scraping utilisées pour récuperer les données de WebAurion
     """
     def __init__(self):
+        #On initialise le headless webbrowser
         options = Options()
         options.headless = True
         profile = webdriver.FirefoxProfile()
+        #On met la langue en français pour pouvoir reconnaitre les élements comme "Mon Panning" ou "Mes Notes"
         profile.set_preference('intl.accept_languages', 'fr-FR, fr')
         self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
         
@@ -43,9 +45,10 @@ class scraping():
         
         #Recherche de la zone pour acceder au planning
         counter=0
+        print("looking for planning")
         while(True):
             try:
-                print("looking for planning")
+                
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 print("Planning trouvé")
                 #Une fois la zone selectionnée : on clique dessus
@@ -60,10 +63,12 @@ class scraping():
                 pass
         
         self.driver.get('https://aurion.junia.com/')
+
+        #Recupération de la requete du planning
+        counter=0
+        print("waiting for server's response")
         while(True):
             try:
-                print("waiting for server's response")
-                
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
                 for request in self.driver.requests:
                     #S'il y a une reponse
@@ -76,6 +81,9 @@ class scraping():
                 response
                 break
             except Exception as error:
+                if counter>20:
+                    raise Exception("Unable to get schedule")
+                counter +=1
                 sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
@@ -164,6 +172,7 @@ class scraping():
 
         #Recherche de la zone pour acceder a la zone scolarité
         counter=0
+        print("Looking for scolarship")
         while(True):
             
             try:
@@ -181,6 +190,7 @@ class scraping():
 
         #Recherche de la zone pour acceder aux notes
         counter=0
+        print("Looking for marks")
         while(True):
             
             try:
@@ -212,7 +222,7 @@ class scraping():
         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
 
-            #On recupere le contenu du body
+        #On recupere le contenu du body
         response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
             #On recupere seulement le text present dans le body (on retire les balises)
@@ -283,4 +293,4 @@ class scraping():
 
 
 if __name__ == "__main__":
-    print(scraping().get_marks('p64059','ny5mJb8z'))
+    pass
