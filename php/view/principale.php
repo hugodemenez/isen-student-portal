@@ -260,7 +260,7 @@
 
         <!-- Boutton deconnexion -->
         <form action="../index.php">
-            <?phpsession_destroy ();?>
+            <?php session_destroy ();?>
             <button class= "logout-btn"><i class="fas fa-sign-out-alt" style='padding:5px;'></i>Se déconnecter</button>
         </form>
         
