@@ -77,7 +77,7 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
         Réaliser une interface web pour utiliser l'application :
             <ul>
                 <li> Consultation des données sous forme de graphique</li>
-                <li> Instription pour recevoir l'emploi du temps toutes les semaines</li>
+                <li> Inscription pour recevoir l'emploi du temps toutes les semaines</li>
             </ul>
         </li>
     </ul>
