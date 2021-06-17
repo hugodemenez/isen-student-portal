@@ -6,8 +6,10 @@ let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
 recognition.interimResults = true;
-recognition.onresult = function(event);
 var note_bdd ="";
+
+
+recognition.onresult = function(event)
 { 
 	//alert(event.results[0][0].transcript);
 	final_transcript = event.results[0][0].transcript;
