@@ -69,7 +69,7 @@ function comprendre(texte){ //regex pour comprendre la commande par exemple si l
 	else if (texte.search(/note/) != -1) {
 		alert(caractere_cpeciaux(readCookie('Cookie_note')));
 		message_synthetise = "voici votre dernière note :" + caractere_cpeciaux(readCookie("Cookie_note"));
-		return "note"
+		return "note";
 	}
 	else {texte_comprendre = "-1";}
 	return texte_comprendre;
