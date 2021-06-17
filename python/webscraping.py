@@ -45,9 +45,10 @@ class scraping():
         
         #Recherche de la zone pour acceder au planning
         counter=0
+        print("looking for planning")
         while(True):
             try:
-                print("looking for planning")
+                
                 inputElement =self.driver.find_element_by_link_text("Mon Planning")
                 print("Planning trouvé")
                 #Une fois la zone selectionnée : on clique dessus
@@ -62,10 +63,12 @@ class scraping():
                 pass
         
         self.driver.get('https://aurion.junia.com/')
+
+        #Recupération de la requete du planning
+        counter=0
+        print("waiting for server's response")
         while(True):
             try:
-                print("waiting for server's response")
-                
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
                 for request in self.driver.requests:
                     #S'il y a une reponse
@@ -78,6 +81,9 @@ class scraping():
                 response
                 break
             except Exception as error:
+                if counter>20:
+                    raise Exception("Unable to get schedule")
+                counter +=1
                 sleep(1)
                         
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
@@ -166,6 +172,7 @@ class scraping():
 
         #Recherche de la zone pour acceder a la zone scolarité
         counter=0
+        print("Looking for scolarship")
         while(True):
             
             try:
@@ -183,6 +190,7 @@ class scraping():
 
         #Recherche de la zone pour acceder aux notes
         counter=0
+        print("Looking for marks")
         while(True):
             
             try:

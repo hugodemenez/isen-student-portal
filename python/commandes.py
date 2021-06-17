@@ -9,32 +9,22 @@ from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
 import mysql.connector,time
 
-class envoie_planning:
+class planning:
     def __init__(self):
-        #Lecture base de données
-        ################################################################
-        #Pour chaque étudiant de la base de donnée on fait : 
-
-        mydb = mysql.connector.connect(
-        host="localhost",
-        user="hugodemenez",
-        password="password",
-        database="database",
-        auth_plugin='mysql_native_password',
-        )
-
-        Liste = mydb.cursor()
-        Liste.execute("SELECT * FROM user")
-
-
-        for (username,password,email) in Liste:
+        pass
+   
+    def envoie_planning(self,username,password,email):
+        try:
             planning =scraping().get_planning(username = username,password = password)
             self.initialiser_csv('planning.csv')
             for i in planning:
                 self.ajouter(i['cours'],i['date_debut'],i['heure_debut'],i['date_fin'],i['heure_fin'],i['professeur'],i['salle'],'planning.csv')
                 #self.ajouter_calendrier_google(jour_et_heure_debut= i['date-google-api-debut'],jour_et_heure_fin = i['date-google-api-fin'],cours =i['cours'],professeur= i['professeur'],salle=i['salle'])
             self.envoyer_planning_email(destinataire=email)
-
+            return planning
+        except Exception as error:
+            print(error)
+            return
 
     def initialiser_csv(self,chemin):
         fichier = open(chemin,"w")
@@ -98,7 +88,7 @@ class envoie_planning:
         service.events().insert(calendarId='primary', body=evenement).execute()
 
 
-class complete_database:
+class database:
     def __init__(self):
         self.database = mysql.connector.connect(
         host="localhost",
@@ -108,17 +98,18 @@ class complete_database:
         auth_plugin='mysql_native_password',
         )
         self.cursor = self.database.cursor()
+
+
+    def complete_database(self,username,password):
         try:
-            users = self.getting_identification_from_database()
-            print(users)
-            for user in users:
-                try:
-                    self.add_planning_to_database(scraping().get_planning(user['username'],user['password']),user['username'])
-                    self.add_marks_to_database(scraping().get_marks(user['username'],user['password']),user['username'])
-                except:
-                    pass
+            planning = scraping().get_planning(username,password)
+            self.add_planning_to_database(planning,username)
+            marks = scraping().get_marks(username,password)
+            self.add_marks_to_database(marks,username)
+            return {'planning':planning,'marks':marks}
         except Exception as error:
             print(error)
+            return
 
     def add_planning_to_database(self,planning:dict,username:str):
         try:
