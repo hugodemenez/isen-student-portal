@@ -72,7 +72,6 @@
             <canvas id="graphiques_notes" width="100%" height="65%"></canvas>
             <script>
             var [time,values]=<?php
-                ini_set('display_errors', 'on');
                 $username=$_SESSION['username'];
                 $conn2 = OpenCon();
                 $marks=[];
