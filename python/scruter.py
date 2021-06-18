@@ -75,11 +75,19 @@ class scan:
                         #Regarde si le planning a changé
                         try:
                             if user_data[username]['planning']!=data['planning']:
-                                self.notification_planning(email)
+                                list_difference = []
+                                for item in data['planning']:
+                                    if item not in user_data[username]['planning']:
+                                        list_difference.append(item)
+                                self.notification_planning(email,list_difference)
                                 user_data[username]['planning']=data['planning']
                             #Regarde si les notes ont changé
                             if user_data[username]['marks']!=data['marks']:
-                                self.notification_marks(email)
+                                list_difference = []
+                                for item in data['marks']:
+                                    if item not in user_data[username]['marks']:
+                                        list_difference.append(item)
+                                self.notification_marks(email,list_difference)
                                 user_data[username]['marks']=data['marks']
                         except:
                             user_data[username]=data
@@ -91,13 +99,13 @@ class scan:
             time.sleep(1)
             self.timer +=1
 
-    def notification_marks(self,email):
+    def notification_marks(self,email,liste):
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Bonjour</h1><p>Vous avez une nouvelle note</p>'
+        html_txt = '<h1>Bonjour</h1><p>Vous avez une nouvelle note : \n %s </p>'%str(liste)
 
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
@@ -107,14 +115,15 @@ class scan:
         mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
         mailserver.sendmail('ProjetInfoIsen2021@gmail.com', email, msg.as_string()) #on envoie le mail
         mailserver.quit()
+        print("Notification note envoyée à %s"%email)
 
-    def notification_planning(self,email):
+    def notification_planning(self,email,liste):
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Bonjour</h1><p>Vous avez une changement dans votre planning</p>'
+        html_txt = '<h1>Bonjour</h1><p>Vous avez une changement dans votre planning : \n %s </p>'%str(liste)
 
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
@@ -124,6 +133,7 @@ class scan:
         mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
         mailserver.sendmail('ProjetInfoIsen2021@gmail.com', email, msg.as_string()) #on envoie le mail
         mailserver.quit()
+        print("Notification planning envoyée à %s"%email)
 
     def notification_data(self,email):
         msg = MIMEMultipart()
@@ -141,6 +151,7 @@ class scan:
         mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
         mailserver.sendmail('ProjetInfoIsen2021@gmail.com', email, msg.as_string()) #on envoie le mail
         mailserver.quit()
+        print("Notification base de donnée envoyée à %s"%email)
             
 
 
