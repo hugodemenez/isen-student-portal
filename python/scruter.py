@@ -47,18 +47,21 @@ class scan:
                 Liste.execute("SELECT * FROM user")
 
                 for (username,password,email) in Liste:
-                    data = database().complete_database(username,password)
-                    #Regarde si le planning a changé
                     try:
-                        if user_data[username]['planning']!=data['planning']:
-                            self.notification_planning(email)
-                            user_data[username]['planning']=data['planning']
-                        #Regarde si les notes ont changé
-                        if user_data[username]['marks']!=data['marks']:
-                            self.notification_marks(email)
-                            user_data[username]['marks']=data['marks']
+                        data = database().complete_database(username,password)
+                        #Regarde si le planning a changé
+                        try:
+                            if user_data[username]['planning']!=data['planning']:
+                                self.notification_planning(email)
+                                user_data[username]['planning']=data['planning']
+                            #Regarde si les notes ont changé
+                            if user_data[username]['marks']!=data['marks']:
+                                self.notification_marks(email)
+                                user_data[username]['marks']=data['marks']
+                        except:
+                            user_data[username]=data
                     except:
-                        user_data[username]=data
+                        print("error with %s %s"%(username,email))
                     liste = new_liste
             fichier.close()
 
@@ -67,19 +70,22 @@ class scan:
                 Liste = self.database.cursor()
                 Liste.execute("SELECT * FROM user")
                 for (username,password,email) in Liste:
-                    data = database().complete_database(username,password)
-                    #Regarde si le planning a changé
                     try:
-                        if user_data[username]['planning']!=data['planning']:
-                            self.notification_planning(email)
-                            user_data[username]['planning']=data['planning']
-                        #Regarde si les notes ont changé
-                        if user_data[username]['marks']!=data['marks']:
-                            self.notification_marks(email)
-                            user_data[username]['marks']=data['marks']
+                        data = database().complete_database(username,password)
+                        #Regarde si le planning a changé
+                        try:
+                            if user_data[username]['planning']!=data['planning']:
+                                self.notification_planning(email)
+                                user_data[username]['planning']=data['planning']
+                            #Regarde si les notes ont changé
+                            if user_data[username]['marks']!=data['marks']:
+                                self.notification_marks(email)
+                                user_data[username]['marks']=data['marks']
+                        except:
+                            user_data[username]=data
+                            self.notification_data(email)
                     except:
-                        user_data[username]=data
-                        self.notification_data(email)
+                        print("error with %s %s"%(username,email))
                 self.timer=0
 
             time.sleep(1)
