@@ -27,7 +27,7 @@ class scan:
         cst =0
         user_data={}
         while True:
-            if (datetime.now().strftime("%w")=="0") & (cst ==0): #si on est dimanche on envoie le planning,
+            if (datetime.now().strftime("%w")=="5") & (cst ==0): #si on est dimanche on envoie le planning,
                 Liste = self.database.cursor()
                 Liste.execute("SELECT * FROM user")
                 for (username,password,email) in Liste:
@@ -123,8 +123,16 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Bonjour</h1><p>Vous avez une changement dans votre planning : \n %s </p>'%str(liste)
-
+        html_txt =f"""
+        <body>
+            <h1>Bonjour</h1>
+            <p>Vous avez une changement dans votre planning : \n {str(liste)} </p>
+            <a href="http://www.iseninfo.fr">Se connecter</a>
+            <br>
+            <br>
+            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/54c17f4f3579da45d3320690b9f0629352f8629e/assets/undraw_Data_re_80ws.svg" width=50%>
+        </body>
+        """
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
         mailserver.ehlo()
@@ -141,13 +149,13 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = """<body style="background-color: #4CA5FF;">
+        html_txt = """<body>
         <h1>Bonjour</h1>
         <p>Vous pouvez dès à présent consulter vos notes et votre planning sur notre site</p>
-        <a href="http://www.iseninfo.fr" style="border-radius: 40px;color=white;background-color=black">
-            <span><span style="font-size: 18px;"><strong><span>Se connecter</span></strong></span></span>
-        </a>
-        
+        <a href="http://www.iseninfo.fr">Se connecter</a>
+        <br>
+        <br>
+        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/54c17f4f3579da45d3320690b9f0629352f8629e/assets/undraw_Data_re_80ws.svg" width=50%>
         </body>"""
         
         msg.attach(MIMEText(html_txt,'html'))
