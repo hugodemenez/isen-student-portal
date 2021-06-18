@@ -92,6 +92,7 @@ class scan:
                         except:
                             user_data[username]=data
                             self.notification_data(email)
+                            self.notification_marks(email,data['marks'])
                     except:
                         print("error with %s %s"%(username,email))
                 self.timer=0
@@ -105,7 +106,19 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Bonjour</h1><p>Vous avez une nouvelle note : \n %s </p>'%str(liste)
+        text =""
+        for event in liste:
+            text+= str(event['title'])+' : '+str(event['mark'])+' le '+str(event['date'])+'<br>'
+        html_txt =f"""
+        <body>
+            <h1>Bonjour</h1>
+            <p>Vous avez une nouvelle note : <br>{text} </p>
+            <a href="http://www.iseninfo.fr">Se connecter</a>
+            <br>
+            <br>
+            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_schedule_pnbk.svg" width=50%>
+        </body>
+        """
 
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
@@ -123,14 +136,17 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
+        text =""
+        for event in liste:
+            text+= str(event['cours'])+' avec '+str(event['professeur'])+' en '+str(event['salle'])+' le '+str(event['date_debut'])+' de '+str(event['heure_debut'])+' à '+str(event['heure_fin'])+'<br>'
         html_txt =f"""
         <body>
             <h1>Bonjour</h1>
-            <p>Vous avez une changement dans votre planning : \n {str(liste)} </p>
+            <p>Vous avez une changement dans votre planning : <br>{text} </p>
             <a href="http://www.iseninfo.fr">Se connecter</a>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/54c17f4f3579da45d3320690b9f0629352f8629e/assets/undraw_Data_re_80ws.svg" width=50%>
+            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_schedule_pnbk.svg" width=50%>
         </body>
         """
         msg.attach(MIMEText(html_txt,'html'))
@@ -155,7 +171,7 @@ class scan:
         <a href="http://www.iseninfo.fr">Se connecter</a>
         <br>
         <br>
-        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/54c17f4f3579da45d3320690b9f0629352f8629e/assets/undraw_Data_re_80ws.svg" width=50%>
+        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_data_reports_706v.svg" width=50%>
         </body>"""
         
         msg.attach(MIMEText(html_txt,'html'))

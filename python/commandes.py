@@ -15,12 +15,14 @@ class planning:
    
     def envoie_planning(self,username,password,email):
         try:
+            planning_text =''
             planning =scraping().get_planning(username = username,password = password)
             self.initialiser_csv('planning.csv')
             for i in planning:
                 self.ajouter(i['cours'],i['date_debut'],i['heure_debut'],i['date_fin'],i['heure_fin'],i['professeur'],i['salle'],'planning.csv')
+                planning_text+=i['cours'] +' avec '+str(i['professeur'])+' en salle '+str(i['salle'])+' le '+str(i['date_debut'])+' de '+str(i['heure_debut'])+' à '+str(i['heure_fin'])+"<br>"
                 #self.ajouter_calendrier_google(jour_et_heure_debut= i['date-google-api-debut'],jour_et_heure_fin = i['date-google-api-fin'],cours =i['cours'],professeur= i['professeur'],salle=i['salle'])
-            self.envoyer_planning_email(destinataire=email)
+            self.envoyer_planning_email(destinataire=email,text=planning_text)
             return planning
         except Exception as error:
             print(error)
@@ -37,14 +39,24 @@ class planning:
         fichier.write("\n")
         fichier.close()
 
-    def envoyer_planning_email(self,destinataire):
+    def envoyer_planning_email(self,destinataire,text):
         msg = MIMEMultipart()
         msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
         msg['To'] = destinataire #destinataire
         msg['Subject'] = 'Emploi du temps semaine du ' + str(datetime.now().day) + '-' + str(datetime.now().month) + '-' + str(datetime.now().year) #objet du mail
         
         
-        html_txt = ''
+        html_txt = f"""
+        <body>
+            <h1>Bonjour</h1>
+            <p>Veuillez trouver votre planning ci-dessous :</p>
+            <p>{text}</p>
+            <a href="http://www.iseninfo.fr">Se connecter</a>
+            <br>
+            <br>
+            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_schedule_pnbk.svg" width=50%>
+        </body>
+        """
 
         nom_fichier = "planning.csv"    ## Spécification du nom de la pièce jointe
         piece = open("planning.csv", "rb")    ## Ouverture du fichier
