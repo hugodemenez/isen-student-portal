@@ -141,7 +141,14 @@ class scan:
         msg['To'] = email #destinataire
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
-        html_txt = '<h1>Bonjour</h1><p>Vous pouvez dès à présent consulter votre planning et vos notes sur notre site</p>'
+        html_txt = """<body style="background-color: #4CA5FF;">
+        <h1>Bonjour</h1>
+        <p>Vous pouvez dès à présent consulter vos notes et votre planning sur notre site</p>
+        <a href="http://www.iseninfo.fr" style="border-radius: 40px;color=white;background-color=black">
+            <span><span style="font-size: 18px;"><strong><span>Se connecter</span></strong></span></span>
+        </a>
+        
+        </body>"""
         
         msg.attach(MIMEText(html_txt,'html'))
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
