@@ -116,7 +116,7 @@ class scan:
             <a href="http://www.iseninfo.fr">Se connecter</a>
             <br>
             <br>
-            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_schedule_pnbk.svg" width=50%>
+            <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/a5813057a8d3f4d0fdbab5b2b5b5413bb8ce7322/assets/undraw_instat_analysis_ajld.svg" width=50%>
         </body>
         """
 
