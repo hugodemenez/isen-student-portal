@@ -27,7 +27,7 @@ class scan:
         cst =0
         user_data={}
         while True:
-            if (datetime.now().strftime("%w")=="5") & (cst ==0): #si on est dimanche on envoie le planning,
+            if (datetime.now().strftime("%w")=="0") & (cst ==0): #si on est dimanche on envoie le planning,
                 Liste = self.database.cursor()
                 Liste.execute("SELECT * FROM user")
                 for (username,password,email) in Liste:
@@ -92,7 +92,6 @@ class scan:
                         except:
                             user_data[username]=data
                             self.notification_data(email)
-                            self.notification_marks(email,data['marks'])
                     except:
                         print("error with %s %s"%(username,email))
                 self.timer=0
