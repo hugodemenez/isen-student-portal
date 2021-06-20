@@ -14,7 +14,8 @@ class scan:
     def scruter(self):
         cst =0
         user_data={}
-
+        subscribers_list={}
+        non_subscribers_list={}
         while True:
             self.database = mysql.connector.connect(
             host="localhost",
@@ -33,12 +34,17 @@ class scan:
                 cst = 0
 
 
-            #On complete la base de données toutes les 12heures même si personne s'est inscrit
-            if self.timer >3600:
+            #On complete la base de données toutes les heures même si personne s'est inscrit
+            if self.timer == 3600:
                 Liste = self.database.cursor()
                 #On regarde tous les utilisateurs inscrits dans la base de données
                 Liste.execute("SELECT * FROM user")
                 for (username,password,email) in Liste:
+                    #On l'ajoute au dictionnaire subscribers_list pour comparer et voir si il a changé
+                    subscribers_list[username]={}
+                    subscribers_list[username]['username']=username
+                    subscribers_list[username]['password']=password
+                    subscribers_list[username]['email']=email
                     try:
                         #On rafrachit la base de donnée
                         data = database().complete_database(username,password)
@@ -71,8 +77,32 @@ class scan:
                         
                     except Exception as error:
                         print("Exception %s %s : %s"%(username,email,error))
+
                 Liste.close()
                 self.timer=0
+            
+
+            Liste = self.database.cursor()
+            Liste.execute("SELECT * FROM user")
+            #On regarde tous les utilisateurs inscrits dans la base de données
+            for (username,password,email) in Liste:
+                #On l'ajoute au dictionnaire non_subscribers_list pour comparer et voir si il a changé
+                non_subscribers_list[username]={}
+                non_subscribers_list[username]['username']=username
+                non_subscribers_list[username]['password']=password
+                non_subscribers_list[username]['email']=email
+            Liste.close()
+
+
+            #On compare la nouvelle liste avec la liste de ceux qui ont déjà été ajouté dans la base de donnée
+            for item in non_subscribers_list:
+                #S'il n'est pas encore dans la base de données alors on l'ajoute et on lui envoie une notification
+                if item not in subscribers_list:
+                    database().complete_database(non_subscribers_list[item]['username'],non_subscribers_list[item]['password'])
+                    self.notification_data(non_subscribers_list[item]['email'])
+                subscribers_list = non_subscribers_list
+            
+
 
             time.sleep(1)
             self.timer +=1
