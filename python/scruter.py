@@ -14,6 +14,7 @@ class scan:
     def scruter(self):
         cst =0
         user_data={}
+
         while True:
             self.database = mysql.connector.connect(
             host="localhost",
@@ -27,6 +28,7 @@ class scan:
                 for (username,password,email) in Liste:
                     planning().envoie_planning(username,password,email)                                   #on utilise une constante pour n'envoyer le mail qu'une fois
                 cst=1
+                Liste.close()
             if (datetime.now().strftime("%w")=="1"): 
                 cst = 0
 
@@ -69,6 +71,7 @@ class scan:
                         
                     except Exception as error:
                         print("Exception %s %s : %s"%(username,email,error))
+                Liste.close()
                 self.timer=0
 
             time.sleep(1)

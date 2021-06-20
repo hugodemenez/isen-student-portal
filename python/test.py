@@ -1,5 +1,10 @@
-import sys
-username = sys.argv[1]
-password = sys.argv[2]
+test = {}
+test['5']={}
 
-print(username,password)
+test['5']['username']='hugo'
+test['5']['password']='ée'
+test['5']['email']='huéego'
+
+
+for username in test['5']:
+    print(username,password,email)

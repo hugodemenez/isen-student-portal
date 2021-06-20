@@ -85,7 +85,9 @@ class scraping():
                     raise Exception("Unable to get schedule")
                 counter +=1
                 sleep(1)
-                        
+        
+
+        
         #On met en forme la reponse pour pouvoir créer une liste de dictionnaires
         response = response[response.find('events')+11:].strip()
         response = response[:response.find(']}]]')].strip()
@@ -102,11 +104,12 @@ class scraping():
                     #On remet en forme le string pour être traduit en dictionnaire
                     string_dict = '{'+elem
                     string_dict=string_dict[:-1]
-
-                    string_dict=string_dict.replace("\\xc3\\xa9", "e") 
+                    
+                    string_dict=string_dict.replace("\\xc3\\xa9", "e")
+                    string_dict=string_dict.replace("\\xc3\\xa8", "e")
                     string_dict=string_dict.replace(r"\'", "'")
                     string_dict=string_dict.replace(r"\\n\\n", r"\\n")
-
+                    
                     #On traduit le string en dictionnaire
                     dict=json.loads(string_dict)
                     #On initialise le dictionnaire à renvoyer
