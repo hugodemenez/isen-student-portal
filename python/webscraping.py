@@ -27,7 +27,7 @@ class scraping():
         dictionnaire["fin"],
         dictionnaire["cours"]
         """
-        #Configuration du Headless Webbrowser
+
 
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
@@ -45,7 +45,7 @@ class scraping():
         
         #Recherche de la zone pour acceder au planning
         counter=0
-        print("looking for planning")
+        print("Recherche du planning")
         while(True):
             try:
                 
@@ -58,15 +58,17 @@ class scraping():
                 sleep(1)
                 if counter == 20:
                     self.driver.quit()
-                    raise Exception("Unable to load schedule")
+                    #Au bout de 20 secondes sans trouver l'element "Mon Planning", on considère que la connexion a échoué
+                    raise Exception("Impossible de charger l'emploi du temps")
                 counter+=1
                 pass
         
+        #On se déplace sur la page d'accueil pour être sûr de ne pas figer le headless webbrowser
         self.driver.get('https://aurion.junia.com/')
 
         #Recupération de la requete du planning
         counter=0
-        print("waiting for server's response")
+        print("En attente de la réponse du serveur Aurion")
         while(True):
             try:
                 #On accède aux requetes envoyées par le HeadlessWebbrowser
@@ -77,12 +79,16 @@ class scraping():
                         if 'Planning' in request.url :
                             if 'POST' in request.method:
                                 response = request.response.body
+                                #On met la reponse au format texte afin de pouvoir la traiter
                                 response=str(response)
+                #On verifie si la reponse existe (sinon cela lève une exception)
                 response
                 break
             except Exception as error:
                 if counter>20:
-                    raise Exception("Unable to get schedule")
+                    self.driver.quit()
+                    #Au bout de 20 secondes si nous n'avons pas trouvé la requête correspondant au planning alors on considère que cela a échoué
+                    raise Exception("Impossible de récuperer le planning")
                 counter +=1
                 sleep(1)
         
@@ -105,6 +111,7 @@ class scraping():
                     string_dict = '{'+elem
                     string_dict=string_dict[:-1]
                     
+                    #On remplace les caractères speciaux afin de ne pas avoir d'erreur
                     string_dict=string_dict.replace("\\xc3\\xa9", "e")
                     string_dict=string_dict.replace("\\xc3\\xa8", "e")
                     string_dict=string_dict.replace(r"\'", "'")
@@ -130,7 +137,7 @@ class scraping():
 
                     heure_fin=re.search("[0-9:]{5}",dict["end"]).group()
 
-                    #pour api google agenda
+                    #Mise en forme pour l'api google agenda 
                     heure_et_jour_debut = date_debut + 'T' + heure_debut + ':00+02:00'
                     heure_et_jour_fin = date_fin + 'T' + heure_fin + ':00+02:00'
 
@@ -150,6 +157,7 @@ class scraping():
                     #On ajoute le dictionnaire à la liste qui contient les differents cours de la semaine
                     data.append(dictionnaire)
             except Exception as error:
+                
                 print(error)
                 pass
         self.driver.quit()
@@ -175,7 +183,7 @@ class scraping():
 
         #Recherche de la zone pour acceder a la zone scolarité
         counter=0
-        print("Looking for scolarship")
+        print("Recherche de la scolarité")
         while(True):
             
             try:
@@ -184,7 +192,8 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to find Scolarite")
+                    #Si au bout de 10 secondes nous n'avons pas trouvé la zone "Scolarité" alors on considère que la connexion a échoué
+                    raise Exception("Impossible de trouver la scolarité")
                 counter+=1
                 pass
 
@@ -193,7 +202,7 @@ class scraping():
 
         #Recherche de la zone pour acceder aux notes
         counter=0
-        print("Looking for marks")
+        print("Recherche des notes")
         while(True):
             
             try:
@@ -202,7 +211,8 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    raise Exception("Unable to load marks")
+                    #Si au bout de 10 secondes nous n'avons pas trouvé les notes, on condière que cela a échoué
+                    raise Exception("Impossible de charger les notes")
                 counter+=1
                 pass
 
@@ -267,7 +277,7 @@ class scraping():
         return notes
 
     def check_connection(self,username,password):
-        """Returns True when connection is established else returns False"""
+        """Renvoie Vrai si la connexion est établie, sinon Faux"""
         #Ouverture de la page de connexion aurion
         self.driver.get('https://aurion.junia.com/faces/Login.xhtml')
 
