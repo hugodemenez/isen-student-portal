@@ -6,6 +6,9 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from commandes import database,planning
+
+
+#On definit une classe qui permet de lancer la fonction de scrutage des données
 class scan:
     def __init__(self):
         self.timer = 0
@@ -25,6 +28,8 @@ class scan:
         #On regarde tous les utilisateurs inscrits dans la base de données avant de rentrer dans la boucle while afin de ne pas avertir les utilisateurs déjà existants
         Liste.execute("SELECT * FROM user")
         for (username,password,email) in Liste:
+            #On affiche dans la console l'identifiant de l'utilisateur pour lequel on charge les données
+            print("Chargement des données pour %s"%username)
             data = database().complete_database(username,password)
             #On ajoute les données dans le dictionnaire des utilisateurs déjà inscrits
             user_data[username]=data
@@ -60,13 +65,15 @@ class scan:
                 try:
                     #On regarde si on scrute déjà le planning et les notes pour l'utilisateur actuellement selectionné dans la boucle for
                     if username not in user_data:
+                        #On affiche dans la console l'identifiant de l'utilisateur pour lequel on charge les données
+                        print("Chargement des données pour %s"%username)
                         #On rafrachit la base de donnée
                         data = database().complete_database(username,password)
                         #S'il vient de s'inscrire alors on arrive à ce stade et on peut ainsi le prevenir par mail
                         user_data[username]=data
                         self.notification_data(email)
                         #On lève l'excpetion pour pouvoir sortir de la boucle try
-                        raise Exception("User data added to database")
+                        raise Exception("Les données ont été ajoutées dans la base de données")
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
                     if self.timer == 3600:
@@ -93,7 +100,7 @@ class scan:
                         #On remet le timer à 0
                         self.timer=0
 
-                    
+                #S'il y a une exception qui est levée alors on l'affiche dans la console en regardant pour quel utilisateur, celle ci est apparue
                 except Exception as error:
                     print("Exception %s %s : %s"%(username,email,error))
 
