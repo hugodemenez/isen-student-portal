@@ -14,7 +14,13 @@ class scan:
     def scruter(self):
         cst =0
         user_data={}
-
+        #On se connecte à la base de données
+        self.database = mysql.connector.connect(
+            host="localhost",
+            user="hugodemenez",
+            password="password",
+            database="database",
+            auth_plugin='mysql_native_password',)
         Liste = self.database.cursor()
         #On regarde tous les utilisateurs inscrits dans la base de données avant de rentrer dans la boucle while afin de ne pas avertir les utilisateurs déjà existants
         Liste.execute("SELECT * FROM user")
@@ -25,6 +31,7 @@ class scan:
         Liste.close()
 
         while True:
+            #On actualise la connexion
             self.database = mysql.connector.connect(
             host="localhost",
             user="hugodemenez",
