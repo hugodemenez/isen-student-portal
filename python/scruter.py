@@ -14,6 +14,16 @@ class scan:
     def scruter(self):
         cst =0
         user_data={}
+
+        Liste = self.database.cursor()
+        #On regarde tous les utilisateurs inscrits dans la base de données avant de rentrer dans la boucle while afin de ne pas avertir les utilisateurs déjà existants
+        Liste.execute("SELECT * FROM user")
+        for (username,password,email) in Liste:
+            data = database().complete_database(username,password)
+            #On ajoute les données dans le dictionnaire des utilisateurs déjà inscrits
+            user_data[username]=data
+        Liste.close()
+
         while True:
             self.database = mysql.connector.connect(
             host="localhost",
@@ -25,9 +35,12 @@ class scan:
                 Liste = self.database.cursor()
                 Liste.execute("SELECT * FROM user")
                 for (username,password,email) in Liste:
-                    planning().envoie_planning(username,password,email)                                   #on utilise une constante pour n'envoyer le mail qu'une fois
-                cst=1
+                    planning().envoie_planning(username,password,email)
                 Liste.close()
+                #on utilise une constante pour n'envoyer le mail qu'une fois                                   
+                cst=1
+                
+            #Si on change de jours alors on peut remettre cette constante à 0
             if (datetime.now().strftime("%w")=="1"): 
                 cst = 0
 
