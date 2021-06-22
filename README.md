@@ -48,7 +48,7 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/b0c34a777089d359c1eff6bfd5ee15aebffdb373/assets/Diapositive1.SVG?sanitize=true' width=100%>
 <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive2.SVG?sanitize=true' width=100%>
 <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive3.SVG?sanitize=true'>
 </div>
