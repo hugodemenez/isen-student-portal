@@ -73,8 +73,6 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
         </li>
         <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive4.SVG?sanitize=true' width=100%>
         <br>
-        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive5.SVG?sanitize=true' width=100%>
-        <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
             <ul>
@@ -82,6 +80,8 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
                 <li> Inscription pour recevoir l'emploi du temps toutes les semaines</li>
             </ul>
         </li>
+        <br>
+        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive5.SVG?sanitize=true' width=100%>
     </ul>
 </p>
 </div>
