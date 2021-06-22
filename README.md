@@ -48,9 +48,9 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/171dee09402def314a4c13d4d688bcf2ec456399/assets/Diapositive1.SVG?sanitize=true' width=100%>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/171dee09402def314a4c13d4d688bcf2ec456399/assets/Diapositive2.SVG?sanitize=true' width=100%>
-<img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/5565ed569cd0083ae62235b7543a8a96bb6f99ee/assets/Diapositive2.SVG?sanitize=true'>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive2.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive3.SVG?sanitize=true'>
 </div>
 
 <div id="INSPIRATION">
@@ -71,7 +71,9 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='https://github.com/hugodemenez/Projet_2021_Informatique/blob/a579c3dd82197ade58e5c8727bf4661bed7ccd28/assets/Diapositive3.SVG?sanitize=true' width=100%>
+        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive4.SVG?sanitize=true' width=100%>
+        <br>
+        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive5.SVG?sanitize=true' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
