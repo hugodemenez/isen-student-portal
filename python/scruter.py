@@ -18,12 +18,7 @@ class scan:
         cst =0
         user_data={}
         #On se connecte à la base de données
-        self.database = mysql.connector.connect(
-            host="localhost",
-            user="hugodemenez",
-            password="password",
-            database="database",
-            auth_plugin='mysql_native_password',)
+        self.database = mysql.connector.connect(host="localhost",user="hugodemenez",password="password",database="database",auth_plugin='mysql_native_password')
         Liste = self.database.cursor()
         #On regarde tous les utilisateurs inscrits dans la base de données avant de rentrer dans la boucle while afin de ne pas avertir les utilisateurs déjà existants
         Liste.execute("SELECT * FROM user")
@@ -37,14 +32,16 @@ class scan:
             #S'il y a une erreur alors cela implique que les données de l'utilisateur ne sont pas les mêmes sur Aurion (impossible de se connecter) on le retire de la base de données
             #Et il faut lui envoyer un mail pour l'avertir
             except:
-                cursor = self.database.cursor(buffered=True)
+                connection = mysql.connector.connect(host="localhost",user="hugodemenez",password="password",database="database",auth_plugin='mysql_native_password')
+                cursor = connection.cursor(buffered=True)
                 #On initialise la requete pour supprimer les données de l'utilisateur
                 sql = "DELETE FROM user WHERE username= '%s'" % (username)
                 #On execute la requete
                 cursor.execute(sql)
                 #On applique les changements
-                self.database.commit()
+                connection.commit()
                 cursor.close()
+                connection.close()
                 self.notification_error(email,username,password)
         Liste.close()
 
@@ -90,14 +87,16 @@ class scan:
                             raise Exception("Les données ont été ajoutées dans la base de données")
                         #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de donnée et on lui envoie une notification
                         except:
-                            cursor = self.database.cursor(buffered=True)
+                            connection = mysql.connector.connect(host="localhost",user="hugodemenez",password="password",database="database",auth_plugin='mysql_native_password')
+                            cursor = connection.cursor(buffered=True)
                             #On initialise la requete pour supprimer les données de l'utilisateur
                             sql = "DELETE FROM user WHERE username= '%s'" % (username)
                             #On execute la requete
                             cursor.execute(sql)
                             #On applique les changements
-                            self.database.commit()
+                            connection.commit()
                             cursor.close()
+                            connection.close()
                             self.notification_error(email,username,password)
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
