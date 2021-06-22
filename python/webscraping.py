@@ -295,11 +295,13 @@ class scraping():
         while(True):
             try :
                 counter += 1
+                #Fonction permettant de reconnaitre la partie du code html indiquant que la connexion a échoué
                 self.driver.find_element_by_xpath("//*[contains(text(),'invalide')]")
                 self.driver.quit()
                 return False
             except:
                 if counter >5:
+                    #Au bout de 5 secondes si on ne trouve pas l'information concernant l'echec de la connexion, on considère que la connexion est établie
                     self.driver.quit()
                     return True
                 sleep(1)
