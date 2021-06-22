@@ -37,12 +37,14 @@ class scan:
             #S'il y a une erreur alors cela implique que les données de l'utilisateur ne sont pas les mêmes sur Aurion (impossible de se connecter) on le retire de la base de données
             #Et il faut lui envoyer un mail pour l'avertir
             except:
+                cursor = self.database.cursor(buffered=True)
                 #On initialise la requete pour supprimer les données de l'utilisateur
                 sql = "DELETE FROM user WHERE username= '%s'" % (username)
                 #On execute la requete
-                Liste.execute(sql)
+                cursor.execute(sql)
                 #On applique les changements
                 self.database.commit()
+                cursor.close()
                 self.notification_error(email,username,password)
         Liste.close()
 
@@ -88,14 +90,15 @@ class scan:
                             raise Exception("Les données ont été ajoutées dans la base de données")
                         #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de donnée et on lui envoie une notification
                         except:
+                            cursor = self.database.cursor(buffered=True)
                             #On initialise la requete pour supprimer les données de l'utilisateur
                             sql = "DELETE FROM user WHERE username= '%s'" % (username)
                             #On execute la requete
-                            Liste.execute(sql)
+                            cursor.execute(sql)
                             #On applique les changements
                             self.database.commit()
+                            cursor.close()
                             self.notification_error(email,username,password)
-                            raise Exception("Il y a une erreur dans les données de %s"%username)
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
                     if self.timer == 3600:
