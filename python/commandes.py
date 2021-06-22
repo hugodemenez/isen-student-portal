@@ -122,8 +122,7 @@ class database:
             #On renvoit les differents dictionnaires (planning et notes) dans un autre dictionnaire pour pouvoir réutiliser les informations par la suite
             return {'planning':planning,'marks':marks}
         except Exception as error:
-            print(error)
-            return
+            raise Exception(error)
 
     def add_planning_to_database(self,planning:dict,username:str):
         """

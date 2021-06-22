@@ -30,9 +30,20 @@ class scan:
         for (username,password,email) in Liste:
             #On affiche dans la console l'identifiant de l'utilisateur pour lequel on charge les données
             print("Chargement des données pour %s"%username)
-            data = database().complete_database(username,password)
-            #On ajoute les données dans le dictionnaire des utilisateurs déjà inscrits
-            user_data[username]=data
+            try:
+                data = database().complete_database(username,password)
+                #On ajoute les données dans le dictionnaire des utilisateurs déjà inscrits
+                user_data[username]=data
+            #S'il y a une erreur alors cela implique que les données de l'utilisateur ne sont pas les mêmes sur Aurion (impossible de se connecter) on le retire de la base de données
+            #Et il faut lui envoyer un mail pour l'avertir
+            except:
+                #On initialise la requete pour supprimer les données de l'utilisateur
+                sql = "DELETE FROM user WHERE username= '%s'" % (username)
+                #On execute la requete
+                Liste.execute(sql)
+                #On applique les changements
+                self.database.commit()
+                self.notification_error(email,username,password)
         Liste.close()
 
         while True:
@@ -68,12 +79,23 @@ class scan:
                         #On affiche dans la console l'identifiant de l'utilisateur pour lequel on charge les données
                         print("Chargement des données pour %s"%username)
                         #On rafrachit la base de donnée
-                        data = database().complete_database(username,password)
-                        #S'il vient de s'inscrire alors on arrive à ce stade et on peut ainsi le prevenir par mail
-                        user_data[username]=data
-                        self.notification_data(email)
-                        #On lève l'excpetion pour pouvoir sortir de la boucle try
-                        raise Exception("Les données ont été ajoutées dans la base de données")
+                        try:
+                            data = database().complete_database(username,password)
+                            #S'il vient de s'inscrire alors on arrive à ce stade et on peut ainsi le prevenir par mail
+                            user_data[username]=data
+                            self.notification_data(email)
+                            #On lève l'excpetion pour pouvoir sortir de la boucle try
+                            raise Exception("Les données ont été ajoutées dans la base de données")
+                        #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de donnée et on lui envoie une notification
+                        except:
+                            #On initialise la requete pour supprimer les données de l'utilisateur
+                            sql = "DELETE FROM user WHERE username= '%s'" % (username)
+                            #On execute la requete
+                            Liste.execute(sql)
+                            #On applique les changements
+                            self.database.commit()
+                            self.notification_error(email,username,password)
+                            raise Exception("Il y a une erreur dans les données de %s"%username)
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
                     if self.timer == 3600:
@@ -197,7 +219,33 @@ class scan:
         mailserver.quit()
         print("Notification base de donnée envoyée à %s"%email)
             
-
+    def notification_error(self,email,username,password):
+        msg = MIMEMultipart()
+        msg['From'] = 'ProjetInfoIsen2021@gmail.com' #adresse mail de départ, ici celle du projet
+        msg['To'] = email #destinataire
+        msg['Subject'] = "ISENINFO - Notification" #objet du mail
+        #Message du mail
+        html_txt = f"""<body>
+        <h1>Bonjour</h1>
+        <p>Il y a une erreur dans votre identifiant ou votre mot de passe Aurion :<br>
+        - identifiant : {username}<br>
+        - mot de passe : {password}<br>
+        Veuillez réessayer votre inscription en <a href="http://www.iseninfo.fr">cliquant-ici</a></p>
+        <br>
+        <br>
+        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_data_reports_706v.svg" width=100%>
+        </body>"""
+        
+        msg.attach(MIMEText(html_txt,'html'))
+        mailserver = smtplib.SMTP('smtp.gmail.com', 587)    #serveur et numéro du port pour envoyer le mail
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
+        mailserver.sendmail('ProjetInfoIsen2021@gmail.com', email, msg.as_string()) #on envoie le mail
+        mailserver.quit()
+        print("Notification erreur de connexion envoyée à %s"%email)
+         
 
 if __name__ == "__main__":
     scan()
