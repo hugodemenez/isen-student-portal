@@ -233,7 +233,7 @@ class scan:
         Veuillez réessayer votre inscription en <a href="http://www.iseninfo.fr">cliquant-ici</a></p>
         <br>
         <br>
-        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/bd2d26a1c5dff6168de02c8b2067e86a0872c3aa/assets/undraw_data_reports_706v.svg" width=100%>
+        <img src="https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/eb9533477e2db9529bd264c8fe6e8b7d734cbcaa/assets/undraw_cancel_u1it.svg" width=100%>
         </body>"""
         
         msg.attach(MIMEText(html_txt,'html'))
