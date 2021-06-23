@@ -35,11 +35,11 @@
     <div class="waiting">
     <img src="../assets/spinner.svg">
     <br>
-    <a href="principale.php">Veuillez attendre 30 secondes le temps que vos données soient chargées, sinon cliquez ici</a>
+    <a>Veuillez attendre 30 secondes le temps que vos données soient chargées, sinon cliquez ici</a>
     </div>
     </body>
     <script>
-        setTimeout(function(){location.href = "principale.php";},30000); // 120 seconds
+        setTimeout(function(){location.href = "principale.php";},30000); // 30 secondes
     </script>
 </html>
 

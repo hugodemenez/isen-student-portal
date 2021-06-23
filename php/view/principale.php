@@ -3,6 +3,14 @@
     include '../db/db_connection.php';     
     $username=$_SESSION['username'];
     $conn = OpenCon();
+    $results = $conn->query("SELECT * FROM user WHERE username='$username_register'");
+    if (mysqli_num_rows($results)==0){
+        header('Location: ../index.php?register_error=3');
+    }
+    CloseCon($conn);
+
+
+    $conn = OpenCon();
     $Cookie_planning ='';
     $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
     while( $row =$results->fetch_assoc()){

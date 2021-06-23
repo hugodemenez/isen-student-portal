@@ -5,7 +5,11 @@
 body{
     background-image: url('../assets/background.jpg');
     background-size: 1920px 1080px;
+    font-family: "Poppins", sans-serif;
 }
+
+
+
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 
     
