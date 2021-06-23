@@ -83,8 +83,7 @@ class scan:
                             #S'il vient de s'inscrire alors on arrive à ce stade et on peut ainsi le prevenir par mail
                             user_data[username]=data
                             self.notification_data(email)
-                            #On lève l'excpetion pour pouvoir sortir de la boucle try
-                            raise Exception("Les données ont été ajoutées dans la base de données")
+                        
                         #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de donnée et on lui envoie une notification
                         except:
                             connection = mysql.connector.connect(host="localhost",user="hugodemenez",password="password",database="database",auth_plugin='mysql_native_password')
@@ -98,6 +97,9 @@ class scan:
                             cursor.close()
                             connection.close()
                             self.notification_error(email,username,password)
+
+                        #On lève l'excpetion pour pouvoir sortir de la boucle try
+                        raise Exception("Les données ont été ajoutées dans la base de données")
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
                     if self.timer == 3600:
