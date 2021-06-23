@@ -77,14 +77,14 @@ class scan:
                     if username not in user_data:
                         #On affiche dans la console l'identifiant de l'utilisateur pour lequel on charge les données
                         print("Chargement des données pour %s"%username)
-                        #On rafrachit la base de donnée
+                        #On rafrachit la base de données
                         try:
                             data = database().complete_database(username,password)
                             #S'il vient de s'inscrire alors on arrive à ce stade et on peut ainsi le prevenir par mail
                             user_data[username]=data
                             self.notification_data(email)
                         
-                        #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de donnée et on lui envoie une notification
+                        #Si il y a une exception cela implique que l'utilisateur n'existe pas, on le retire de la base de données et on lui envoie une notification
                         except:
                             connection = mysql.connector.connect(host="localhost",user="hugodemenez",password="password",database="database",auth_plugin='mysql_native_password')
                             cursor = connection.cursor(buffered=True)
@@ -105,7 +105,7 @@ class scan:
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
                     if self.timer == 3600:
-                        #On rafrachit la base de donnée
+                        #On rafrachit la base de données
                         data = database().complete_database(username,password)
                         #Si on arrive jusqu'ici cela signifie que l'utilisateur est déjà scruté, alors on regarde si son planning a changé
                         if user_data[username]['planning']!=data['planning']:
@@ -223,7 +223,7 @@ class scan:
         mailserver.login('ProjetInfoIsen2021@gmail.com', 'gloubiboulga1') #on se connecte au compte gmail pour envoyer le mail
         mailserver.sendmail('ProjetInfoIsen2021@gmail.com', email, msg.as_string()) #on envoie le mail
         mailserver.quit()
-        print("Notification base de donnée envoyée à %s"%email)
+        print("Notification base de données envoyée à %s"%email)
             
     def notification_error(self,email,username,password):
         msg = MIMEMultipart()

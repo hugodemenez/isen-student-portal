@@ -93,7 +93,7 @@ class planning:
 
 
 class database:
-    #On initalise la classe en créant une variable de connexion à la base de donnée ainsi que l'initialisation du curseur pour effectuer les requetes
+    #On initalise la classe en créant une variable de connexion à la base de données ainsi que l'initialisation du curseur pour effectuer les requetes
     def __init__(self):
         self.database = mysql.connector.connect(
         host="localhost",
@@ -107,17 +107,17 @@ class database:
 
     def complete_database(self,username,password):
         """
-        Cette fonction sert à completer la base de donnée avec le planning et les notes pour l'utilisateur renseigné avec son nom et son mot de passe qui sont passés en arguments
+        Cette fonction sert à completer la base de données avec le planning et les notes pour l'utilisateur renseigné avec son nom et son mot de passe qui sont passés en arguments
         de la fonction
         """
         try:
             #On effectue le webscraping du planning pour le stocker dans une variable
             planning = scraping().get_planning(username,password)
-            #On ajoute les élements du planning dans la base de donnée en associant le nom d'utilisateur correspondant
+            #On ajoute les élements du planning dans la base de données en associant le nom d'utilisateur correspondant
             self.add_planning_to_database(planning,username)
             #On effectue le webscraping des notes pour les stocker dans une variable
             marks = scraping().get_marks(username,password)
-            #On ajoute les differentes notes dans la base de donnée en associant le nom d'utilisateur correspondant
+            #On ajoute les differentes notes dans la base de données en associant le nom d'utilisateur correspondant
             self.add_marks_to_database(marks,username)
             #On renvoit les differents dictionnaires (planning et notes) dans un autre dictionnaire pour pouvoir réutiliser les informations par la suite
             return {'planning':planning,'marks':marks}

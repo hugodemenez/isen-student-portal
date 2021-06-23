@@ -76,7 +76,7 @@
                         echo "<p style='color:green'>Inscription réussie</p>";
                     }
                     if($err==3){
-                        echo "<p style='color:red'>Cet utilisateur n'existe pas dans la base de donnée Aurion de l'ISEN LILLE</p>";
+                        echo "<p style='color:red'>Cet utilisateur n'existe pas dans la base de données Aurion de l'ISEN LILLE</p>";
                         echo '<script>
                         var x = document.getElementById("connexion");
                         var y = document.getElementById("inscription");
