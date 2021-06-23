@@ -1,3 +1,4 @@
+<! -- Code PHP pour exiger le rafraichissement du CSS -->
 <?php
     header('Cache-Control: no-cache, no-store, must-revalidate');
     header('Pragma: no-cache');
@@ -35,7 +36,7 @@
     <div class="waiting">
     <img src="../assets/spinner.svg">
     <br>
-    <a>Veuillez attendre 30 secondes le temps que vos données soient chargées, sinon cliquez ici</a>
+    <a>Veuillez attendre 30 secondes le temps que vos données soient chargées, vous allez automatiquement être redirigé vers la page d'accueil</a>
     </div>
     </body>
     <script>
