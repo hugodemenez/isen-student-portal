@@ -1,4 +1,4 @@
-<!-- Code php pour verifier que l'utilisateur existe dans la base de donnée et pour créer les cookies pour transmettre des infos au JavaScript -->
+<!-- Code php pour verifier que l'utilisateur existe dans la base de données et pour créer les cookies pour transmettre des infos au JavaScript -->
 <?php
     session_start();
     include '../db/db_connection.php';     
