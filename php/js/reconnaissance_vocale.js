@@ -28,7 +28,7 @@ recognition.onspeechend = function(){
 }
 
 
-
+/* Fonction pour lire le cookie passé en argument */
 function readCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
@@ -91,8 +91,8 @@ function alerte(){
 	}
 }
 
-
-function synthetiser(variable_a_modifier){
+/* Fonction pour lire le texte placé dans la variable message_synthetise */
+function synthetiser(){
 	let msg = new SpeechSynthesisUtterance();
 	let voices = window.speechSynthesis.getVoices();
 	msg.voice = voices[6]; //6 pour la voix française
