@@ -1,3 +1,5 @@
+/* CSS pour la mise en forme des graphiques */ 
+
 @supports (-webkit-touch-callout: none){
   /* CSS pour les appareils iOS */ 
   .graphics {
