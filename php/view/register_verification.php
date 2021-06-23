@@ -39,7 +39,7 @@
     </div>
     </body>
     <script>
-        setTimeout(function(){location.href = "principale.php";},30000); // 50 secondes
+        setTimeout(function(){location.href = "principale.php";},40000); // 40 secondes
     </script>
 </html>
 
