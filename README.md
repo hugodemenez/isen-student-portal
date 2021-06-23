@@ -21,7 +21,7 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
  
 <li>Interface web (php,html,css), une fois connecté envoie automatiquement (tous les dimanches) un mail avec l'emploi du temps de la semaine au format .csv et les nouvelles notes.</li>
 <br>
-<li>Alimenter la base de donnée avec l'identifiant, le mot de passe, l'email, le planning et les notes.</li>
+<li>Alimenter la base de données avec l'identifiant, le mot de passe, l'email, le planning et les notes.</li>
 <br>
 <li>Checking des informations tous les jours pour voir s'il y a des changements. (attention s'il y a trop d'inscrits cela pourrait surcharger le serveur Aurion)</li>
 <br>
