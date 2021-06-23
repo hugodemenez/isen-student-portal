@@ -1,3 +1,4 @@
+<!-- Code php pour verifier que l'utilisateur existe dans la base de donnée et pour créer les cookies pour transmettre des infos au JavaScript -->
 <?php
     session_start();
     include '../db/db_connection.php';     
@@ -52,6 +53,7 @@
         ?>
     </head>
     <body>
+        <!-- Connexion à l'API openweathermap pour récuperer les informations sur la température et faire un affichage dynamique en fonction des conditions météorologiques -->
         <?php
             if (isset($_SESSION['username'])) {
             echo "<h1>Bienvenue</h1>";
@@ -172,7 +174,7 @@
                 }
             });
             </script>
-            <h2>Evolution de vos notes depuis votre entrée à l'isen</h2>
+            <h2>Evolution de vos 5 dernières notes</h2>
         </div>
 
         <!-- Chatbot -->
