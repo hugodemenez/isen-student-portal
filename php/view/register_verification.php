@@ -30,7 +30,7 @@
             CloseCon($conn);
         ?>
     </head>
-    <! -- On affiche un ecran de chargement le temps que le webscraping se fasse (30 secondes max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
+    <! -- On affiche un ecran de chargement le temps que le webscraping se fasse (30-60s max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
     <body>
     <div class="waiting">
     <img src="../assets/spinner.svg">
@@ -39,7 +39,7 @@
     </div>
     </body>
     <script>
-        setTimeout(function(){location.href = "principale.php";},30000); // 30 secondes
+        setTimeout(function(){location.href = "principale.php";},30000); // 50 secondes
     </script>
 </html>
 

@@ -56,9 +56,9 @@ class scraping():
                 break
             except:
                 sleep(1)
-                if counter == 20:
+                if counter == 10:
                     self.driver.quit()
-                    #Au bout de 20 secondes sans trouver l'element "Mon Planning", on considère que la connexion a échoué
+                    #Au bout de 10 secondes sans trouver l'element "Mon Planning", on considère que la connexion a échoué
                     raise Exception("Impossible de charger l'emploi du temps")
                 counter+=1
                 pass
@@ -85,9 +85,9 @@ class scraping():
                 response
                 break
             except Exception as error:
-                if counter>20:
+                if counter>10:
                     self.driver.quit()
-                    #Au bout de 20 secondes si nous n'avons pas trouvé la requête correspondant au planning alors on considère que cela a échoué
+                    #Au bout de 10 secondes si nous n'avons pas trouvé la requête correspondant au planning alors on considère que cela a échoué
                     raise Exception("Impossible de récuperer le planning")
                 counter +=1
                 sleep(1)
