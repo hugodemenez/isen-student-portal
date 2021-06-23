@@ -3,7 +3,7 @@
     include '../db/db_connection.php';     
     $username=$_SESSION['username'];
     $conn = OpenCon();
-    $results = $conn->query("SELECT * FROM user WHERE username='$username_register'");
+    $results = $conn->query("SELECT * FROM user WHERE username='$username'");
     if (mysqli_num_rows($results)==0){
         header('Location: ../index.php?register_error=3');
     }
