@@ -1,5 +1,5 @@
 @supports (-webkit-touch-callout: none){
-  /* CSS specific to iOS devices */ 
+  /* CSS pour les appareils iOS */ 
   .graphics {
     width: 90vw;
     height:95vw;
@@ -27,7 +27,7 @@
 
 @supports not (-webkit-touch-callout: none){
   @media only screen and (max-width: 768px){
-    /* CSS specific to mobile devices */ 
+    /* CSS pour les appareils mobile */ 
     .graphics {
       width: 90vw;
       height:95vw;
@@ -52,7 +52,7 @@
     }
   }
   @media only screen and (min-width: 768px){
-    /* CSS specific to computer devices */ 
+     /* CSS pour les ordinateurs */  
     .graphics {
       width: 50vw;
       height: 35vw;
