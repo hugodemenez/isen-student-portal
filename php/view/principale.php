@@ -291,7 +291,7 @@
         </form>
         
         <!-- Assistant vocal -->
-        <div id='b1' class="voice_icon">
+        <div id='bouton_reconnaissance_vocale' class="voice_icon">
             <i class="fas fa-microphone-alt"></i>
         </div>
 

@@ -1,4 +1,7 @@
-let enregistrement_audio = document.getElementById('b1');
+/* JavaScript pour intéragir avec l'API : webkitSpeechRecognition afin d'utiliser la reconnaissance vocale */
+
+
+let enregistrement_audio = document.getElementById('bouton_reconnaissance_vocale');
 let variable_a_modifier;
 let message_synthetise = '';
 enregistrement_audio.addEventListener('click', alerte);
