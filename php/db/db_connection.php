@@ -1,3 +1,5 @@
+<!-- Script php avec les fonctions de connexion et de déconnexion à la base de données -->
+
 <?php
 function OpenCon()
  {

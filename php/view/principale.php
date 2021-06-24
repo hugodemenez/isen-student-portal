@@ -1,3 +1,32 @@
+<!-- Code php pour verifier que l'utilisateur existe dans la base de données et pour créer les cookies pour transmettre des infos au JavaScript -->
+<?php
+    session_start();
+    include '../db/db_connection.php';     
+    $username=$_SESSION['username'];
+    $conn = OpenCon();
+    $results = $conn->query("SELECT * FROM user WHERE username='$username'");
+    if (mysqli_num_rows($results)==0){
+        header('Location: ../index.php?register_error=3');
+    }
+    CloseCon($conn);
+
+
+    $conn = OpenCon();
+    $Cookie_planning ='';
+    $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+    while( $row =$results->fetch_assoc()){
+        $Cookie_planning = $Cookie_planning.' '.$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject'];
+    }
+    setcookie('Cookie_planning', $Cookie_planning);
+    $Cookie_note ='';
+    $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
+    while( $row =$results->fetch_assoc()){
+        $Cookie_note =$row['title'].' : '.$row['mark'];
+    }
+    CloseCon($conn);
+    setcookie('Cookie_note', $Cookie_note);
+?>
+
 <html>
     <link rel="stylesheet" href="../styles/chatbot_style.css" media="screen" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/jquery.convform.css">
@@ -24,9 +53,8 @@
         ?>
     </head>
     <body>
+        <!-- Connexion à l'API openweathermap pour récuperer les informations sur la température et faire un affichage dynamique en fonction des conditions météorologiques -->
         <?php
-            session_start();
-            include '../db/db_connection.php';
             if (isset($_SESSION['username'])) {
             echo "<h1>Bienvenue</h1>";
             
@@ -146,7 +174,7 @@
                 }
             });
             </script>
-            <h2>Evolution de vos notes depuis votre entrée à l'isen</h2>
+            <h2>Evolution de vos 5 dernières notes</h2>
         </div>
 
         <!-- Chatbot -->
@@ -263,7 +291,7 @@
         </form>
         
         <!-- Assistant vocal -->
-        <div id='b1' class="voice_icon">
+        <div id='bouton_reconnaissance_vocale' class="voice_icon">
             <i class="fas fa-microphone-alt"></i>
         </div>
 

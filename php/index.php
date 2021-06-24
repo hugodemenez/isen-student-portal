@@ -72,8 +72,24 @@
                         inscription();
                         </script>';
                     }
-                    elseif($err==2){
+                    if($err==2){
                         echo "<p style='color:green'>Inscription réussie</p>";
+                    }
+                    if($err==3){
+                        echo "<p style='color:red'>Cet utilisateur n'existe pas dans la base de données Aurion de l'ISEN LILLE</p>";
+                        echo '<script>
+                        var x = document.getElementById("connexion");
+                        var y = document.getElementById("inscription");
+                        var login_btn = document.getElementById("login_btn");
+                        var register_btn = document.getElementById("register_btn");
+                        function inscription(){
+                            x.style.left = "-100%";
+                            y.style.left = "25%";
+                            login_btn.style.textDecoration  = "none";
+                            register_btn.style.textDecoration  = "underline";
+                        }
+                        inscription();
+                        </script>';
                     }
                 }
                 ?>

@@ -1,4 +1,7 @@
-let enregistrement_audio = document.getElementById('b1');
+/* JavaScript pour intéragir avec l'API : webkitSpeechRecognition afin d'utiliser la reconnaissance vocale */
+
+
+let enregistrement_audio = document.getElementById('bouton_reconnaissance_vocale');
 let variable_a_modifier;
 let message_synthetise = '';
 enregistrement_audio.addEventListener('click', alerte);
@@ -6,7 +9,10 @@ let final_transcript = ''; // paramètre de base pour la reconnaissance vocale
 let recognition = new webkitSpeechRecognition();
 recognition.continuous = false;
 recognition.interimResults = true;
-recognition.onresult = function(event) 
+var note_bdd ="";
+
+
+recognition.onresult = function(event)
 { 
 	//alert(event.results[0][0].transcript);
 	final_transcript = event.results[0][0].transcript;
@@ -14,14 +20,15 @@ recognition.onresult = function(event)
 recognition.onspeechend = function(){
 	buffer = comprendre(final_transcript);
 	if (buffer == "planning"){
-		synthetiser()}
+		synthetiser();}
 	if (buffer == "note"){
-		synthetiser()}
+		synthetiser();
+		alert(note_bdd);}
 	if (buffer == "-1") {alert("L'instruction n'est pas claire");}
 }
 
 
-
+/* Fonction pour lire le cookie passé en argument */
 function readCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
@@ -33,9 +40,14 @@ function readCookie(name) {
 	return null;	
 }
 
+
 function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui ne s'enregistre pas comme tels quand in créer les cookies
 
 	texte = texte.replace(/%2C/g, ",");
+	texte = texte.replace(/%20/g, " ");
+	texte = texte.replace(/%3A/g, ":");
+	texte = texte.replace(/%28/g, "(");
+	texte = texte.replace(/%29/g, ")");
 	texte = texte.replace(/\+/g, " ");
 	texte = texte.replace (/%2F/g, "/");
 	texte = texte.replace (/%C3%A9/g, "é");
@@ -46,6 +58,7 @@ function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui n
 	texte = texte.replace (/%C3%AE/g, "î");
 	texte = texte.replace (/%C3%AF/g, "ï");
 	texte = texte.replace (/%26/g, "&");
+
 	return texte;
 }
 
@@ -55,14 +68,15 @@ function caractere_cpeciaux(texte){ //on remplace les caractère spéciaux qui n
 function comprendre(texte){ //regex pour comprendre la commande par exemple si la personne dit planning alors on affiche le planning
 	let texte_comprendre;
 	if ((texte.search(/planning/) != -1 ) || (texte.search(/emploi du temps/)) != -1) {
-		//createCookie("Cookie_planning","le cookie fonctionne")
-		alert(readCookie('Cookie_planning'));
-		message_synthetise = "voici votre planning :" + caractere_cpeciaux(readCookie('Cookie_planning'));
+		alert(caractere_cpeciaux(readCookie('Cookie_planning')));
+		//message_synthetise = "voici votre planning :" + caractere_cpeciaux(readCookie('Cookie_planning'));
 		return "planning";
 	}
 	else if (texte.search(/note/) != -1) {
-		message_synthetise = "voici votre dernière note :" + caractere_cpeciaux(readCookie("Cookie_note"));
-		return "note"
+		note_bdd = caractere_cpeciaux(readCookie('Cookie_note')).replace(/_/g," ");
+		//alert(note_bdd);
+		message_synthetise = "voici votre dernière note :" + note_bdd;
+		return "note";
 	}
 	else {texte_comprendre = "-1";}
 	return texte_comprendre;
@@ -77,8 +91,8 @@ function alerte(){
 	}
 }
 
-
-function synthetiser(variable_a_modifier){
+/* Fonction pour lire le texte placé dans la variable message_synthetise */
+function synthetiser(){
 	let msg = new SpeechSynthesisUtterance();
 	let voices = window.speechSynthesis.getVoices();
 	msg.voice = voices[6]; //6 pour la voix française

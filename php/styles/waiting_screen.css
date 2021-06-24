@@ -1,0 +1,133 @@
+/* CSS pour la page d'attente c'est à dire register_verification.php */ 
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+body{
+    background-image: url('../assets/background.jpg');
+    background-size: 1920px 1080px;
+}
+
+
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
+    .waiting{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        margin : auto auto;
+        padding: auto auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba( 255, 255, 255, 0.30 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 5.0px );
+        -webkit-backdrop-filter: blur( 5.0px );
+        border-radius: 16px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    
+    a{
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        outline: none;
+        inset: 0;
+        width:80%;
+    }
+    
+    img{
+        display: block;
+        margin: auto;
+        inset: 0;
+        width:50%;
+        overflow: visible;
+    }
+
+}
+
+@supports not (-webkit-touch-callout: none) {
+    @media only screen and (max-width: 768px){
+        .waiting{
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            margin : auto auto;
+            padding: auto auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba( 255, 255, 255, 0.30 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 5.0px );
+            -webkit-backdrop-filter: blur( 5.0px );
+            border-radius: 16px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        
+        a{
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            outline: none;
+            inset: 0;
+            width:80%;
+        }
+        
+        img{
+            display: block;
+            margin: auto;
+            inset: 0;
+            width:50%;
+            overflow: visible;
+        }
+    
+
+    }
+    @media only screen and (min-width: 768px){
+        /* CSS specific to computer devices */ 
+        .waiting{
+            width: 75vh;
+            height: 75vh;
+            position: absolute;
+            margin : auto auto;
+            padding: auto auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba( 255, 255, 255, 0.30 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 5.0px );
+            -webkit-backdrop-filter: blur( 5.0px );
+            border-radius: 16px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        
+        a{
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            outline: none;
+            inset: 0;
+            width:80%;
+        }
+        
+        img{
+            display: block;
+            margin: auto;
+            inset: 0;
+            width:50%;
+            overflow: visible;
+        }
+
+    }
+}
