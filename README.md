@@ -48,10 +48,10 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
 
 <div id="STRUCTURE">
 <h2>Structure du projet</h2>
-<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/b0c34a777089d359c1eff6bfd5ee15aebffdb373/assets/Diapositive1.SVG?sanitize=true' width=100%>
-<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive2.SVG?sanitize=true' width=100%>
-<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/40288683ff2a04552253afbcb3576018b4e87ef7/assets/Diapositive3.SVG?sanitize=true' width=100%>
-<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive3.SVG?sanitize=true'>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive1.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive2.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive3.SVG?sanitize=true' width=100%>
+<img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive4.SVG?sanitize=true' width=100%>
 </div>
 
 <div id="INSPIRATION">
@@ -72,7 +72,7 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
                 <li>Le planning </li>
             </ul>
         </li>
-        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive4.SVG?sanitize=true' width=100%>
+        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive5.SVG?sanitize=true' width=100%>
         <br>
         <li>PHP :
         Réaliser une interface web pour utiliser l'application :
@@ -82,7 +82,7 @@ Nous sommes partis d'un constat et d'un problème que tous les membres du projet
             </ul>
         </li>
         <br>
-        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/140d607be0cb7f34631463d309a6a77c65ca927a/assets/Diapositive5.SVG?sanitize=true' width=100%>
+        <img src='https://raw.githubusercontent.com/hugodemenez/Projet_2021_Informatique/4c0ac15565e202905abe443e7adb6f5032e75462/assets/Diapositive6.SVG?sanitize=true' width=100%>
     </ul>
 </p>
 </div>
