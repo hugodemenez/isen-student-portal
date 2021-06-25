@@ -97,10 +97,10 @@ class scan:
                             cursor.close()
                             connection.close()
                             self.notification_error(email,username,password)
-                            #On lève l'excpetion pour pouvoir sortir de la boucle try
+                            #On lève l'exception pour pouvoir sortir de la boucle try
                             raise Exception("Il y a eu une erreur dans les identifiants Aurion")
 
-                        #On lève l'excpetion pour pouvoir sortir de la boucle try
+                        #On lève l'exception pour pouvoir sortir de la boucle try
                         raise Exception("Les données ont été ajoutées dans la base de données")
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
