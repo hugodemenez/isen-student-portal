@@ -21,9 +21,11 @@
             include '../db/db_connection.php';
             $conn = OpenCon();
             $results = $conn->query("SELECT * FROM user WHERE username='$username_register'");
+            // On regarde s'il y a une ligne qui correspond à la requete. Si c'est le cas cela indique que l'utilisateur existe déjà
             if (mysqli_num_rows($results)==1){
                 header('Location: ../index.php?register_error=1');
             }
+            // S'il n'existe pas, alors on l'ajoute dans la base de données
             else{
                 $results = $conn->query("INSERT INTO user VALUES ('$username_register','$password_register','$email_register')");
                 $_SESSION['username']=$username_register;
@@ -31,7 +33,7 @@
             CloseCon($conn);
         ?>
     </head>
-    <!-- On affiche un ecran de chargement le temps que le webscraping se fasse (30-60s max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
+    <!-- On affiche un écran de chargement le temps que le webscraping se fasse (30-60s max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
     <body>
     <div class="waiting">
     <img src="../assets/spinner.svg">
