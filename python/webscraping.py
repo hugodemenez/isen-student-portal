@@ -181,7 +181,7 @@ class scraping():
         inputElement.submit() 
         
 
-        #Recherche de la zone pour acceder a la zone scolarité
+        #Recherche de la zone pour acceder à la zone scolarité
         counter=0
         print("Recherche de la scolarité")
         while(True):
