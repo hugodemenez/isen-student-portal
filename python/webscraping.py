@@ -238,7 +238,7 @@ class scraping():
         #On recupere le contenu du body
         response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
-            #On recupere seulement le text present dans le body (on retire les balises)
+            #On recupere seulement le texte present dans le body (on retire les balises)
         response = re.sub('<[^>]+>', '', response)
 
         #On retire les caractères spéciaux
