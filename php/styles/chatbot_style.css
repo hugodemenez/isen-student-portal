@@ -1,7 +1,7 @@
 /* CSS pour la customisation du chat bot */ 
 
 @supports (-webkit-touch-callout: none) {
-    /* CSS specific to iOS devices */ 
+    /* CSS pour les appareils iOS */ 
     .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
         position: fixed;
         right: 30px;
@@ -50,7 +50,7 @@
 
 @supports not (-webkit-touch-callout: none) {
     @media only screen and (max-width: 768px){
-    /* CSS specific to mobile devices */ 
+    /* CSS pour les appareils mobiles */ 
         .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
             position: fixed;
             right: 30px;
@@ -96,7 +96,7 @@
         }
     }
     @media only screen and (min-width: 768px){
-    /* CSS specific to computer devices */ 
+    /* CSS pour les ordinateurs */ 
         .chat_icon{                     /* Classe qui permet de customiser l'icone du chatbot */
             position: fixed;
             right: 30px;
