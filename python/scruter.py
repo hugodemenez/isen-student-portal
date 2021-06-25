@@ -146,7 +146,7 @@ class scan:
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
         text =""
-        #On créé le text sous forme de string afin de l'inclure dans le mail (il contient toutes les nouvelles notes mises en forme)
+        #On créé le texte sous forme de string afin de l'inclure dans le mail (il contient toutes les nouvelles notes mises en forme)
         for event in liste:
             text+= str(event['title'])+' : '+str(event['mark'])+' le '+str(event['date'])+'<br>'
         html_txt =f"""
