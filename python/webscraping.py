@@ -13,7 +13,7 @@ class scraping():
         options = Options()
         options.headless = True
         profile = webdriver.FirefoxProfile()
-        #On met la langue en français pour pouvoir reconnaitre les élements comme "Mon Panning" ou "Mes Notes"
+        #On met la langue en français pour pouvoir reconnaitre les élements comme "Mon Planning" ou "Mes Notes"
         profile.set_preference('intl.accept_languages', 'fr-FR, fr')
         self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
         
