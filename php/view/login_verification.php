@@ -1,3 +1,4 @@
+<!-- Code php pour verifier que l'utilisateur existe dans la base de données -->
 <?php
 ini_set('display_errors', 'on');
 if(isset($_POST['username']) && isset($_POST['password'])){
