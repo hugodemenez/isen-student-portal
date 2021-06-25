@@ -1,10 +1,10 @@
-<! -- Code PHP pour exiger le rafraichissement du CSS -->
+<!-- Code PHP pour exiger le rafraichissement du CSS -->
 <?php
     header('Cache-Control: no-cache, no-store, must-revalidate');
     header('Pragma: no-cache');
     header('Expires: 0');
 ?>
-<! -- Definition de la page de verification de l'inscription -->
+<!-- Definition de la page de verification de l'inscription -->
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../styles/waiting_screen.css" media="screen" type="text/css"/>
         <meta charset="utf-8">
         <title>IsenInfo - waiting screen</title>
-        <! -- On verifie si l'utilisateur n'existe pas encore (dans le cas contraire un message d'erreur est affiché) et on demarre une session -->
+        <!-- On verifie si l'utilisateur n'existe pas encore (dans le cas contraire un message d'erreur est affiché) et on demarre une session -->
         <?php 
             session_start();
             $username_register=$_POST['username_register'];
@@ -31,7 +31,7 @@
             CloseCon($conn);
         ?>
     </head>
-    <! -- On affiche un ecran de chargement le temps que le webscraping se fasse (30-60s max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
+    <!-- On affiche un ecran de chargement le temps que le webscraping se fasse (30-60s max) pour que le nouvel utilisateur puisse acceder à ses données Aurion -->
     <body>
     <div class="waiting">
     <img src="../assets/spinner.svg">
