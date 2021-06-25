@@ -211,7 +211,7 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    #Si au bout de 10 secondes nous n'avons pas trouvé les notes, on condière que cela a échoué
+                    #Si au bout de 10 secondes nous n'avons pas trouvé les notes, on considère que cela a échoué
                     raise Exception("Impossible de charger les notes")
                 counter+=1
                 pass
