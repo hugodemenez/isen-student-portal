@@ -97,10 +97,10 @@ class scan:
                             cursor.close()
                             connection.close()
                             self.notification_error(email,username,password)
-                            #On lève l'excpetion pour pouvoir sortir de la boucle try
+                            #On lève l'exception pour pouvoir sortir de la boucle try
                             raise Exception("Il y a eu une erreur dans les identifiants Aurion")
 
-                        #On lève l'excpetion pour pouvoir sortir de la boucle try
+                        #On lève l'exception pour pouvoir sortir de la boucle try
                         raise Exception("Les données ont été ajoutées dans la base de données")
                     
                     #On complete la base de données toutes les heures même si personne s'est inscrit
@@ -146,7 +146,7 @@ class scan:
         msg['Subject'] = "ISENINFO - Notification" #objet du mail
         #Message du mail
         text =""
-        #On créé le text sous forme de string afin de l'inclure dans le mail (il contient toutes les nouvelles notes mises en forme)
+        #On créé le texte sous forme de string afin de l'inclure dans le mail (il contient toutes les nouvelles notes mises en forme)
         for event in liste:
             text+= str(event['title'])+' : '+str(event['mark'])+' le '+str(event['date'])+'<br>'
         html_txt =f"""

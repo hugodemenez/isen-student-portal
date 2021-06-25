@@ -13,7 +13,7 @@ class scraping():
         options = Options()
         options.headless = True
         profile = webdriver.FirefoxProfile()
-        #On met la langue en français pour pouvoir reconnaitre les élements comme "Mon Panning" ou "Mes Notes"
+        #On met la langue en français pour pouvoir reconnaitre les élements comme "Mon Planning" ou "Mes Notes"
         profile.set_preference('intl.accept_languages', 'fr-FR, fr')
         self.driver = webdriver.Firefox(options=options,firefox_profile=profile)
         
@@ -181,7 +181,7 @@ class scraping():
         inputElement.submit() 
         
 
-        #Recherche de la zone pour acceder a la zone scolarité
+        #Recherche de la zone pour acceder à la zone scolarité
         counter=0
         print("Recherche de la scolarité")
         while(True):
@@ -211,7 +211,7 @@ class scraping():
             except:
                 sleep(1)
                 if counter == 10:
-                    #Si au bout de 10 secondes nous n'avons pas trouvé les notes, on condière que cela a échoué
+                    #Si au bout de 10 secondes nous n'avons pas trouvé les notes, on considère que cela a échoué
                     raise Exception("Impossible de charger les notes")
                 counter+=1
                 pass
@@ -238,7 +238,7 @@ class scraping():
         #On recupere le contenu du body
         response = response[response.find('</thead>'):].strip()
         response = response[:response.find('</tbody>')].strip()
-            #On recupere seulement le text present dans le body (on retire les balises)
+            #On recupere seulement le texte present dans le body (on retire les balises)
         response = re.sub('<[^>]+>', '', response)
 
         #On retire les caractères spéciaux
