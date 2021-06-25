@@ -1,22 +1,26 @@
 <!-- Code php pour verifier que l'utilisateur existe dans la base de données et pour créer les cookies pour transmettre des infos au JavaScript -->
 <?php
+    
     session_start();
     include '../db/db_connection.php';     
     $username=$_SESSION['username'];
     $conn = OpenCon();
     $results = $conn->query("SELECT * FROM user WHERE username='$username'");
+    // On verifie que l'utilisateur existe toujours dans la base de données. S'il n'y a pas de ligne dans la réponse de la requete, alors cela indique que l'utilisateur n'existe pas
     if (mysqli_num_rows($results)==0){
         header('Location: ../index.php?register_error=3');
     }
     CloseCon($conn);
 
-
+    // On ouvre une nouvelle connexion à la base de données afin d'éviter les erreurs
     $conn = OpenCon();
     $Cookie_planning ='';
     $results = $conn->query("SELECT * FROM planning WHERE username = '$username'");
+    // On va créer des cookies contenant le texte à afficher dans l'alerte. Cela sert à intéragir avec le JavaScript
     while( $row =$results->fetch_assoc()){
         $Cookie_planning = $Cookie_planning.' '.$row['date'].' de '.$row['start'].' à '.$row['end'].' en '.$row['room'].' avec '.$row['teacher'].' pour '.$row['subject'];
     }
+    // Création du cookie pour le planning
     setcookie('Cookie_planning', $Cookie_planning);
     $Cookie_note ='';
     $results = $conn->query("SELECT * FROM marks WHERE username = '$username' ORDER BY STR_TO_DATE(date,'%d/%m/%Y') ASC");
@@ -24,10 +28,12 @@
         $Cookie_note =$row['title'].' : '.$row['mark'];
     }
     CloseCon($conn);
+    // Création du cookie pour les notes
     setcookie('Cookie_note', $Cookie_note);
 ?>
 
 <html>
+    <!-- On inclut les différents script JavaScript et les fichiers de style CSS -->
     <link rel="stylesheet" href="../styles/chatbot_style.css" media="screen" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/jquery.convform.css">
     <link rel="stylesheet" type="text/css" href="../styles/principale.css">
@@ -55,12 +61,17 @@
     <body>
         <!-- Connexion à l'API openweathermap pour récuperer les informations sur la température et faire un affichage dynamique en fonction des conditions météorologiques -->
         <?php
+            session_start();
+            // On verifie que la connexion existe
             if (isset($_SESSION['username'])) {
-            echo "<h1>Bienvenue</h1>";
-            
-            } else {
+            echo "<h1>Bienvenue</h1>"; 
+            } 
+            // Sinon on affiche un message
+            else {
             echo "<h1>Vous n'êtes pas connecté</h1>";
             }
+
+            // On configure la connexion à l'API
             $apiKey = "ef7a9b79630b7257c06221b69e13fdb9";
             $cityId = "2998324";
             $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=fr&units=metric&APPID=" . $apiKey;
@@ -76,10 +87,13 @@
             $response = curl_exec($ch);
     
             curl_close($ch);
+            // On récupère les données de l'API
             $meteo = json_decode($response);
             $temperature = $meteo->main->temp;
             $temperature=substr($temperature, 0, strpos($temperature, "."));
             $weather = $meteo->weather[0]->main;
+
+            // On fait un affichage dynamique de la météo en fonction de la réponse de l'API
             if ($weather=== "sun"){
                 $content = '<div class="hot"><span class="sun"></span><span class="sunx"></span></div>';
             }
