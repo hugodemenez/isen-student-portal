@@ -1,3 +1,4 @@
+<!-- Page de connexion et d'inscription -->
 <html>
     <head>
         <meta charset="utf-8">
@@ -16,8 +17,12 @@
     </head>
  
     <body>
+    <!-- Affichage du formulaire de connexion et d'inscription -->
         <div class="form-box">
+            <!-- Affichage du logo ISEN -->
             <img src="../assets/logo.svg" alt="">
+            <img class="logo" src="../assets/ISENINFO.svg" alt="">
+            <!-- Boutons connexion et inscription pour passer d'un affichage à un autre -->
             <div class="button-box">
                 <button id="login_btn" type="button" class="toggle-btn" onclick="connexion()">Connexion</button>
                 <button id="register_btn" type="button" class="toggle-btn" onclick="inscription()">Inscription</button>
