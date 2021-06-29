@@ -72,6 +72,8 @@ class scan:
             #On regarde tous les utilisateurs inscrits dans la base de données
             Liste.execute("SELECT * FROM user")
             for (username,password,email) in Liste:
+                time.sleep(1)
+                self.timer +=1
                 try:
                     #On regarde si on scrute déjà le planning et les notes pour l'utilisateur actuellement selectionné dans la boucle for
                     if username not in user_data:
@@ -136,8 +138,7 @@ class scan:
             
             
 
-            time.sleep(1)
-            self.timer +=1
+            
 
     def notification_marks(self,email,liste):
         msg = MIMEMultipart()
